@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2GK-VJ-dzf">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tracking-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="TrackingViewController" id="BYZ-38-t0r" customClass="TrackingViewController" customModule="PriceTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CIP-ux-YLC">
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrackingCell" rowHeight="119" id="GcQ-Tu-k4s" customClass="TrackingCell" customModule="PriceTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="119"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GcQ-Tu-k4s" id="OWE-RJ-l4C">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="119"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dg9-wx-Pl8">
+                                                    <rect key="frame" x="20" y="10" width="100" height="99"/>
+                                                    <color key="backgroundColor" red="0.99607843139999996" green="0.62745098040000002" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="LfZ-Wm-Tf3"/>
+                                                        <constraint firstAttribute="height" constant="120" id="MZi-po-Hkt"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PPx-VL-jJB">
+                                                    <rect key="frame" x="140" y="10" width="243" height="99"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="256" text="Call Of Cthulu: Call From Deep Under Sea" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxE-EA-nWG">
+                                                            <rect key="frame" x="0.0" y="0.0" width="233.66666666666666" height="43.333333333333336"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" text="Relase Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUZ-kG-Ggu">
+                                                            <rect key="frame" x="0.0" y="53.333333333333336" width="80.333333333333329" height="16.000000000000007"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Present Price : 123$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryp-nZ-wmt">
+                                                            <rect key="frame" x="0.0" y="79.333333333333329" width="183.33333333333334" height="19.666666666666671"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="PPx-VL-jJB" secondAttribute="bottom" constant="10" id="5Pk-wY-6Te"/>
+                                                <constraint firstItem="PPx-VL-jJB" firstAttribute="top" secondItem="OWE-RJ-l4C" secondAttribute="top" constant="10" id="8pM-Nr-hbD"/>
+                                                <constraint firstItem="PPx-VL-jJB" firstAttribute="leading" secondItem="Dg9-wx-Pl8" secondAttribute="trailing" constant="20" id="Ny8-KN-PaM"/>
+                                                <constraint firstAttribute="trailing" secondItem="PPx-VL-jJB" secondAttribute="trailing" constant="10" id="ceA-nk-LHz"/>
+                                                <constraint firstAttribute="bottom" secondItem="Dg9-wx-Pl8" secondAttribute="bottom" constant="10" id="mvy-Zu-gIX"/>
+                                                <constraint firstItem="Dg9-wx-Pl8" firstAttribute="leading" secondItem="OWE-RJ-l4C" secondAttribute="leading" constant="20" id="tGc-P8-E9V"/>
+                                                <constraint firstItem="Dg9-wx-Pl8" firstAttribute="top" secondItem="OWE-RJ-l4C" secondAttribute="top" constant="10" id="wec-iF-6DD"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="gameTitleLabel" destination="yxE-EA-nWG" id="t0H-MD-FXk"/>
+                                            <outlet property="presentPriceLabel" destination="Ryp-nZ-wmt" id="sZO-hY-NbB"/>
+                                            <outlet property="releaseDateLabel" destination="aUZ-kG-Ggu" id="6Wz-Vb-uxh"/>
+                                            <outlet property="thumbImageView" destination="Dg9-wx-Pl8" id="HCF-bl-3bM"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CIP-ux-YLC" secondAttribute="trailing" id="3sj-lN-xjz"/>
+                            <constraint firstItem="CIP-ux-YLC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fKD-Hv-bQ7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CIP-ux-YLC" secondAttribute="bottom" id="yvn-ad-J0E"/>
+                            <constraint firstItem="CIP-ux-YLC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zGB-mt-2MI"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Tracking" image="folder.fill" catalog="system" id="aBh-zI-qPy"/>
+                    <connections>
+                        <outlet property="trackingTableView" destination="CIP-ux-YLC" id="bk5-Oa-KtG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="892.36641221374043" y="3.5211267605633805"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="2Th-qT-q3y">
+            <objects>
+                <viewController storyboardIdentifier="SearchViewController" id="bVw-Yi-JNc" customClass="SearchViewController" customModule="PriceTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TJi-R0-c3G">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="w30-VX-m8M">
+                                <rect key="frame" x="0.0" y="59" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="bVw-Yi-JNc" id="Prb-6z-66s"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Izh-TK-4We">
+                                <rect key="frame" x="0.0" y="115" width="393" height="654"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TOt-P6-E52"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="w30-VX-m8M" firstAttribute="trailing" secondItem="TOt-P6-E52" secondAttribute="trailing" id="09D-Ab-Bwf"/>
+                            <constraint firstItem="w30-VX-m8M" firstAttribute="top" secondItem="TOt-P6-E52" secondAttribute="top" id="C8l-85-ht3"/>
+                            <constraint firstItem="TOt-P6-E52" firstAttribute="trailing" secondItem="Izh-TK-4We" secondAttribute="trailing" id="CVn-45-11f"/>
+                            <constraint firstItem="Izh-TK-4We" firstAttribute="top" secondItem="w30-VX-m8M" secondAttribute="bottom" id="O7t-0F-xnY"/>
+                            <constraint firstItem="TOt-P6-E52" firstAttribute="bottom" secondItem="Izh-TK-4We" secondAttribute="bottom" id="W5U-Qq-w0l"/>
+                            <constraint firstItem="w30-VX-m8M" firstAttribute="leading" secondItem="TOt-P6-E52" secondAttribute="leading" id="WyP-Pb-Dhb"/>
+                            <constraint firstItem="Izh-TK-4We" firstAttribute="leading" secondItem="TOt-P6-E52" secondAttribute="leading" id="oD5-9l-6FI"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass.circle.fill" catalog="system" id="qCU-MY-SXc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O9g-Au-U35" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="892.36641221374043" y="693.66197183098598"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Sld-xU-zxI">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="2GK-VJ-dzf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hln-jV-Wg3">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Q4B-xH-sLW"/>
+                        <segue destination="bVw-Yi-JNc" kind="relationship" relationship="viewControllers" id="zzE-kQ-GeX"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EG1-HE-l7j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-34.351145038167935" y="348.59154929577466"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="folder.fill" catalog="system" width="128" height="96"/>
+        <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="123"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

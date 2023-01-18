@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0691C6522977D71000295B34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C6512977D71000295B34 /* AppDelegate.swift */; };
 		0691C6542977D71000295B34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C6532977D71000295B34 /* SceneDelegate.swift */; };
-		0691C6562977D71000295B34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C6552977D71000295B34 /* ViewController.swift */; };
+		0691C6562977D71000295B34 /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C6552977D71000295B34 /* TrackingViewController.swift */; };
 		0691C6592977D71000295B34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0691C6572977D71000295B34 /* Main.storyboard */; };
 		0691C65C2977D71000295B34 /* PriceTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0691C65A2977D71000295B34 /* PriceTracker.xcdatamodeld */; };
 		0691C65E2977D71100295B34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0691C65D2977D71100295B34 /* Assets.xcassets */; };
@@ -17,6 +17,8 @@
 		0691C66C2977D71100295B34 /* PriceTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C66B2977D71100295B34 /* PriceTrackerTests.swift */; };
 		0691C6762977D71100295B34 /* PriceTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C6752977D71100295B34 /* PriceTrackerUITests.swift */; };
 		0691C6782977D71100295B34 /* PriceTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C6772977D71100295B34 /* PriceTrackerUITestsLaunchTests.swift */; };
+		0691C6852977DB5F00295B34 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C6842977DB5F00295B34 /* SearchViewController.swift */; };
+		0691C6872977DBBE00295B34 /* TrackingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C6862977DBBE00295B34 /* TrackingCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +42,7 @@
 		0691C64E2977D71000295B34 /* PriceTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PriceTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0691C6512977D71000295B34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0691C6532977D71000295B34 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0691C6552977D71000295B34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0691C6552977D71000295B34 /* TrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
 		0691C6582977D71000295B34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0691C65B2977D71000295B34 /* PriceTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PriceTracker.xcdatamodel; sourceTree = "<group>"; };
 		0691C65D2977D71100295B34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +53,8 @@
 		0691C6712977D71100295B34 /* PriceTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PriceTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0691C6752977D71100295B34 /* PriceTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTrackerUITests.swift; sourceTree = "<group>"; };
 		0691C6772977D71100295B34 /* PriceTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0691C6842977DB5F00295B34 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		0691C6862977DBBE00295B34 /* TrackingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,12 +105,11 @@
 		0691C6502977D71000295B34 /* PriceTracker */ = {
 			isa = PBXGroup;
 			children = (
-				0691C6512977D71000295B34 /* AppDelegate.swift */,
-				0691C6532977D71000295B34 /* SceneDelegate.swift */,
-				0691C6552977D71000295B34 /* ViewController.swift */,
-				0691C6572977D71000295B34 /* Main.storyboard */,
+				0691C68B2977DEAC00295B34 /* Delegate */,
+				0691C6882977DC3700295B34 /* ViewController */,
+				0691C68A2977DC6200295B34 /* Cell */,
+				0691C6892977DC4E00295B34 /* Storyboard */,
 				0691C65D2977D71100295B34 /* Assets.xcassets */,
-				0691C65F2977D71100295B34 /* LaunchScreen.storyboard */,
 				0691C6622977D71100295B34 /* Info.plist */,
 				0691C65A2977D71000295B34 /* PriceTracker.xcdatamodeld */,
 			);
@@ -128,6 +131,41 @@
 				0691C6772977D71100295B34 /* PriceTrackerUITestsLaunchTests.swift */,
 			);
 			path = PriceTrackerUITests;
+			sourceTree = "<group>";
+		};
+		0691C6882977DC3700295B34 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0691C6842977DB5F00295B34 /* SearchViewController.swift */,
+				0691C6552977D71000295B34 /* TrackingViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0691C6892977DC4E00295B34 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				0691C65F2977D71100295B34 /* LaunchScreen.storyboard */,
+				0691C6572977D71000295B34 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		0691C68A2977DC6200295B34 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0691C6862977DBBE00295B34 /* TrackingCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		0691C68B2977DEAC00295B34 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				0691C6532977D71000295B34 /* SceneDelegate.swift */,
+				0691C6512977D71000295B34 /* AppDelegate.swift */,
+			);
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,8 +299,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0691C6872977DBBE00295B34 /* TrackingCell.swift in Sources */,
+				0691C6852977DB5F00295B34 /* SearchViewController.swift in Sources */,
 				0691C65C2977D71000295B34 /* PriceTracker.xcdatamodeld in Sources */,
-				0691C6562977D71000295B34 /* ViewController.swift in Sources */,
+				0691C6562977D71000295B34 /* TrackingViewController.swift in Sources */,
 				0691C6522977D71000295B34 /* AppDelegate.swift in Sources */,
 				0691C6542977D71000295B34 /* SceneDelegate.swift in Sources */,
 			);
