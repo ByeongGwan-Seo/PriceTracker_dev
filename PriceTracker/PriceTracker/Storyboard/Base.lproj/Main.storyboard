@@ -38,21 +38,27 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PPx-VL-jJB">
                                                     <rect key="frame" x="140" y="10" width="243" height="99"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="256" text="Call Of Cthulu: Call From Deep Under Sea" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxE-EA-nWG">
-                                                            <rect key="frame" x="0.0" y="0.0" width="233.66666666666666" height="43.333333333333336"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="256" text="Call Of Cthulu: Call From Deep Under Sea" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxE-EA-nWG">
+                                                            <rect key="frame" x="0.0" y="0.0" width="233.66666666666666" height="37"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" text="Relase Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUZ-kG-Ggu">
-                                                            <rect key="frame" x="0.0" y="53.333333333333336" width="80.333333333333329" height="16.000000000000007"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" text="19. 01. 01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUZ-kG-Ggu">
+                                                            <rect key="frame" x="0.0" y="47" width="51.333333333333336" height="11"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Present Price : 123$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryp-nZ-wmt">
-                                                            <rect key="frame" x="0.0" y="79.333333333333329" width="183.33333333333334" height="19.666666666666671"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" text="Price you want: 110$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXD-VN-dEP">
+                                                            <rect key="frame" x="0.0" y="68" width="147.33333333333334" height="14"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Present Price : 123$" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryp-nZ-wmt">
+                                                            <rect key="frame" x="0.0" y="92" width="143.66666666666666" height="7"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -115,6 +121,62 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Izh-TK-4We">
                                 <rect key="frame" x="0.0" y="115" width="393" height="654"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchCell" rowHeight="140" id="f3b-dT-Gco" customClass="SearchCell" customModule="PriceTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="140"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f3b-dT-Gco" id="W0V-Mc-BJY">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="140"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FLU-uC-3tH">
+                                                    <rect key="frame" x="10" y="10" width="100" height="120"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="120" id="9cd-je-HWP"/>
+                                                        <constraint firstAttribute="width" constant="100" id="D46-Qp-dt5"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="255" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ViK-w5-KNT">
+                                                    <rect key="frame" x="130" y="10" width="180.66666666666663" height="120"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call Of Cthulu: Call From Deep Under Sea" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oss-Zq-2NC">
+                                                            <rect key="frame" x="0.0" y="0.0" width="180.66666666666666" height="120"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4k-hJ-0zn">
+                                                    <rect key="frame" x="336" y="45" width="52" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="VQe-Mg-Do8"/>
+                                                        <constraint firstAttribute="height" constant="50" id="hHx-NH-du5"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="star.fill" catalog="system"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="A4k-hJ-0zn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ViK-w5-KNT" secondAttribute="trailing" constant="5" id="1x4-cB-1nz"/>
+                                                <constraint firstItem="ViK-w5-KNT" firstAttribute="leading" secondItem="FLU-uC-3tH" secondAttribute="trailing" constant="20" id="8Cf-a3-Eny"/>
+                                                <constraint firstAttribute="trailing" secondItem="A4k-hJ-0zn" secondAttribute="trailing" constant="5" id="MGh-XX-5pc"/>
+                                                <constraint firstItem="FLU-uC-3tH" firstAttribute="top" secondItem="W0V-Mc-BJY" secondAttribute="top" constant="10" id="O0j-lT-7b6"/>
+                                                <constraint firstItem="A4k-hJ-0zn" firstAttribute="centerY" secondItem="W0V-Mc-BJY" secondAttribute="centerY" id="Saz-n3-qXF"/>
+                                                <constraint firstItem="ViK-w5-KNT" firstAttribute="height" secondItem="FLU-uC-3tH" secondAttribute="height" id="bP0-7J-cvs"/>
+                                                <constraint firstItem="ViK-w5-KNT" firstAttribute="top" secondItem="W0V-Mc-BJY" secondAttribute="top" constant="10" id="ekJ-R4-SdB"/>
+                                                <constraint firstAttribute="bottom" secondItem="FLU-uC-3tH" secondAttribute="bottom" constant="10" id="s1K-lJ-yWM"/>
+                                                <constraint firstItem="FLU-uC-3tH" firstAttribute="leading" secondItem="W0V-Mc-BJY" secondAttribute="leading" constant="10" id="tbB-Lm-S0k"/>
+                                                <constraint firstAttribute="bottom" secondItem="ViK-w5-KNT" secondAttribute="bottom" constant="10" id="u2d-Lb-miM"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="searchThumbView" destination="FLU-uC-3tH" id="9SS-Dj-bsk"/>
+                                            <outlet property="searchTitleLabel" destination="oss-Zq-2NC" id="K7D-V4-twp"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TOt-P6-E52"/>
@@ -130,6 +192,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass.circle.fill" catalog="system" id="qCU-MY-SXc"/>
+                    <connections>
+                        <outlet property="searchBar" destination="w30-VX-m8M" id="xyM-oW-nyr"/>
+                        <outlet property="searchTableView" destination="Izh-TK-4We" id="EL8-Nb-yrB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O9g-Au-U35" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -141,6 +207,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="2GK-VJ-dzf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hln-jV-Wg3">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -157,6 +224,7 @@
     <resources>
         <image name="folder.fill" catalog="system" width="128" height="96"/>
         <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
