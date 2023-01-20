@@ -7,6 +7,9 @@ target 'PriceTracker' do
 
   # Pods for PriceTracker
 
+pod 'Alamofire'
+pod 'AlamofireImage'
+
   target 'PriceTrackerTests' do
     inherit! :search_paths
     # Pods for testing

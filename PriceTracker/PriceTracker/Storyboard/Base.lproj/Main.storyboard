@@ -131,30 +131,17 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FLU-uC-3tH">
                                                     <rect key="frame" x="10" y="10" width="100" height="120"/>
-                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.62745098040000002" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="120" id="9cd-je-HWP"/>
                                                         <constraint firstAttribute="width" constant="100" id="D46-Qp-dt5"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="255" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ViK-w5-KNT">
-                                                    <rect key="frame" x="130" y="10" width="199.33333333333337" height="120"/>
+                                                    <rect key="frame" x="130" y="10" width="180.66666666666663" height="120"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call Of Cthulu: Call From Deep Under Sea" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oss-Zq-2NC">
-                                                            <rect key="frame" x="0.0" y="0.0" width="199.33333333333334" height="45"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call Of Cthulu: Call From Deep Under Sea" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oss-Zq-2NC">
+                                                            <rect key="frame" x="0.0" y="0.0" width="180.66666666666666" height="120"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" text="19. 01. 01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMf-2e-Mig">
-                                                            <rect key="frame" x="0.0" y="65" width="199.33333333333334" height="17"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Present Price: 123$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cE-yn-vTG">
-                                                            <rect key="frame" x="0.0" y="102" width="199.33333333333334" height="18"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -185,8 +172,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="searchPriceLabel" destination="1cE-yn-vTG" id="NME-qG-KEA"/>
-                                            <outlet property="searchReleaseLabel" destination="eMf-2e-Mig" id="HHR-TL-Rx7"/>
                                             <outlet property="searchThumbView" destination="FLU-uC-3tH" id="9SS-Dj-bsk"/>
                                             <outlet property="searchTitleLabel" destination="oss-Zq-2NC" id="K7D-V4-twp"/>
                                         </connections>
