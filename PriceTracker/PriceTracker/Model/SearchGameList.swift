@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GameList: Codable {
+struct SearchGameList: Codable {
     let gameID: String?
     let steamAppID: String?
     let cheapest: String?

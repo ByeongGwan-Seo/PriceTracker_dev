@@ -22,9 +22,7 @@ class SearchViewController: UIViewController {
         searchTableView.dataSource = self
         searchTableView.delegate = self
         
-        networkService.fetchGameAPI { result in
-            
-        }
+        
     }
 }
 

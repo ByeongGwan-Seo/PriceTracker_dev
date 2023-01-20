@@ -13,7 +13,7 @@ class NetworkService {
     
     var title = ""
     
-    func fetchGameAPI(completion: @escaping(Result<[GameList], Error>) -> Void) {
+    func fetchGameAPI(completion: @escaping(Result<[SearchGameList], Error>) -> Void) {
         let url = "https://www.cheapshark.com/api/1.0/games?"
         let param = [
             "title": title
@@ -26,7 +26,7 @@ class NetworkService {
                 case let .success(data):
                     do {
                         let decoder = JSONDecoder()
-                        let result = try decoder.decode([GameList].self, from: data)
+                        let result = try decoder.decode([SearchGameList].self, from: data)
                         print("result - ", result)
                         completion(.success(result))
                     } catch {
