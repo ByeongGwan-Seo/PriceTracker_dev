@@ -10,7 +10,7 @@ import AlamofireImage
 
 class SearchViewController: UIViewController {
 
-    var gameList: [GameList] = []
+    var gameList: [SearchGameList] = []
     var networkService = NetworkService()
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -22,13 +22,16 @@ class SearchViewController: UIViewController {
         searchTableView.dataSource = self
         searchTableView.delegate = self
         
-        
     }
 }
 
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailVC = UIStoryboard(name: "DetailViewController", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
+        
+        
         tableView.deselectRow(at: indexPath, animated: true)
+        present(detailVC, animated: true)
     }
 }
 
@@ -45,10 +48,9 @@ extension SearchViewController: UITableViewDataSource {
         if let imageURL = URL(string: gameList[indexPath.row].thumb ?? "") {
             cell.searchThumbView.af.setImage(withURL: imageURL)
         }
+        
         return cell
     }
-    
-    
 }
 
 extension SearchViewController: UISearchBarDelegate {

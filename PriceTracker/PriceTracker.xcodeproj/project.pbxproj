@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		061710E4297E1FE500EF7017 /* DealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061710E3297E1FE500EF7017 /* DealCell.swift */; };
 		068225CE2978D1E400281CFE /* SearchGameList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068225CD2978D1E400281CFE /* SearchGameList.swift */; };
 		068225D12978D36C00281CFE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068225D02978D36C00281CFE /* NetworkService.swift */; };
 		068225D32978E6B300281CFE /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068225D22978E6B300281CFE /* SearchCell.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		061710E3297E1FE500EF7017 /* DealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealCell.swift; sourceTree = "<group>"; };
 		068225CD2978D1E400281CFE /* SearchGameList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGameList.swift; sourceTree = "<group>"; };
 		068225D02978D36C00281CFE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		068225D22978E6B300281CFE /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			children = (
 				0691C6862977DBBE00295B34 /* TrackingCell.swift */,
 				068225D22978E6B300281CFE /* SearchCell.swift */,
+				061710E3297E1FE500EF7017 /* DealCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				0691C6852977DB5F00295B34 /* SearchViewController.swift in Sources */,
 				068225D12978D36C00281CFE /* NetworkService.swift in Sources */,
 				0691C65C2977D71000295B34 /* PriceTracker.xcdatamodeld in Sources */,
+				061710E4297E1FE500EF7017 /* DealCell.swift in Sources */,
 				068225D32978E6B300281CFE /* SearchCell.swift in Sources */,
 				0691C6562977D71000295B34 /* TrackingViewController.swift in Sources */,
 				0691C6522977D71000295B34 /* AppDelegate.swift in Sources */,
