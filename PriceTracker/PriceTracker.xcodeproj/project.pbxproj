@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		061710E4297E1FE500EF7017 /* DealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061710E3297E1FE500EF7017 /* DealCell.swift */; };
+		061710E6297E33EE00EF7017 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061710E5297E33EE00EF7017 /* DetailModel.swift */; };
 		068225CE2978D1E400281CFE /* SearchGameList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068225CD2978D1E400281CFE /* SearchGameList.swift */; };
 		068225D12978D36C00281CFE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068225D02978D36C00281CFE /* NetworkService.swift */; };
 		068225D32978E6B300281CFE /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068225D22978E6B300281CFE /* SearchCell.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		061710E3297E1FE500EF7017 /* DealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealCell.swift; sourceTree = "<group>"; };
+		061710E5297E33EE00EF7017 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
 		068225CD2978D1E400281CFE /* SearchGameList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGameList.swift; sourceTree = "<group>"; };
 		068225D02978D36C00281CFE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		068225D22978E6B300281CFE /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				068225CD2978D1E400281CFE /* SearchGameList.swift */,
+				061710E5297E33EE00EF7017 /* DetailModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				061710E6297E33EE00EF7017 /* DetailModel.swift in Sources */,
 				0691C6872977DBBE00295B34 /* TrackingCell.swift in Sources */,
 				0691C6852977DB5F00295B34 /* SearchViewController.swift in Sources */,
 				068225D12978D36C00281CFE /* NetworkService.swift in Sources */,
