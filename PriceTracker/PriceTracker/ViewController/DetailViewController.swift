@@ -9,6 +9,10 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    
+    var detailInfo: DetailModel?
+    var networkService = NetworkService()
+    
     @IBOutlet weak var detailThumbView: UIImageView!
     
     @IBOutlet weak var detailTitleLabel: UILabel!
@@ -20,8 +24,11 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         deatlTableView.delegate = self
         deatlTableView.dataSource = self
+        
         
     }
     
@@ -36,7 +43,7 @@ extension DetailViewController: UITableViewDelegate {
 
 extension DetailViewController:UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
