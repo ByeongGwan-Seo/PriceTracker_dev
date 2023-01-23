@@ -20,6 +20,7 @@ struct CheapestPriceEver: Codable {
 
 struct Deal: Codable {
     let storeID, dealID, price, retailPrice: String
+    let userPrice: String?
     let savings: String
 }
 
