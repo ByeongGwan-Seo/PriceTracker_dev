@@ -29,9 +29,6 @@ extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let detailVC = UIStoryboard(name: "DetailViewController", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
         
-        
-        //1. row를 선택했을때 해당 indexPath.row의 gameID 값을 DetailViewControl로 넘기고 싶습니다...
-        
         tableView.deselectRow(at: indexPath, animated: true)
         
         self.networkService.id = gameList[indexPath.row].gameID ?? ""
@@ -42,7 +39,7 @@ extension SearchViewController: UITableViewDelegate {
                 DispatchQueue.main.async {
                     detailVC.detailTitleLabel.text = detailVC.detailInfo?.info.title
                     detailVC.detailRetailLabel.text = detailVC.detailInfo?.deals.first?.retailPrice
-                    detailVC.detailCheapestLabel.text = detailVC.detailInfo?.cheapestPriceEver.price
+                    detailVC.detailCheapestLabel.text = detailVC.detailInfo?.deals.first?.price
                     
                     if let imageURL = URL(string: detailVC.detailInfo?.info.thumb ?? "") {
                         detailVC.detailThumbView.af.setImage(withURL: imageURL)
