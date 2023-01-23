@@ -22,6 +22,8 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var deatlTableView: UITableView!
     
+    var textFieldOnAlert = UITextField()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +36,23 @@ class DetailViewController: UIViewController {
     
     @IBAction func addTrackingTapped(_ sender: UIButton) {
         print("add button tapped")
+        let alert = UIAlertController(title: "Notice", message: "Please enter the price you want", preferredStyle: .alert)
+        let yes = UIAlertAction(title: "Save", style: .default) { (ok) in
+            
+            
+        }
+        let no = UIAlertAction(title: "Cancel", style: .destructive) { (no) in
+            
+        }
+        
+        alert.addTextField { textField in
+            self.textFieldOnAlert = textField
+            self.textFieldOnAlert.returnKeyType = .done
+        }
+        alert.addAction(no)
+        alert.addAction(yes)
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 
