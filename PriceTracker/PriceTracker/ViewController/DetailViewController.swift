@@ -14,6 +14,10 @@ class DetailViewController: UIViewController {
     
     var detailInfo: DetailModel?
     var networkService = NetworkService()
+    var textFieldOnAlert = UITextField()
+    
+    var gameID: String?
+    
     
     @IBOutlet weak var detailThumbView: UIImageView!
     
@@ -23,27 +27,29 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var deatlTableView: UITableView!
     
-    var textFieldOnAlert = UITextField()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         deatlTableView.delegate = self
         deatlTableView.dataSource = self
-        
-        
     }
     
     @IBAction func addTrackingTapped(_ sender: UIButton) {
         print("add button tapped")
         let alert = UIAlertController(title: "Notice", message: "Please enter the price you want", preferredStyle: .alert)
         let yes = UIAlertAction(title: "Save", style: .default) { (ok) in
+            let trackingInfo = TrackingInfo(uuidString:UUID().uuidString,
+                                            title: self.detailInfo?.info.title ?? "",
+                                            price: self.detailInfo?.deals.first?.price ?? "0.0",
+                                            userPrice: self.textFieldOnAlert.text ?? "0.0",
+                                            gameID: self.gameID ?? "",
+                                            thumb: self.detailInfo?.info.thumb ?? "")
             
+            // ローカルに保存 -> 등록한걸 배열의 원소로 하나하나 저장한 다음에 TrackingViewController에서 불러올 수 있도록.
             
         }
         let no = UIAlertAction(title: "Cancel", style: .destructive) { (no) in
-            
+            self.textFieldOnAlert.text = ""
         }
         
         alert.addTextField { textField in
@@ -88,3 +94,5 @@ extension DetailViewController:UITableViewDataSource {
         return cell
     }
 }
+
+
