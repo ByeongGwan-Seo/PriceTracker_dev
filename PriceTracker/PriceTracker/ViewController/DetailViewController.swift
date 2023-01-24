@@ -19,7 +19,6 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var detailTitleLabel: UILabel!
     @IBOutlet weak var detailRetailLabel: UILabel!
-    @IBOutlet weak var detailUserPriceLabel: UILabel!
     @IBOutlet weak var detailCheapestLabel: UILabel!
     
     @IBOutlet weak var deatlTableView: UITableView!

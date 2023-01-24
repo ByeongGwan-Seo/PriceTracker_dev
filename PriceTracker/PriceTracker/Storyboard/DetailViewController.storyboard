@@ -22,7 +22,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="LQU-kC-ha1">
                                         <rect key="frame" x="15" y="55.000000000000014" width="150.33333333333334" height="240.33333333333337"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-h2-2pq">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-h2-2pq">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="180"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="180" id="Jrp-py-Gw7"/>
@@ -46,31 +46,19 @@
                                         <rect key="frame" x="195.33333333333337" y="30" width="167.66666666666663" height="290"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call of Duty: Modern Warfare 2 DLC1 Winter Assault" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOV-HN-X64">
-                                                <rect key="frame" x="0.0" y="0.0" width="156.66666666666666" height="86"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="156.66666666666666" height="154"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" text="Retail Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBk-q5-Nhe">
-                                                <rect key="frame" x="0.0" y="96" width="100.66666666666667" height="24"/>
+                                                <rect key="frame" x="0.0" y="164" width="100.66666666666667" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" text="19.99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hpf-rE-7I6">
-                                                <rect key="frame" x="0.0" y="130" width="48" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" text="Price You Want" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2b-3P-Tq3">
-                                                <rect key="frame" x="0.0" y="164" width="135.66666666666666" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" text="N/A" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ppo-r8-vhc">
-                                                <rect key="frame" x="0.0" y="198" width="31.333333333333332" height="24"/>
+                                                <rect key="frame" x="0.0" y="198" width="48" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -100,6 +88,7 @@
                                     <constraint firstItem="LQU-kC-ha1" firstAttribute="centerY" secondItem="WGo-mX-V4r" secondAttribute="centerY" id="ZaK-na-rWN"/>
                                     <constraint firstAttribute="trailing" secondItem="eve-RB-zXX" secondAttribute="trailing" constant="30" id="fJe-2J-uKi"/>
                                     <constraint firstItem="LQU-kC-ha1" firstAttribute="centerY" secondItem="WGo-mX-V4r" secondAttribute="centerY" id="lr0-9Y-qT2"/>
+                                    <constraint firstItem="eve-RB-zXX" firstAttribute="height" secondItem="LQU-kC-ha1" secondAttribute="height" multiplier="1.20666" id="vYN-eS-2IF"/>
                                     <constraint firstItem="eve-RB-zXX" firstAttribute="leading" secondItem="LQU-kC-ha1" secondAttribute="trailing" constant="30" id="wlB-fB-fqO"/>
                                 </constraints>
                             </view>
@@ -168,7 +157,6 @@
                         <outlet property="detailRetailLabel" destination="Hpf-rE-7I6" id="Naz-x5-gTO"/>
                         <outlet property="detailThumbView" destination="lF2-h2-2pq" id="TfJ-iQ-vC9"/>
                         <outlet property="detailTitleLabel" destination="FOV-HN-X64" id="8us-Qg-zpD"/>
-                        <outlet property="detailUserPriceLabel" destination="Ppo-r8-vhc" id="LVM-Jz-Prw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
