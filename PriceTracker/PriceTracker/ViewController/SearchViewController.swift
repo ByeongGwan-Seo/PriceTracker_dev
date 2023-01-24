@@ -40,7 +40,6 @@ extension SearchViewController: UITableViewDelegate {
                     detailVC.detailTitleLabel.text = detailVC.detailInfo?.info.title
                     detailVC.detailRetailLabel.text = (detailVC.detailInfo?.deals.first?.retailPrice ?? "N/A") + " $"
                     detailVC.detailCheapestLabel.text = (detailVC.detailInfo?.deals.first?.price ?? "N/A") + " $"
-                    detailVC.detailUserPriceLabel.text = (detailVC.detailInfo?.deals.first?.userPrice ?? "N/A") + " $"
                     
                     if let imageURL = URL(string: detailVC.detailInfo?.info.thumb ?? "") {
                         detailVC.detailThumbView.af.setImage(withURL: imageURL)
