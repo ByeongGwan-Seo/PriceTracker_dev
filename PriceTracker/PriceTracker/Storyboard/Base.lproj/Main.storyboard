@@ -39,25 +39,19 @@
                                                     <rect key="frame" x="140" y="10" width="243" height="99"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="256" text="Call Of Cthulu: Call From Deep Under Sea" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxE-EA-nWG">
-                                                            <rect key="frame" x="0.0" y="0.0" width="233.66666666666666" height="37"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="233.66666666666666" height="45.666666666666664"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" text="19. 01. 01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUZ-kG-Ggu">
-                                                            <rect key="frame" x="0.0" y="47" width="51.333333333333336" height="11"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" text="Price you want: 110$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXD-VN-dEP">
-                                                            <rect key="frame" x="0.0" y="68" width="147.33333333333334" height="14"/>
+                                                            <rect key="frame" x="0.0" y="55.666666666666671" width="147.33333333333334" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Present Price : 123$" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryp-nZ-wmt">
-                                                            <rect key="frame" x="0.0" y="92" width="143.66666666666666" height="7"/>
+                                                            <rect key="frame" x="0.0" y="82.666666666666671" width="143.66666666666666" height="16.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -78,7 +72,6 @@
                                         <connections>
                                             <outlet property="gameTitleLabel" destination="yxE-EA-nWG" id="t0H-MD-FXk"/>
                                             <outlet property="presentPriceLabel" destination="Ryp-nZ-wmt" id="sZO-hY-NbB"/>
-                                            <outlet property="releaseDateLabel" destination="aUZ-kG-Ggu" id="6Wz-Vb-uxh"/>
                                             <outlet property="thumbImageView" destination="Dg9-wx-Pl8" id="HCF-bl-3bM"/>
                                         </connections>
                                     </tableViewCell>
@@ -136,39 +129,21 @@
                                                         <constraint firstAttribute="width" constant="100" id="D46-Qp-dt5"/>
                                                     </constraints>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="255" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ViK-w5-KNT">
-                                                    <rect key="frame" x="130" y="10" width="180.66666666666663" height="120"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call Of Cthulu: Call From Deep Under Sea" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oss-Zq-2NC">
-                                                            <rect key="frame" x="0.0" y="0.0" width="180.66666666666666" height="120"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4k-hJ-0zn">
-                                                    <rect key="frame" x="336" y="45" width="52" height="50"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="VQe-Mg-Do8"/>
-                                                        <constraint firstAttribute="height" constant="50" id="hHx-NH-du5"/>
-                                                    </constraints>
-                                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="star.fill" catalog="system"/>
-                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call Of Cthulu: Call From Deep Under Sea" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oss-Zq-2NC">
+                                                    <rect key="frame" x="130" y="10" width="243" height="120"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="A4k-hJ-0zn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ViK-w5-KNT" secondAttribute="trailing" constant="5" id="1x4-cB-1nz"/>
-                                                <constraint firstItem="ViK-w5-KNT" firstAttribute="leading" secondItem="FLU-uC-3tH" secondAttribute="trailing" constant="20" id="8Cf-a3-Eny"/>
-                                                <constraint firstAttribute="trailing" secondItem="A4k-hJ-0zn" secondAttribute="trailing" constant="5" id="MGh-XX-5pc"/>
+                                                <constraint firstAttribute="trailing" secondItem="oss-Zq-2NC" secondAttribute="trailing" constant="20" id="0ge-EX-HEc"/>
+                                                <constraint firstItem="oss-Zq-2NC" firstAttribute="top" secondItem="W0V-Mc-BJY" secondAttribute="top" constant="10" id="D1P-vP-62y"/>
+                                                <constraint firstItem="oss-Zq-2NC" firstAttribute="leading" secondItem="FLU-uC-3tH" secondAttribute="trailing" constant="20" id="FUz-xM-xuO"/>
                                                 <constraint firstItem="FLU-uC-3tH" firstAttribute="top" secondItem="W0V-Mc-BJY" secondAttribute="top" constant="10" id="O0j-lT-7b6"/>
-                                                <constraint firstItem="A4k-hJ-0zn" firstAttribute="centerY" secondItem="W0V-Mc-BJY" secondAttribute="centerY" id="Saz-n3-qXF"/>
-                                                <constraint firstItem="ViK-w5-KNT" firstAttribute="height" secondItem="FLU-uC-3tH" secondAttribute="height" id="bP0-7J-cvs"/>
-                                                <constraint firstItem="ViK-w5-KNT" firstAttribute="top" secondItem="W0V-Mc-BJY" secondAttribute="top" constant="10" id="ekJ-R4-SdB"/>
+                                                <constraint firstAttribute="bottom" secondItem="oss-Zq-2NC" secondAttribute="bottom" constant="10" id="Sga-nr-PbT"/>
                                                 <constraint firstAttribute="bottom" secondItem="FLU-uC-3tH" secondAttribute="bottom" constant="10" id="s1K-lJ-yWM"/>
                                                 <constraint firstItem="FLU-uC-3tH" firstAttribute="leading" secondItem="W0V-Mc-BJY" secondAttribute="leading" constant="10" id="tbB-Lm-S0k"/>
-                                                <constraint firstAttribute="bottom" secondItem="ViK-w5-KNT" secondAttribute="bottom" constant="10" id="u2d-Lb-miM"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -224,7 +199,6 @@
     <resources>
         <image name="folder.fill" catalog="system" width="128" height="96"/>
         <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

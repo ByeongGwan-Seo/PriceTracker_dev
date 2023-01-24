@@ -43,10 +43,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="top" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eve-RB-zXX">
-                                        <rect key="frame" x="195.33333333333337" y="30" width="167.66666666666663" height="290"/>
+                                        <rect key="frame" x="195.33333333333337" y="30" width="182.66666666666663" height="290"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call of Duty: Modern Warfare 2 DLC1 Winter Assault" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOV-HN-X64">
-                                                <rect key="frame" x="0.0" y="0.0" width="156.66666666666666" height="154"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="173.33333333333334" height="154"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -86,9 +86,8 @@
                                     <constraint firstItem="eve-RB-zXX" firstAttribute="top" secondItem="WGo-mX-V4r" secondAttribute="top" constant="30" id="DcZ-Mh-pVj"/>
                                     <constraint firstItem="LQU-kC-ha1" firstAttribute="leading" secondItem="WGo-mX-V4r" secondAttribute="leading" constant="15" id="HLB-gY-NdQ"/>
                                     <constraint firstItem="LQU-kC-ha1" firstAttribute="centerY" secondItem="WGo-mX-V4r" secondAttribute="centerY" id="ZaK-na-rWN"/>
-                                    <constraint firstAttribute="trailing" secondItem="eve-RB-zXX" secondAttribute="trailing" constant="30" id="fJe-2J-uKi"/>
+                                    <constraint firstAttribute="trailing" secondItem="eve-RB-zXX" secondAttribute="trailing" constant="15" id="fJe-2J-uKi"/>
                                     <constraint firstItem="LQU-kC-ha1" firstAttribute="centerY" secondItem="WGo-mX-V4r" secondAttribute="centerY" id="lr0-9Y-qT2"/>
-                                    <constraint firstItem="eve-RB-zXX" firstAttribute="height" secondItem="LQU-kC-ha1" secondAttribute="height" multiplier="1.20666" id="vYN-eS-2IF"/>
                                     <constraint firstItem="eve-RB-zXX" firstAttribute="leading" secondItem="LQU-kC-ha1" secondAttribute="trailing" constant="30" id="wlB-fB-fqO"/>
                                 </constraints>
                             </view>
