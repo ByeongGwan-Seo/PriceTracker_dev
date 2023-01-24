@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import AlamofireImage
+import SafariServices
 
 class DetailViewController: UIViewController {
 
@@ -57,22 +59,33 @@ class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let dealID = detailInfo?.deals[indexPath.row].dealID
+        let urlString = NSURL(string: "https://www.cheapshark.com/redirect?dealID=\(dealID ?? "")")
+        let dealView: SFSafariViewController = SFSafariViewController(url: urlString! as URL)
+        self.present(dealView, animated: true)
+    }
 }
 
 extension DetailViewController:UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return detailInfo?.deals.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "DealCell", for: indexPath) as? DealCell else { return UITableViewCell() }
         
-        cell.dealPriceLabel.text = String(30)
-        cell.dealStoreLabel.text = String(1)
+        cell.dealPriceLabel.text = (detailInfo?.deals[indexPath.row].price ?? "") + " $"
+        
+        let storeID = Int(detailInfo?.deals[indexPath.row].storeID ?? "") ?? 0
+        let urlString = "https://www.cheapshark.com/img/stores/logos/\(storeID - 1).png"
+        
+        if let imageURL = URL(string: urlString) {
+            cell.storeLogoView.af.setImage(withURL: imageURL)
+        }
         
         return cell
     }
-    
-    
 }

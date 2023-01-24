@@ -9,9 +9,8 @@ import UIKit
 
 class DealCell: UITableViewCell {
 
+    @IBOutlet weak var storeLogoView: UIImageView!
     
-    
-    @IBOutlet weak var dealLogoView: UIImageView!
     @IBOutlet weak var dealStoreLabel: UILabel!
     @IBOutlet weak var dealPriceLabel: UILabel!
     

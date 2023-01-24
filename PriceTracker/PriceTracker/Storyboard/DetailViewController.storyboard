@@ -114,37 +114,37 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="145"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eM6-Mh-GPi">
-                                                    <rect key="frame" x="20" y="57.666666666666657" width="40" height="30"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XUZ-mf-8Fh">
+                                                    <rect key="frame" x="20" y="20" width="60" height="105"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="CAs-fk-Nka"/>
-                                                        <constraint firstAttribute="width" constant="40" id="fea-QB-5Gf"/>
+                                                        <constraint firstAttribute="width" constant="60" id="91L-Dd-hFu"/>
+                                                        <constraint firstAttribute="height" constant="60" id="ufd-jV-vfO"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="StoreID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T83-z7-PBD">
-                                                    <rect key="frame" x="112" y="25" width="57" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLU-BZ-2FY">
-                                                    <rect key="frame" x="112" y="81" width="39" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="uQr-ds-jfa">
+                                                    <rect key="frame" x="100" y="57.666666666666657" width="273" height="30"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Rc-aH-nls">
+                                                            <rect key="frame" x="0.0" y="0.0" width="62" height="30"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="eM6-Mh-GPi" firstAttribute="centerY" secondItem="c92-5e-hy6" secondAttribute="centerY" id="Hfe-F0-9VD"/>
-                                                <constraint firstItem="eM6-Mh-GPi" firstAttribute="leading" secondItem="c92-5e-hy6" secondAttribute="leading" constant="20" id="dnd-vH-F89"/>
+                                                <constraint firstAttribute="bottom" secondItem="XUZ-mf-8Fh" secondAttribute="bottom" constant="20" id="BlQ-gI-eo4"/>
+                                                <constraint firstItem="uQr-ds-jfa" firstAttribute="centerY" secondItem="c92-5e-hy6" secondAttribute="centerY" id="Cwj-th-Ey7"/>
+                                                <constraint firstAttribute="trailing" secondItem="uQr-ds-jfa" secondAttribute="trailing" constant="20" id="FZ8-hC-V3U"/>
+                                                <constraint firstItem="uQr-ds-jfa" firstAttribute="leading" secondItem="XUZ-mf-8Fh" secondAttribute="trailing" constant="20" id="Z6d-Qn-Reo"/>
+                                                <constraint firstItem="XUZ-mf-8Fh" firstAttribute="top" secondItem="c92-5e-hy6" secondAttribute="top" constant="20" id="ebB-Zc-MgS"/>
+                                                <constraint firstItem="XUZ-mf-8Fh" firstAttribute="leading" secondItem="c92-5e-hy6" secondAttribute="leading" constant="20" id="sfW-Ko-FgV"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="dealLogoView" destination="eM6-Mh-GPi" id="uGM-dW-ctN"/>
-                                            <outlet property="dealPriceLabel" destination="wLU-BZ-2FY" id="Cs4-gA-YmC"/>
-                                            <outlet property="dealStoreLabel" destination="T83-z7-PBD" id="Ey5-Tu-hqx"/>
+                                            <outlet property="dealPriceLabel" destination="0Rc-aH-nls" id="mbT-Bn-qjx"/>
+                                            <outlet property="storeLogoView" destination="XUZ-mf-8Fh" id="xPR-Dx-mhT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
