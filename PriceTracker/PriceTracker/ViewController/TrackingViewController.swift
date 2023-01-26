@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class TrackingViewController: UIViewController {
 
@@ -51,7 +52,12 @@ extension TrackingViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TrackingCell", for: indexPath) as? TrackingCell else { return UITableViewCell() }
         
         cell.gameTitleLabel.text = trackingList[indexPath.row].title
-        cell.presentPriceLabel.text = trackingList[indexPath.row].price
+        cell.userPriceLabel.text = trackingList[indexPath.row].userPrice
+        cell.cheapestLabel.text = trackingList[indexPath.row].price
+        
+        if let imageURL = URL(string: trackingList[indexPath.row].thumb ) {
+            cell.thumbImageView.af.setImage(withURL: imageURL)
+        }
         
         return cell
     }
