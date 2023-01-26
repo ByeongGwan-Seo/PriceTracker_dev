@@ -9,15 +9,16 @@ import UIKit
 import AlamofireImage
 import SafariServices
 
-class DetailViewController: UIViewController {
+let trackingNotification = NSNotification.Name(rawValue: "trackingNotification")
 
+class DetailViewController: UIViewController {
     
     var detailInfo: DetailModel?
     var networkService = NetworkService()
     var textFieldOnAlert = UITextField()
     
     var gameID: String?
-    
+//    weak var delegate: AddTrackingDelegate?
     
     @IBOutlet weak var detailThumbView: UIImageView!
     
@@ -37,7 +38,7 @@ class DetailViewController: UIViewController {
     @IBAction func addTrackingTapped(_ sender: UIButton) {
         print("add button tapped")
         let alert = UIAlertController(title: "Notice", message: "Please enter the price you want", preferredStyle: .alert)
-        let yes = UIAlertAction(title: "Save", style: .default) { (ok) in
+        let save = UIAlertAction(title: "Save", style: .default) { (ok) in
             let trackingInfo = TrackingInfo(uuidString:UUID().uuidString,
                                             title: self.detailInfo?.info.title ?? "",
                                             price: self.detailInfo?.deals.first?.price ?? "0.0",
@@ -45,9 +46,16 @@ class DetailViewController: UIViewController {
                                             gameID: self.gameID ?? "",
                                             thumb: self.detailInfo?.info.thumb ?? "")
             
-            // ローカルに保存 -> 등록한걸 배열의 원소로 하나하나 저장한 다음에 TrackingViewController에서 불러올 수 있도록.
+            NotificationCenter.default.post(name: trackingNotification, object: trackingInfo)
+
+            self.dismiss(animated: true)
+//            if let trackingViewController = UIApplication.getTopViewController()?.tabBarController?.viewControllers?[0] as? TrackingViewController {
+//                self.delegate = trackingViewController
+//            }
             
+//            self.delegate?.didSelectRegister(trackingInfo: trackingInfo)
         }
+        
         let no = UIAlertAction(title: "Cancel", style: .destructive) { (no) in
             self.textFieldOnAlert.text = ""
         }
@@ -56,8 +64,9 @@ class DetailViewController: UIViewController {
             self.textFieldOnAlert = textField
             self.textFieldOnAlert.returnKeyType = .done
         }
+        
         alert.addAction(no)
-        alert.addAction(yes)
+        alert.addAction(save)
         
         present(alert, animated: true, completion: nil)
     }
@@ -65,6 +74,7 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         tableView.deselectRow(at: indexPath, animated: true)
         
         let dealID = detailInfo?.deals[indexPath.row].dealID
@@ -95,4 +105,22 @@ extension DetailViewController:UITableViewDataSource {
     }
 }
 
+
+//extension UIApplication {
+//
+//    class func getTopViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+//
+//        if let nav = base as? UINavigationController {
+//            return getTopViewController(base: nav.visibleViewController)
+//
+//        } else if let tab = base as? UITabBarController, let selected = tab.selectedViewController {
+//            return getTopViewController(base: selected)
+//
+//        }
+//       else if let presented = base?.presentedViewController {
+//            return getTopViewController(base: presented)
+//        }
+//        return base
+//    }
+//}
 

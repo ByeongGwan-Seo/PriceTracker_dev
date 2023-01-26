@@ -21,7 +21,6 @@ class SearchViewController: UIViewController {
 
         searchTableView.dataSource = self
         searchTableView.delegate = self
-        
     }
 }
 
@@ -51,6 +50,8 @@ extension SearchViewController: UITableViewDelegate {
                 print("error: \(error)")
             }
         }
+        
+        //push와 modal(present)의 차이점
         present(detailVC, animated: true)
     }
 }
