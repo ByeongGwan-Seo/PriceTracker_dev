@@ -153,6 +153,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addToTrackingBtn" destination="Itr-3u-dv5" id="lYO-T7-c1h"/>
                         <outlet property="deatlTableView" destination="Ozv-wU-i7W" id="Zv8-gc-rx7"/>
                         <outlet property="detailCheapestLabel" destination="4S2-ue-dba" id="iYj-AR-GSw"/>
                         <outlet property="detailRetailLabel" destination="Hpf-rE-7I6" id="Naz-x5-gTO"/>

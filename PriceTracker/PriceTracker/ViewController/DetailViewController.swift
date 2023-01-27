@@ -13,12 +13,14 @@ let trackingNotification = NSNotification.Name(rawValue: "trackingNotification")
 
 class DetailViewController: UIViewController {
     
+    //var 앱내에서쓰는모델 = 네트워크
     var detailInfo: DetailModel?
     var trackingList: [TrackingInfo]?
     var networkService = NetworkService()
     var textFieldOnAlert = UITextField()
     
     var gameID: String?
+    
 //    weak var delegate: AddTrackingDelegate?
     
     @IBOutlet weak var detailThumbView: UIImageView!
@@ -27,6 +29,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailRetailLabel: UILabel!
     @IBOutlet weak var detailCheapestLabel: UILabel!
     
+    @IBOutlet weak var addToTrackingBtn: UIButton!
     @IBOutlet weak var deatlTableView: UITableView!
     
     override func viewDidLoad() {
@@ -38,6 +41,11 @@ class DetailViewController: UIViewController {
     
     @IBAction func addTrackingTapped(_ sender: UIButton) {
         print("add button tapped")
+        
+        alertAction()
+    }
+    
+    func alertAction() {
         let alert = UIAlertController(title: "Notice", message: "Please enter the price you want", preferredStyle: .alert)
         let save = UIAlertAction(title: "Save", style: .default) { (ok) in
             let trackingInfo = TrackingInfo(uuidString:UUID().uuidString,
@@ -51,7 +59,7 @@ class DetailViewController: UIViewController {
             
             NotificationCenter.default.post(name: trackingNotification, object: trackingInfo)
 
-            
+            self.addToTrackingBtn.isEnabled = false
             self.dismiss(animated: true)
 //            if let trackingViewController = UIApplication.getTopViewController()?.tabBarController?.viewControllers?[0] as? TrackingViewController {
 //                self.delegate = trackingViewController
