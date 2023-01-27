@@ -14,6 +14,7 @@ let trackingNotification = NSNotification.Name(rawValue: "trackingNotification")
 class DetailViewController: UIViewController {
     
     var detailInfo: DetailModel?
+    var trackingList: [TrackingInfo]?
     var networkService = NetworkService()
     var textFieldOnAlert = UITextField()
     
@@ -42,12 +43,15 @@ class DetailViewController: UIViewController {
             let trackingInfo = TrackingInfo(uuidString:UUID().uuidString,
                                             title: self.detailInfo?.info.title ?? "",
                                             price: self.detailInfo?.deals.first?.price ?? "0.0",
+                                            retailPrice: self.detailInfo?.deals.first?.retailPrice ?? "0.0",
                                             userPrice: self.textFieldOnAlert.text ?? "0.0",
                                             gameID: self.gameID ?? "",
-                                            thumb: self.detailInfo?.info.thumb ?? "")
+                                            thumb: self.detailInfo?.info.thumb ?? "",
+                                            isTracked: true)
             
             NotificationCenter.default.post(name: trackingNotification, object: trackingInfo)
 
+            
             self.dismiss(animated: true)
 //            if let trackingViewController = UIApplication.getTopViewController()?.tabBarController?.viewControllers?[0] as? TrackingViewController {
 //                self.delegate = trackingViewController
