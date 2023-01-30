@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol AddTrackingDelegate: AnyObject {
-    func didSelectSave(trackingInfo: TrackingInfo)
-}
+//protocol AddTrackingDelegate: AnyObject {
+//    func didSelectRegister(trackingInfo: TrackingInfo)
+//}

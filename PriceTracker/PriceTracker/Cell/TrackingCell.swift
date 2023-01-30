@@ -11,9 +11,8 @@ class TrackingCell: UITableViewCell {
 
     @IBOutlet weak var thumbImageView: UIImageView!
     @IBOutlet weak var gameTitleLabel: UILabel!
-    @IBOutlet weak var releaseDateLabel: UILabel!
-    @IBOutlet weak var presentPriceLabel: UILabel!
-    
+    @IBOutlet weak var userPriceLabel: UILabel!
+    @IBOutlet weak var cheapestLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
