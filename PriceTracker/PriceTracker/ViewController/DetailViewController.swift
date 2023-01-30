@@ -16,6 +16,7 @@ class DetailViewController: UIViewController {
     //var 앱내에서쓰는모델 = 네트워크
     var detailInfo: DetailModel?
     var trackingList: [TrackingInfo]?
+    var trackingListInApp: [TrackingInfoInApp]?
     var networkService = NetworkService()
     var textFieldOnAlert = UITextField()
     
@@ -39,6 +40,8 @@ class DetailViewController: UIViewController {
         deatlTableView.dataSource = self
     }
     
+    
+    
     @IBAction func addTrackingTapped(_ sender: UIButton) {
         print("add button tapped")
         
@@ -48,14 +51,15 @@ class DetailViewController: UIViewController {
     func alertAction() {
         let alert = UIAlertController(title: "Notice", message: "Please enter the price you want", preferredStyle: .alert)
         let save = UIAlertAction(title: "Save", style: .default) { (ok) in
-            let trackingInfo = TrackingInfo(uuidString:UUID().uuidString,
+            let trackingInfo = TrackingInfoInApp(uuidString:UUID().uuidString,
                                             title: self.detailInfo?.info.title ?? "",
                                             price: self.detailInfo?.deals.first?.price ?? "0.0",
                                             retailPrice: self.detailInfo?.deals.first?.retailPrice ?? "0.0",
                                             userPrice: self.textFieldOnAlert.text ?? "0.0",
                                             gameID: self.gameID ?? "",
                                             thumb: self.detailInfo?.info.thumb ?? "",
-                                            isTracked: true)
+                                            isTracked: true
+            )
             
             NotificationCenter.default.post(name: trackingNotification, object: trackingInfo)
 
@@ -81,6 +85,31 @@ class DetailViewController: UIViewController {
         alert.addAction(save)
         
         present(alert, animated: true, completion: nil)
+    }
+    
+    private func loadTrackingList() {
+        let userDefaults = UserDefaults.standard
+        guard let data = userDefaults.object(forKey: "trackingList") as? [[String: Any]] else { return }
+        self.trackingListInApp = data.compactMap {
+            let uuidString = $0["uuidString"]
+            let title = $0["title"]
+            let price = $0["price"]
+            let retailPrice = $0["retailPrice"]
+            let userPrice = $0["userPrice"]
+            let gameID = $0["gameID"]
+            let thumb = $0["thumb"]
+            let isTracked = $0["isTracked"]
+
+            return TrackingInfoInApp(uuidString: uuidString as? String ?? "",
+                                title: title as? String ?? "",
+                                price: price as? String ?? "",
+                                retailPrice: retailPrice as? String ?? "",
+                                userPrice: userPrice as? String ?? "",
+                                gameID: gameID as? String ?? "",
+                                thumb: thumb as? String ?? "",
+                                isTracked: isTracked as? Bool ?? true
+            )
+        }
     }
 }
 
@@ -108,6 +137,8 @@ extension DetailViewController:UITableViewDataSource {
         
         let storeID = Int(detailInfo?.deals[indexPath.row].storeID ?? "") ?? 0
         let urlString = "https://www.cheapshark.com/img/stores/logos/\(storeID - 1).png"
+        
+        
         
         if let imageURL = URL(string: urlString) {
             cell.storeLogoView.af.setImage(withURL: imageURL)

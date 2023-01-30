@@ -10,7 +10,6 @@
 		061710E4297E1FE500EF7017 /* DealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061710E3297E1FE500EF7017 /* DealCell.swift */; };
 		061710E6297E33EE00EF7017 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061710E5297E33EE00EF7017 /* DetailModel.swift */; };
 		061710E8297FC4B700EF7017 /* TrackingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061710E7297FC4B700EF7017 /* TrackingModel.swift */; };
-		061710EA297FD69B00EF7017 /* AddTrackingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061710E9297FD69B00EF7017 /* AddTrackingDelegate.swift */; };
 		0617111E2983BD9600EF7017 /* TrackinModelInApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0617111D2983BD9600EF7017 /* TrackinModelInApp.swift */; };
 		068225CE2978D1E400281CFE /* SearchGameList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068225CD2978D1E400281CFE /* SearchGameList.swift */; };
 		068225D12978D36C00281CFE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068225D02978D36C00281CFE /* NetworkService.swift */; };
@@ -55,7 +54,6 @@
 		061710E3297E1FE500EF7017 /* DealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealCell.swift; sourceTree = "<group>"; };
 		061710E5297E33EE00EF7017 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
 		061710E7297FC4B700EF7017 /* TrackingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingModel.swift; sourceTree = "<group>"; };
-		061710E9297FD69B00EF7017 /* AddTrackingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTrackingDelegate.swift; sourceTree = "<group>"; };
 		0617111D2983BD9600EF7017 /* TrackinModelInApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackinModelInApp.swift; sourceTree = "<group>"; };
 		068225CD2978D1E400281CFE /* SearchGameList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGameList.swift; sourceTree = "<group>"; };
 		068225D02978D36C00281CFE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -226,7 +224,6 @@
 			children = (
 				0691C6532977D71000295B34 /* SceneDelegate.swift */,
 				0691C6512977D71000295B34 /* AppDelegate.swift */,
-				061710E9297FD69B00EF7017 /* AddTrackingDelegate.swift */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
@@ -508,7 +505,6 @@
 				061710E8297FC4B700EF7017 /* TrackingModel.swift in Sources */,
 				068225CE2978D1E400281CFE /* SearchGameList.swift in Sources */,
 				0691C6542977D71000295B34 /* SceneDelegate.swift in Sources */,
-				061710EA297FD69B00EF7017 /* AddTrackingDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
