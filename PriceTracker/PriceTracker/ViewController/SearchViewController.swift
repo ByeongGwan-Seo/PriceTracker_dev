@@ -12,15 +12,47 @@ class SearchViewController: UIViewController {
 
     var gameList: [SearchGameList] = []
     var networkService = NetworkService()
+    var trackingListInApp: [TrackingInfoInApp]?
+    
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         searchTableView.dataSource = self
         searchTableView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.loadTrackingList()
+    }
+    
+    private func loadTrackingList() {
+        let userDefaults = UserDefaults.standard
+        guard let data = userDefaults.object(forKey: "trackingList") as? [[String: Any]] else { return }
+        self.trackingListInApp = data.compactMap {
+            let uuidString = $0["uuidString"]
+            let title = $0["title"]
+            let price = $0["price"]
+            let retailPrice = $0["retailPrice"]
+            let userPrice = $0["userPrice"]
+            let gameID = $0["gameID"]
+            let thumb = $0["thumb"]
+            let isTracked = $0["isTracked"]
+
+            return TrackingInfoInApp(uuidString: uuidString as? String ?? "",
+                                title: title as? String ?? "",
+                                price: price as? String ?? "",
+                                retailPrice: retailPrice as? String ?? "",
+                                userPrice: userPrice as? String ?? "",
+                                gameID: gameID as? String ?? "",
+                                thumb: thumb as? String ?? "",
+                                isTracked: isTracked as? Bool ?? true
+            )
+        }
     }
 }
 
@@ -40,6 +72,46 @@ extension SearchViewController: UITableViewDelegate {
                     detailVC.detailRetailLabel.text = (detailVC.detailInfo?.deals.first?.retailPrice ?? "N/A") + " $"
                     detailVC.detailCheapestLabel.text = (detailVC.detailInfo?.deals.first?.price ?? "N/A") + " $"
                     detailVC.gameID = self.gameList[indexPath.row].gameID ?? ""
+                    
+                    let trackingIDList = self.trackingListInApp?.filter({ compareTrackingInfo in
+                        if self.gameList[indexPath.row].gameID == compareTrackingInfo.gameID {
+                            return true
+                        }
+                        return false
+                    }) ?? []
+                    
+//                    let searchResult = self.trackingListInApp?.contains(where: { compareTrackingInfo in
+//                        if self.gameList[indexPath.row].gameID == compareTrackingInfo.gameID {
+//                            return true
+//                        }
+//                        return false
+//                    }) ?? false
+//
+//                    if searchResult {
+//                        detailVC.addToTrackingBtn.isEnabled = false
+//                    } else {
+//                        detailVC.addToTrackingBtn.isEnabled = true
+//                    }
+                    
+//                    print(self.gameList[indexPath.row].gameID)
+//                    print(self.trackingListInApp?.first?.gameID)
+//                    print(trackingIDList.first?.gameID)
+                    if !trackingIDList.isEmpty {
+                        detailVC.addToTrackingBtn.isEnabled = false
+                        detailVC.addToTrackingBtn.setTitle("Tracking...", for: .disabled)
+                    } else {
+                        detailVC.addToTrackingBtn.isEnabled = true
+                    }
+                    
+//                    let hasID = self.trackingListInApp?.contains("trackingList 안의 객체의 gameID")
+                    
+//                    if self.gameList[indexPath.row].gameID == self.trackingListInApp?.first?.gameID {
+////                        print(self.gameList[indexPath.row].gameID)
+////                        print(self.trackingListInApp?.first?.gameID)
+//                        detailVC.addToTrackingBtn.isEnabled = false
+//                    }
+                    
+                    
                     
                     if let imageURL = URL(string: detailVC.detailInfo?.info.thumb ?? "") {
                         detailVC.detailThumbView.af.setImage(withURL: imageURL)

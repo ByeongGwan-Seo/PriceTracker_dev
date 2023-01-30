@@ -17,5 +17,5 @@ struct TrackingInfo: Codable {
     let userPrice: String? // from detailModel Deal userPrice
     let gameID: String? // from searchGameList gameID
     let thumb: String // from detailModel Info thumb
-    var isTracked: Bool = false
+    
 }
