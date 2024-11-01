@@ -111,18 +111,18 @@ class SearchViewController: UIViewController {
       
       DispatchQueue.main.async {
         self.searchTableView.reloadData()
+        self.view.endEditing(true)
       }
-      
-      self.view.endEditing(true)
     } catch {
-      print("fetch game error: \(error)")
+      let alert = UIAlertController(title: "Error", message: "Failed to fetch games. Please try again.", preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "OK", style: .default))
+      self.present(alert, animated: true)
     }
   }
 }
 
 extension SearchViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    guard let detailVC = UIStoryboard(name: "DetailViewController", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
     
     tableView.deselectRow(at: indexPath, animated: true)
     

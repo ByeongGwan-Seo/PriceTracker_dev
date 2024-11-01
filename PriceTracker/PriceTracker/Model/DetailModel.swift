@@ -7,26 +7,29 @@
 
 import Foundation
 
-struct DetailModel: Codable {
+struct DetailModel: Codable, Equatable {
     let info: Info
     let cheapestPriceEver: CheapestPriceEver
     let deals: [Deal]
 }
 
-struct CheapestPriceEver: Codable {
+struct CheapestPriceEver: Codable, Equatable {
     let price: String
     let date: Int
 }
 
-struct Deal: Codable {
-    let storeID, dealID, price, retailPrice: String
+struct Deal: Codable, Equatable {
+    let storeID: String
+    let dealID: String
+    let price: String
+    let retailPrice: String
     let userPrice: String?
     let savings: String
 }
 
-// MARK: - Info
-struct Info: Codable {
+struct Info: Codable, Equatable {
     let title: String
     let steamAppID: String?
     let thumb: String
 }
+

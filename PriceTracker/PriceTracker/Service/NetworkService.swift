@@ -48,10 +48,13 @@ class NetworkService {
       throw URLError(.badURL)
     }
     
+    print("url is here: \(url)")
+    
     let (data, _) = try await URLSession.shared.data(from: url)
     
     let decoder = JSONDecoder()
     let result = try decoder.decode(DetailModel.self, from: data)
+    print("result is here: \(result)")
     return result
   }
 }
