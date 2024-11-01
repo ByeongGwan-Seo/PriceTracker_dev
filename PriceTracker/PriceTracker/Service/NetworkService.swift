@@ -6,71 +6,54 @@
 //
 
 import UIKit
-import Alamofire
-import AlamofireImage
+import Foundation
 
 class NetworkService {
+  var title = ""
+  var id = ""
+  
+  func fetchGameAPI() async throws -> [SearchGameList] {
+    let urlString = "https://www.cheapshark.com/api/1.0/games?"
     
-    var title = ""
-    var id = ""
+    guard var urlComponents = URLComponents(string: urlString) else {
+      throw URLError(.badURL)
+    }
+    urlComponents.queryItems = [
+      URLQueryItem(name: "title", value: title)
+    ]
     
-    func fetchGameAPI(completion: @escaping(Result<[SearchGameList], Error>) -> Void) {
-        let url = "https://www.cheapshark.com/api/1.0/games?"
-        let param = [
-            "title": title
-        ]
-        AF.request(url, method: .get, parameters: param)
-            .responseData { response in
-//                print("\(response.response)")
-//                print("\(response.result)")
-                switch response.result {
-                case let .success(data):
-                    do {
-                        let decoder = JSONDecoder()
-                        let result = try decoder.decode([SearchGameList].self, from: data)
-                        print("result - ", result)
-                        completion(.success(result))
-                    } catch {
-                        completion(.failure(error))
-                    }
-                case let .failure(error):
-                    completion(.failure(error))
-                }
-            }
+    guard let url = urlComponents.url else {
+      throw URLError(.badURL)
     }
     
-    func fetchDetail(completion: @escaping(Result<DetailModel, Error>) -> Void) {
-        let url = "https://www.cheapshark.com/api/1.0/games?"
-        let param = [
-            "id": id
-        ]
-        AF.request(url, method: .get, parameters: param)
-            .responseData { response in
-                switch response.result {
-                case let .success(data):
-                    
-//                    do {
-//                        // make sure this JSON is in the format we expect
-//                        if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-//                            // try to read out a string array
-//                            print("json - ", json)
-//                        }
-//                    } catch let error as NSError {
-//                        print("Failed to load: \(error.localizedDescription)")
-//                    }
-                    
-                    do {
-                        let decoder = JSONDecoder()
-                        let result = try decoder.decode(DetailModel.self, from: data)
-                        completion(.success(result))
-                    } catch {
-                        completion(.failure(error))
-                    }
-                case let .failure(error):
-                    completion(.failure(error))
-                }
-            }
+    let (data, _) = try await URLSession.shared.data(from: url)
+    
+    let decoder = JSONDecoder()
+    let result = try decoder.decode([SearchGameList].self, from: data)
+    return result
+  }
+  
+  func fetchDetail() async throws -> DetailModel {
+    let urlString = "https://www.cheapshark.com/api/1.0/games?"
+    
+    guard var urlComponents = URLComponents(string: urlString) else {
+      throw URLError(.badURL)
     }
+    
+    urlComponents.queryItems = [
+      URLQueryItem(name: "id", value: id)
+    ]
+    
+    guard let url = urlComponents.url else {
+      throw URLError(.badURL)
+    }
+    
+    let (data, _) = try await URLSession.shared.data(from: url)
+    
+    let decoder = JSONDecoder()
+    let result = try decoder.decode(DetailModel.self, from: data)
+    return result
+  }
 }
 
 

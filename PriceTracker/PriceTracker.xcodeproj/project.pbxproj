@@ -30,7 +30,6 @@
 		0691C6872977DBBE00295B34 /* TrackingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C6862977DBBE00295B34 /* TrackingCell.swift */; };
 		49C32B10DB2CDF1D5FDE101E /* Pods_PriceTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F141B4BD03A3C38A26648D4A /* Pods_PriceTrackerTests.framework */; };
 		CB13FB24CBE4727F9321FB1E /* Pods_PriceTracker_PriceTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923E2C9D582C06BC96372769 /* Pods_PriceTracker_PriceTrackerUITests.framework */; };
-		F32A89474EF3D5E6F39012B0 /* Pods_PriceTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945D008A7A2CD683C7CAD58C /* Pods_PriceTracker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,26 +75,12 @@
 		0691C6772977D71100295B34 /* PriceTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0691C6842977DB5F00295B34 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		0691C6862977DBBE00295B34 /* TrackingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingCell.swift; sourceTree = "<group>"; };
-		16CCA8109D979D6D600C7E32 /* Pods-PriceTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PriceTracker.debug.xcconfig"; path = "Target Support Files/Pods-PriceTracker/Pods-PriceTracker.debug.xcconfig"; sourceTree = "<group>"; };
-		25F8EBF13999830224B01B47 /* Pods-PriceTracker-PriceTrackerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PriceTracker-PriceTrackerUITests.debug.xcconfig"; path = "Target Support Files/Pods-PriceTracker-PriceTrackerUITests/Pods-PriceTracker-PriceTrackerUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		2E2D3A44859E86939F35F7CE /* Pods-PriceTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PriceTracker.release.xcconfig"; path = "Target Support Files/Pods-PriceTracker/Pods-PriceTracker.release.xcconfig"; sourceTree = "<group>"; };
-		40467592419903C3013133C9 /* Pods-PriceTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PriceTrackerTests.release.xcconfig"; path = "Target Support Files/Pods-PriceTrackerTests/Pods-PriceTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
-		4523E5B382BCDF298D0A296D /* Pods-PriceTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PriceTrackerTests.debug.xcconfig"; path = "Target Support Files/Pods-PriceTrackerTests/Pods-PriceTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		923E2C9D582C06BC96372769 /* Pods_PriceTracker_PriceTrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PriceTracker_PriceTrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		945D008A7A2CD683C7CAD58C /* Pods_PriceTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PriceTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		98735A04FB7371BEA90CAA8E /* Pods-PriceTracker-PriceTrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PriceTracker-PriceTrackerUITests.release.xcconfig"; path = "Target Support Files/Pods-PriceTracker-PriceTrackerUITests/Pods-PriceTracker-PriceTrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F141B4BD03A3C38A26648D4A /* Pods_PriceTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PriceTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0691C64B2977D71000295B34 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F32A89474EF3D5E6F39012B0 /* Pods_PriceTracker.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0691C6642977D71100295B34 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -141,7 +126,6 @@
 				0691C66A2977D71100295B34 /* PriceTrackerTests */,
 				0691C6742977D71100295B34 /* PriceTrackerUITests */,
 				0691C64F2977D71000295B34 /* Products */,
-				8CBCA408D71E9BE4FABFE696 /* Pods */,
 				0D7F99D2C104827BC98B1F91 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -238,19 +222,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8CBCA408D71E9BE4FABFE696 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				16CCA8109D979D6D600C7E32 /* Pods-PriceTracker.debug.xcconfig */,
-				2E2D3A44859E86939F35F7CE /* Pods-PriceTracker.release.xcconfig */,
-				25F8EBF13999830224B01B47 /* Pods-PriceTracker-PriceTrackerUITests.debug.xcconfig */,
-				98735A04FB7371BEA90CAA8E /* Pods-PriceTracker-PriceTrackerUITests.release.xcconfig */,
-				4523E5B382BCDF298D0A296D /* Pods-PriceTrackerTests.debug.xcconfig */,
-				40467592419903C3013133C9 /* Pods-PriceTrackerTests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -258,11 +229,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0691C67B2977D71100295B34 /* Build configuration list for PBXNativeTarget "PriceTracker" */;
 			buildPhases = (
-				0D717BAA1DD3E6452FD3F406 /* [CP] Check Pods Manifest.lock */,
 				0691C64A2977D71000295B34 /* Sources */,
-				0691C64B2977D71000295B34 /* Frameworks */,
 				0691C64C2977D71000295B34 /* Resources */,
-				5263D787B5AEC1FBEEF366BC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -320,7 +288,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					0691C64D2977D71000295B34 = {
 						CreatedOnToolsVersion = 14.1;
@@ -399,45 +367,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PriceTracker-PriceTrackerUITests/Pods-PriceTracker-PriceTrackerUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		0D717BAA1DD3E6452FD3F406 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PriceTracker-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5263D787B5AEC1FBEEF366BC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PriceTracker/Pods-PriceTracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PriceTracker/Pods-PriceTracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PriceTracker/Pods-PriceTracker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7E5281E2A0C60E910B519EB9 /* [CP] Check Pods Manifest.lock */ = {
@@ -596,6 +525,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -656,6 +586,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -676,7 +607,6 @@
 		};
 		0691C67C2977D71100295B34 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 16CCA8109D979D6D600C7E32 /* Pods-PriceTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -705,7 +635,6 @@
 		};
 		0691C67D2977D71100295B34 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E2D3A44859E86939F35F7CE /* Pods-PriceTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -734,9 +663,7 @@
 		};
 		0691C67F2977D71100295B34 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4523E5B382BCDF298D0A296D /* Pods-PriceTrackerTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -755,9 +682,7 @@
 		};
 		0691C6802977D71100295B34 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 40467592419903C3013133C9 /* Pods-PriceTrackerTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -776,9 +701,7 @@
 		};
 		0691C6822977D71100295B34 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25F8EBF13999830224B01B47 /* Pods-PriceTracker-PriceTrackerUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UGFP3W9FTD;
@@ -795,9 +718,7 @@
 		};
 		0691C6832977D71100295B34 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 98735A04FB7371BEA90CAA8E /* Pods-PriceTracker-PriceTrackerUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UGFP3W9FTD;
