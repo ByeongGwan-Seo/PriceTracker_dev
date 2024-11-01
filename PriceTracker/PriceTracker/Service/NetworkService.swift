@@ -33,7 +33,7 @@ class NetworkService {
     return result
   }
   
-  func fetchDetail() async throws -> DetailModel {
+  func fetchDetail(gameId: String) async throws -> DetailModel {
     let urlString = "https://www.cheapshark.com/api/1.0/games?"
     
     guard var urlComponents = URLComponents(string: urlString) else {
@@ -41,7 +41,7 @@ class NetworkService {
     }
     
     urlComponents.queryItems = [
-      URLQueryItem(name: "id", value: id)
+      URLQueryItem(name: "id", value: gameId)
     ]
     
     guard let url = urlComponents.url else {

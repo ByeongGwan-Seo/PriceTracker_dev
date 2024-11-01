@@ -95,7 +95,7 @@ extension TrackingViewController: UITableViewDelegate {
     self.networkService.id = trackingListInApp[indexPath.row].gameID ?? ""
     
     do {
-      let trackingList = try await networkService.fetchDetail()
+      let trackingList = try await networkService.fetchDetail(gameId: self.networkService.id)
       detailVC.detailInfo = trackingList
       
       DispatchQueue.main.async {

@@ -56,14 +56,16 @@ class SearchViewController: UIViewController {
   
   func showDetail(for indexPath: IndexPath) async {
     guard let detailVC = UIStoryboard(name: "DetailViewController", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
+    
+    let gameId = self.gameList[indexPath.row].gameID ?? ""
     do {
-      let detailInfo = try await networkService.fetchDetail()
+      let detailInfo = try await networkService.fetchDetail(gameId: gameId)
       DispatchQueue.main.async {
         detailVC.detailInfo = detailInfo
         detailVC.detailTitleLabel.text = detailVC.detailInfo?.info.title
         detailVC.detailRetailLabel.text = (detailVC.detailInfo?.deals.first?.retailPrice ?? "N/A") + "$"
         detailVC.detailCheapestLabel.text = (detailVC.detailInfo?.deals.first?.price ?? "N/A") + "$"
-        detailVC.gameID = self.gameList[indexPath.row].gameID ?? ""
+        detailVC.gameID = gameId
         
         let trackingIdList = self.trackingListInApp?.filter {
           $0.gameID == self.gameList[indexPath.row].gameID
