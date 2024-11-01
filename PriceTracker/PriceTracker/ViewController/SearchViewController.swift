@@ -62,40 +62,11 @@ class SearchViewController: UIViewController {
       let detailInfo = try await networkService.fetchDetail(gameId: gameId)
       DispatchQueue.main.async {
         detailVC.detailInfo = detailInfo
-        detailVC.detailTitleLabel.text = detailVC.detailInfo?.info.title
-        detailVC.detailRetailLabel.text = (detailVC.detailInfo?.deals.first?.retailPrice ?? "N/A") + "$"
-        detailVC.detailCheapestLabel.text = (detailVC.detailInfo?.deals.first?.price ?? "N/A") + "$"
-        detailVC.gameID = gameId
         
         let trackingIdList = self.trackingListInApp?.filter {
           $0.gameID == self.gameList[indexPath.row].gameID
         } ?? []
-        
-        if !trackingIdList.isEmpty {
-          detailVC.addToTrackingBtn.isEnabled = false
-          detailVC.addToTrackingBtn.setTitle("Tracking", for: .disabled)
-        } else {
-          detailVC.addToTrackingBtn.isEnabled = true
-        }
-        
-        if let imageURLString = detailVC.detailInfo?.info.thumb,
-           let imageURL = URL(string: imageURLString) {
-          Task {
-            do {
-              let (imageData, _) = try await URLSession.shared.data(from: imageURL)
-              if let image = UIImage(data: imageData) {
-                DispatchQueue.main.async {
-                  detailVC.detailThumbView.image = image
-                }
-              }
-            } catch {
-              print("image loading error: \(error)")
-            }
-          }
-        }
-        
-        detailVC.deatlTableView.reloadData()
-        
+
         DispatchQueue.main.async {
           self.present(detailVC, animated: true)
         }

@@ -35,9 +35,41 @@ class DetailViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    updateUI()
     
     deatlTableView.delegate = self
     deatlTableView.dataSource = self
+  }
+  
+  private func updateUI() {
+    detailTitleLabel.text = detailInfo?.info.title
+    detailRetailLabel.text = (detailInfo?.deals.first?.retailPrice ?? "N/A") + "$"
+    detailCheapestLabel.text = (detailInfo?.deals.first?.price ?? "N/A") + "$"
+    
+    if !(trackingListInApp?.isEmpty ?? false) {
+      addToTrackingBtn.isEnabled = false
+      addToTrackingBtn.setTitle("Tracking", for: .disabled)
+    } else {
+      addToTrackingBtn.isEnabled = true
+    }
+    
+    if let imageURLString = detailInfo?.info.thumb,
+       let imageURL = URL(string: imageURLString) {
+      Task {
+        do {
+          let (imageData, _) = try await URLSession.shared.data(from: imageURL)
+          if let image = UIImage(data: imageData) {
+            DispatchQueue.main.async {
+              self.detailThumbView.image = image
+            }
+          }
+        } catch {
+          print("image loading error: \(error)")
+        }
+      }
+    }
+    deatlTableView.reloadData()
+
   }
   
   
@@ -65,11 +97,6 @@ class DetailViewController: UIViewController {
       
       self.addToTrackingBtn.isEnabled = false
       self.dismiss(animated: true)
-      //            if let trackingViewController = UIApplication.getTopViewController()?.tabBarController?.viewControllers?[0] as? TrackingViewController {
-      //                self.delegate = trackingViewController
-      //            }
-      
-      //            self.delegate?.didSelectRegister(trackingInfo: trackingInfo)
     }
     
     let no = UIAlertAction(title: "Cancel", style: .destructive) { (no) in
