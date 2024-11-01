@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import AlamofireImage
 
 class SearchViewController: UIViewController {
   
@@ -54,6 +53,71 @@ class SearchViewController: UIViewController {
       )
     }
   }
+  
+  func showDetail(for indexPath: IndexPath) async {
+    guard let detailVC = UIStoryboard(name: "DetailViewController", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
+    do {
+      let detailInfo = try await networkService.fetchDetail()
+      DispatchQueue.main.async {
+        detailVC.detailInfo = detailInfo
+        detailVC.detailTitleLabel.text = detailVC.detailInfo?.info.title
+        detailVC.detailRetailLabel.text = (detailVC.detailInfo?.deals.first?.retailPrice ?? "N/A") + "$"
+        detailVC.detailCheapestLabel.text = (detailVC.detailInfo?.deals.first?.price ?? "N/A") + "$"
+        detailVC.gameID = self.gameList[indexPath.row].gameID ?? ""
+        
+        let trackingIdList = self.trackingListInApp?.filter {
+          $0.gameID == self.gameList[indexPath.row].gameID
+        } ?? []
+        
+        if !trackingIdList.isEmpty {
+          detailVC.addToTrackingBtn.isEnabled = false
+          detailVC.addToTrackingBtn.setTitle("Tracking", for: .disabled)
+        } else {
+          detailVC.addToTrackingBtn.isEnabled = true
+        }
+        
+        if let imageURLString = detailVC.detailInfo?.info.thumb,
+           let imageURL = URL(string: imageURLString) {
+          Task {
+            do {
+              let (imageData, _) = try await URLSession.shared.data(from: imageURL)
+              if let image = UIImage(data: imageData) {
+                DispatchQueue.main.async {
+                  detailVC.detailThumbView.image = image
+                }
+              }
+            } catch {
+              print("image loading error: \(error)")
+            }
+          }
+        }
+        
+        detailVC.deatlTableView.reloadData()
+        
+        DispatchQueue.main.async {
+          self.present(detailVC, animated: true)
+        }
+      }
+    } catch {
+      print("error fetching detail: \(error)")
+    }
+  }
+  
+  func fetchGame() async {
+    self.networkService.title = self.searchBar.text ?? ""
+    do {
+      let fetchedGameList = try await networkService.fetchGameAPI()
+      self.gameList = fetchedGameList
+      
+      DispatchQueue.main.async {
+        self.searchTableView.reloadData()
+      }
+      
+      self.view.endEditing(true)
+    } catch {
+      print("fetch game error: \(error)")
+    }
+  }
 }
 
 extension SearchViewController: UITableViewDelegate {
@@ -62,45 +126,9 @@ extension SearchViewController: UITableViewDelegate {
     
     tableView.deselectRow(at: indexPath, animated: true)
     
-    self.networkService.id = gameList[indexPath.row].gameID ?? ""
-    networkService.fetchDetail { result in
-      switch result {
-      case .success(let detailInfo):
-        detailVC.detailInfo = detailInfo
-        DispatchQueue.main.async {
-          detailVC.detailTitleLabel.text = detailVC.detailInfo?.info.title
-          detailVC.detailRetailLabel.text = (detailVC.detailInfo?.deals.first?.retailPrice ?? "N/A") + " $"
-          detailVC.detailCheapestLabel.text = (detailVC.detailInfo?.deals.first?.price ?? "N/A") + " $"
-          detailVC.gameID = self.gameList[indexPath.row].gameID ?? ""
-          
-          let trackingIDList = self.trackingListInApp?.filter({ compareTrackingInfo in
-            if self.gameList[indexPath.row].gameID == compareTrackingInfo.gameID {
-              return true
-            }
-            return false
-          }) ?? []
-          
-          if !trackingIDList.isEmpty {
-            detailVC.addToTrackingBtn.isEnabled = false
-            detailVC.addToTrackingBtn.setTitle("Tracking...", for: .disabled)
-          } else {
-            detailVC.addToTrackingBtn.isEnabled = true
-          }
-          
-          
-          
-          
-          if let imageURL = URL(string: detailVC.detailInfo?.info.thumb ?? "") {
-            detailVC.detailThumbView.af.setImage(withURL: imageURL)
-          }
-          detailVC.deatlTableView.reloadData()
-        }
-      case .failure(let error):
-        print("error: \(error)")
-      }
+    Task {
+      await showDetail(for: indexPath)
     }
-    
-    present(detailVC, animated: true)
   }
 }
 
@@ -114,8 +142,18 @@ extension SearchViewController: UITableViewDataSource {
     
     cell.searchTitleLabel.text = gameList[indexPath.row].external
     
-    if let imageURL = URL(string: gameList[indexPath.row].thumb ?? "") {
-      cell.searchThumbView.af.setImage(withURL: imageURL)
+    Task {
+      if let imageURL = URL(string: gameList[indexPath.row].thumb ?? "") {
+        do {
+          let (data, _) = try await URLSession.shared.data(from: imageURL)
+          
+          if let image = UIImage(data: data) {
+            cell.searchThumbView.image = image
+          }
+        } catch {
+          print("image loading error: (\(error)")
+        }
+      }
     }
     
     return cell
@@ -124,18 +162,11 @@ extension SearchViewController: UITableViewDataSource {
 
 extension SearchViewController: UISearchBarDelegate {
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-    self.networkService.title = self.searchBar.text ?? ""
-    networkService.fetchGameAPI { result in
-      switch result {
-      case .success(let gameList):
-        self.gameList = gameList
-        DispatchQueue.main.async {
-          self.searchTableView.reloadData()
-        }
-      case .failure(let error):
-        print("error: \(error)")
-      }
+    Task {
+      await fetchGame()
     }
-    self.view.endEditing(true)
   }
 }
+
+
+
