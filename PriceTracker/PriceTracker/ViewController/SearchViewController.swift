@@ -9,9 +9,11 @@ import UIKit
 
 class SearchViewController: UIViewController {
   
-  var gameList: [SearchGameList] = []
-  var networkService = NetworkService()
-  var trackingListInApp: [TrackingInfoInApp]?
+    private var searchTitle: String = ""
+    
+    var gameList: [SearchGameList] = []
+    var networkService = NetworkService()
+    var trackingListInApp: [TrackingInfoInApp]?
   
   
   @IBOutlet weak var searchBar: UISearchBar!
@@ -59,7 +61,7 @@ class SearchViewController: UIViewController {
     
     let gameId = self.gameList[indexPath.row].gameID ?? ""
     do {
-      let detailInfo = try await networkService.fetchDetail(gameId: gameId)
+      let detailInfo = try await networkService.fetchGameDetail(gameId: gameId)
       DispatchQueue.main.async {
         detailVC.detailInfo = detailInfo
         
@@ -77,9 +79,9 @@ class SearchViewController: UIViewController {
   }
   
   func fetchGame() async {
-    self.networkService.title = self.searchBar.text ?? ""
+      searchTitle = self.searchBar.text ?? ""
     do {
-      let fetchedGameList = try await networkService.fetchGameAPI()
+      let fetchedGameList = try await networkService.fetchGameList(title: searchTitle)
       self.gameList = fetchedGameList
       
       DispatchQueue.main.async {
