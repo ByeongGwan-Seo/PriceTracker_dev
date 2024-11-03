@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -84,6 +84,10 @@
 		F141B4BD03A3C38A26648D4A /* Pods_PriceTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PriceTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		06F13DB02CD7792C00BF19D3 /* Repositories */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Repositories; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		0691C6642977D71100295B34 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -147,6 +151,7 @@
 		0691C6502977D71000295B34 /* PriceTracker */ = {
 			isa = PBXGroup;
 			children = (
+				06F13DB02CD7792C00BF19D3 /* Repositories */,
 				0691C68B2977DEAC00295B34 /* Delegate */,
 				0691C6882977DC3700295B34 /* ViewController */,
 				0691C68A2977DC6200295B34 /* Cell */,
@@ -257,6 +262,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				06F13DB02CD7792C00BF19D3 /* Repositories */,
 			);
 			name = PriceTracker;
 			productName = PriceTracker;
