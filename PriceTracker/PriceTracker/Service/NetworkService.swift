@@ -8,9 +8,10 @@
 import Foundation
 
 protocol NetworkServiceProtocol {
-    func fetchGameList(title: String) async throws -> [SearchGameList]
-    func fetchGameDetail(gameId: String) async throws -> DetailModel
+  func fetchGameList(title: String) async throws -> [SearchGameList]
+  func fetchGameDetail(gameId: String) async throws -> DetailModel
 }
+
 
 class NetworkService: NetworkServiceProtocol {
     private let gameRepository: GameRepositoryProtocol
