@@ -9,6 +9,8 @@ import UIKit
 
 class TrackingViewController: UIViewController {
   
+    private var gameId: String = ""
+    
   @IBOutlet weak var trackingTableView: UITableView!
   
   var trackingListInApp = [TrackingInfoInApp]() {
@@ -92,10 +94,10 @@ extension TrackingViewController: UITableViewDelegate {
   func showDetail(for indexPath: IndexPath) async {
     guard let detailVC = UIStoryboard(name: "DetailViewController", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
     
-    self.networkService.id = trackingListInApp[indexPath.row].gameID ?? ""
+      self.gameId = trackingListInApp[indexPath.row].gameID ?? ""
     
     do {
-      let trackingList = try await networkService.fetchDetail(gameId: self.networkService.id)
+        let trackingList = try await networkService.fetchGameDetail(gameId: self.gameId)
       detailVC.detailInfo = trackingList
       
       DispatchQueue.main.async {
