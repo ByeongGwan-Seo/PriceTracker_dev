@@ -8,55 +8,61 @@
 import SwiftUI
 
 struct SearchView: View {
-    @State private var searchText: String = ""
-    @State private var searchResults: [SearchGameList] = []
-    @State private var isLoading: Bool = false
+    @StateObject private var searchViewModel = SearchViewModel()
     
     private let networkService:NetworkServiceProtocol = NetworkService()
     
     var body: some View {
         VStack {
-            TextField("Search Here", text: $searchText)
-                .onSubmit {
-                    fetchGameList()
-                }
-                .textFieldStyle(.roundedBorder)
-                .padding()
             
+            SearchTextField(searchText: $searchViewModel.searchText) {
+                searchViewModel.search()
+            }
             
-            if isLoading {
+            if searchViewModel.isLoading {
                 ProgressView()
             }
-            List {
-                ForEach(searchResults, id: \.self) { result in
-                    HStack {
-                        AsyncImage(url: URL(string: result.thumb ?? "")) { image in
-                            image
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 50)
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        Text(result.external ?? "Game does not exist")
-                    }
-                }
-            }
-            .listStyle(.plain)
+            
+            SearchResultList(searchResults: searchViewModel.searchResults)
+            
         }
     }
+}
+
+struct SearchTextField: View {
+    @Binding var searchText: String
+    var onSubmit: () -> Void
     
-    private func fetchGameList() {
-        isLoading = true
-        Task {
-            do {
-                searchResults = try await networkService.fetchGameList(title: searchText)
-                searchText = ""
-            } catch {
-                print("error while fetching game list: \(error)")
+    var body: some View {
+        TextField("Search Here", text: $searchText)
+            .onSubmit {
+                onSubmit()
             }
-            isLoading = false
+            .textFieldStyle(.roundedBorder)
+            .padding()
+    }
+}
+
+struct SearchResultList: View {
+    var searchResults: [SearchGameList]
+    
+    var body: some View {
+        List {
+            ForEach(searchResults, id: \.gameID) { result in
+                HStack {
+                    AsyncImage(url: URL(string: result.thumb ?? "")) { image in
+                        image
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 50)
+                    } placeholder: {
+                        ProgressView()
+                    }
+                    Text(result.external ?? "Game does not exist")
+                }
+            }
         }
+        .listStyle(.plain)
     }
 }
 
