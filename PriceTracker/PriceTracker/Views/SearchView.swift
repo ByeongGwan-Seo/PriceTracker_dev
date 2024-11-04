@@ -47,6 +47,7 @@ struct SearchView: View {
     }
     
     private func fetchGameList() {
+        isLoading = true
         Task {
             do {
                 searchResults = try await networkService.fetchGameList(title: searchText)
@@ -54,6 +55,7 @@ struct SearchView: View {
             } catch {
                 print("error while fetching game list: \(error)")
             }
+            isLoading = false
         }
     }
 }
