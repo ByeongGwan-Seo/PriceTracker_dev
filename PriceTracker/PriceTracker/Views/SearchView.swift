@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchView: View {
-    @StateObject private var searchViewModel = SearchViewModel()
+    @ObservedObject var searchViewModel: SearchViewModel
     
     private let networkService:NetworkServiceProtocol = NetworkService()
     
@@ -54,7 +54,7 @@ struct SearchResultList: View {
                         image
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 50)
+                            .frame(width: 50, height: 70)
                     } placeholder: {
                         ProgressView()
                     }
@@ -67,5 +67,7 @@ struct SearchResultList: View {
 }
 
 #Preview {
-    SearchView()
+    let previewViewModel = SearchViewModel()
+    
+    return SearchView(searchViewModel: previewViewModel)
 }

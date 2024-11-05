@@ -8,7 +8,11 @@
 import SwiftUI
 import Combine
 
-class SearchViewModel: ObservableObject {
+protocol SearchViewModelProtocol {
+    func search()
+    func fetchGameList()
+}
+class SearchViewModel: ObservableObject, SearchViewModelProtocol {
     @Published var searchText: String = ""
     @Published var searchResults: [SearchGameList] = []
     @Published var isLoading: Bool = false
@@ -23,7 +27,7 @@ class SearchViewModel: ObservableObject {
         fetchGameList()
     }
     
-    private func fetchGameList() {
+    internal func fetchGameList() {
         isLoading = true
         Task {
             do {

@@ -12,13 +12,15 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchTableView: UITableView!
     
+    private let searchViewModel = SearchViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         searchTableView.dataSource = self
         searchTableView.delegate = self
         
-        let searchView = SearchView()
+        let searchView = SearchView(searchViewModel: searchViewModel)
         let hostingController = UIHostingController(rootView: searchView)
         
         addChild(hostingController)
