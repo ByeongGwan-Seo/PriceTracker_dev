@@ -67,7 +67,7 @@ struct SearchResultList: View {
 }
 
 #Preview {
-    let previewViewModel = SearchViewModel()
+    let mockViewModel = MockSearchViewModel()
     
-    return SearchView(searchViewModel: previewViewModel)
+    return SearchView(searchViewModel: mockViewModel)
 }
