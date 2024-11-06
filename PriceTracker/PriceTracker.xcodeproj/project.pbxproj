@@ -86,6 +86,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		063BEF8B2CD8D92D00FE793E /* ViewModels */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ViewModels; sourceTree = "<group>"; };
+		06ED47DF2CDB08110087D0F7 /* Router */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Router; sourceTree = "<group>"; };
 		06F13DBD2CD8B91700BF19D3 /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -152,6 +153,7 @@
 		0691C6502977D71000295B34 /* PriceTracker */ = {
 			isa = PBXGroup;
 			children = (
+				06ED47DF2CDB08110087D0F7 /* Router */,
 				063BEF8B2CD8D92D00FE793E /* ViewModels */,
 				06F13DBD2CD8B91700BF19D3 /* Views */,
 				0691C68B2977DEAC00295B34 /* Delegate */,
@@ -267,6 +269,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				063BEF8B2CD8D92D00FE793E /* ViewModels */,
+				06ED47DF2CDB08110087D0F7 /* Router */,
 				06F13DBD2CD8B91700BF19D3 /* Views */,
 			);
 			name = PriceTracker;

@@ -11,8 +11,8 @@ protocol SearchViewModelProtocol {
     var searchText: String { get set }
     var isLoading: Bool { get set }
     var searchResults: [SearchGameList] { get set }
-    func search()
     func fetchGameList()
+    func moveToDetail(owner: UIViewController)
 }
 
 class SearchViewModel: SearchViewModelProtocol, ObservableObject {
@@ -21,27 +21,21 @@ class SearchViewModel: SearchViewModelProtocol, ObservableObject {
     @Published var isLoading: Bool = false
     
     private let networkService: NetworkServiceProtocol
+    private let router: RouterProtocol
     
     init(
-        networkService: NetworkServiceProtocol = NetworkService()
-    ) {
-        self.networkService = networkService
-    }
-    
-    func search() {
-//        fetchGameList()
-    }
+            networkService: NetworkServiceProtocol = NetworkService(),
+            router: RouterProtocol
+        ) {
+            self.networkService = networkService
+            self.router = router
+        }
     
     func fetchGameList() {
-//        isLoading = true
-//        Task {
-//            do {
-//                searchResults = try await networkService.fetchGameList(title: searchText)
-//                searchText.removeAll()
-//            } catch {
-//                print("fetching gamelist error: \(error)")
-//            }
-//            isLoading = false
-//        }
+
+    }
+    
+    func moveToDetail(owner: UIViewController) {
+        router.showDetail(owner: owner)
     }
 }

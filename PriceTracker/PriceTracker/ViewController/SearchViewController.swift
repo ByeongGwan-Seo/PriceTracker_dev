@@ -34,23 +34,10 @@ class SearchViewController: UIViewController {
         view.addSubview(hostingController.view)
         hostingController.didMove(toParent: self)
     }
-    
-    // TODO: Router処理
-    
+
     func moveToDetail() {
         router.showDetail(owner: self)
     }
 }
 
-protocol RouterProtocol {
-    func showDetail(owner: UIViewController)
-}
 
-
-class Router: RouterProtocol {
-    func showDetail(owner: UIViewController) {
-        // TODO:
-    }
-    
-    
-}
