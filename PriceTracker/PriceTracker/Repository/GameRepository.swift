@@ -13,7 +13,7 @@ protocol GameRepositoryProtocol {
 }
 
 class GameRepository: GameRepositoryProtocol {
-    private let networkClient: NetworkClient
+    private let networkClient: NetworkClientProtocol
     private let baseURL = URL(string: "https://www.cheapshark.com/api/1.0")!
     
     init(networkClient: NetworkClient = NetworkClient()) {

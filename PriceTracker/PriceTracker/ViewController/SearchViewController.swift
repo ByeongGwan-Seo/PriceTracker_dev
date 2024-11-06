@@ -9,16 +9,22 @@ import UIKit
 import SwiftUI
 
 class SearchViewController: UIViewController {
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var searchTableView: UITableView!
+    private let searchViewModel: SearchViewModelProtocol
+    private let router: RouterProtocol
     
-    private let searchViewModel = SearchViewModel()
+    init(searchViewModel: SearchViewModelProtocol, router: RouterProtocol) {
+        self.searchViewModel = searchViewModel
+        self.router = router
+        
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        searchTableView.dataSource = self
-        searchTableView.delegate = self
         
         let searchView = SearchView(searchViewModel: searchViewModel)
         let hostingController = UIHostingController(rootView: searchView)
@@ -29,37 +35,22 @@ class SearchViewController: UIViewController {
         hostingController.didMove(toParent: self)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    // TODO: Router処理
+    
+    func moveToDetail() {
+        router.showDetail(owner: self)
     }
 }
 
-extension SearchViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-
-    }
+protocol RouterProtocol {
+    func showDetail(owner: UIViewController)
 }
 
-extension SearchViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+
+class Router: RouterProtocol {
+    func showDetail(owner: UIViewController) {
+        // TODO:
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath) as? SearchCell else { return UITableViewCell() }
-
-        
-        return cell
-    }
+    
 }
-
-extension SearchViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-
-    }
-}
-
-
-

@@ -8,66 +8,37 @@
 import SwiftUI
 
 struct SearchView: View {
-    @ObservedObject var searchViewModel: SearchViewModel
+    var searchViewModel: SearchViewModelProtocol
     
-    private let networkService:NetworkServiceProtocol = NetworkService()
+    init(searchViewModel: SearchViewModelProtocol) {
+        self.searchViewModel = searchViewModel
+    }
     
     var body: some View {
         VStack {
-            
-            SearchTextField(searchText: $searchViewModel.searchText) {
-                searchViewModel.search()
-            }
-            
             if searchViewModel.isLoading {
-                ProgressView()
-            }
-            
-            SearchResultList(searchResults: searchViewModel.searchResults)
-            
-        }
-    }
-}
-
-struct SearchTextField: View {
-    @Binding var searchText: String
-    var onSubmit: () -> Void
-    
-    var body: some View {
-        TextField("Search Here", text: $searchText)
-            .onSubmit {
-                onSubmit()
-            }
-            .textFieldStyle(.roundedBorder)
-            .padding()
-    }
-}
-
-struct SearchResultList: View {
-    var searchResults: [SearchGameList]
-    
-    var body: some View {
-        List {
-            ForEach(searchResults, id: \.gameID) { result in
-                HStack {
-                    AsyncImage(url: URL(string: result.thumb ?? "")) { image in
-                        image
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 50, height: 70)
-                    } placeholder: {
-                        ProgressView()
-                    }
-                    Text(result.external ?? "Game does not exist")
-                }
+                Text("is Loading")
+            } else {
+                Text("search results")
             }
         }
-        .listStyle(.plain)
     }
 }
 
-#Preview {
-    let mockViewModel = MockSearchViewModel()
-    
-    return SearchView(searchViewModel: mockViewModel)
+struct SampleButton_Previews: PreviewProvider {
+    static var previews: some View {
+        class MockViewModel: SearchViewModelProtocol {
+            var searchText: String = "test"
+            
+            var isLoading: Bool = true
+            
+            var searchResults: [SearchGameList] = []
+            
+            func search() {}
+            
+            func fetchGameList() {}
+        }
+        let viewModel = MockViewModel()
+        return SearchView(searchViewModel: viewModel)
+    }
 }
