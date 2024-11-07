@@ -12,7 +12,7 @@ protocol SearchViewModelProtocol {
     var isLoading: Bool { get set }
     var searchResults: [SearchGameList] { get set }
     func fetchGameList()
-    func moveToDetail(owner: UIViewController)
+    func moveToDetail()
 }
 
 class SearchViewModel: SearchViewModelProtocol, ObservableObject {
@@ -35,7 +35,7 @@ class SearchViewModel: SearchViewModelProtocol, ObservableObject {
 
     }
     
-    func moveToDetail(owner: UIViewController) {
-        router.showDetail(owner: owner)
+    func moveToDetail() {
+        router.showDetail()
     }
 }

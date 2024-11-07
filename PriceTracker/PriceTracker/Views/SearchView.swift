@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SearchView: View {
     var searchViewModel: SearchViewModelProtocol
-    @State private var presentingViewController: UIViewController?
     
     init(searchViewModel: SearchViewModelProtocol) {
         self.searchViewModel = searchViewModel
@@ -20,11 +19,7 @@ struct SearchView: View {
             if searchViewModel.isLoading {
                 Text("search is Loading")
             } else {
-                Button(action: {
-                    if let presentingViewController {
-                        searchViewModel.moveToDetail(owner: presentingViewController)
-                    }
-                }) {
+                Button(action: searchViewModel.moveToDetail) {
                     Text("Go to Detail View")
                         .padding()
                         .background(Color.blue)
@@ -40,8 +35,8 @@ struct SearchView: View {
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         class MockViewModel: SearchViewModelProtocol {
-            func moveToDetail(owner: UIViewController) {
-                print("move to detail")
+            func moveToDetail() {
+                searchText = "detail here"
             }
             
             var searchText: String = "test"

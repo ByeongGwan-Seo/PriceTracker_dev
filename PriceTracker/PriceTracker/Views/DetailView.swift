@@ -24,27 +24,26 @@ struct DetailView: View {
 
 struct TotalPreviews: PreviewProvider {
     static var previews: some View {
-        Group {
+        
+        class MockDetailViewModel: DetailViewModelProtocol {
+            func fetchDetail() {}
+            var isLoading: Bool = false
+        }
+
+        class MockSearchViewModel: SearchViewModelProtocol {
+            var searchText: String = "test"
+            var isLoading: Bool = true
+            var searchResults: [SearchGameList] = []
+            
+            func fetchGameList() {}
+            func moveToDetail() {}
+        }
+        
+        return Group {
             DetailView(detailViewModel: MockDetailViewModel())
             SearchView(searchViewModel: MockSearchViewModel())
         }
     }
 }
 
-class MockDetailViewModel: DetailViewModelProtocol {
-    func fetchDetail() {}
-    var isLoading: Bool = false
-}
 
-class MockSearchViewModel: SearchViewModelProtocol {
-    func moveToDetail(owner: UIViewController) {
-        print("move to detail")
-    }
-    
-    var searchText: String = "test"
-    var isLoading: Bool = true
-    var searchResults: [SearchGameList] = []
-    
-    func fetchGameList() {}
-    func moveToDetail() {}
-}

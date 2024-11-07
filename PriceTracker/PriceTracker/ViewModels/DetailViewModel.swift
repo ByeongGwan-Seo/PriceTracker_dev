@@ -16,14 +16,11 @@ class DetailViewModel: DetailViewModelProtocol, ObservableObject {
     @Published var isLoading: Bool = false
     
     private let networkService: NetworkServiceProtocol
-    private var gameId: String
     
     init(
-        networkService: NetworkServiceProtocol,
-        gameId: String
+        networkService: NetworkServiceProtocol
     ) {
         self.networkService = networkService
-        self.gameId = gameId
     }
     
     func fetchDetail() {

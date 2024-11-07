@@ -8,22 +8,23 @@
 import UIKit
 
 protocol RouterProtocol {
-    func showDetail(owner: UIViewController)
+    func showDetail()
 }
-
 
 class Router: RouterProtocol {
     
-    private let networkService: NetworkServiceProtocol
-    private let detailViewModel: DetailViewModelProtocol
+    private let navigationController: UINavigationController?
     
-    init(networkService: NetworkServiceProtocol, detailViewModel: DetailViewModelProtocol) {
-        self.networkService = networkService
-        self.detailViewModel = detailViewModel
+    init(navigationController: UINavigationController?) {
+        self.navigationController = navigationController
     }
     
-    func showDetail(owner: UIViewController) {
+    func showDetail() {
+        let networkService = NetworkService()
+        let detailViewModel = DetailViewModel(networkService: networkService)
+        
         let detailViewController = DetailViewController(detailViewModel: detailViewModel)
-        owner.present(detailViewController, animated: true, completion: nil)
+        
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
