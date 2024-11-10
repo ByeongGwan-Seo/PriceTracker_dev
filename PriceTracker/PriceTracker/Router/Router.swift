@@ -8,12 +8,18 @@
 import UIKit
 
 protocol RouterProtocol {
-    func showDetail(navigationController: UINavigationController)
+    func showDetail()
 }
 
 class Router: RouterProtocol {
     
-    func showDetail(navigationController: UINavigationController) {
+    var navigationController: UINavigationController
+    
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+    
+    func showDetail() {
         navigationController
             .pushViewController(
                 DetailViewController(

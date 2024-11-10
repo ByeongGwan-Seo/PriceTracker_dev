@@ -27,12 +27,13 @@ struct SearchView: View {
                         .cornerRadius(10)
                 }
                 .padding(.top, 20)
-//이런 식으로도 사용할 수 있음
-//                Foo(action: searchViewModel.moveToDetail)
             }
         }
     }
 }
+
+//이런 식으로도 사용할 수 있음
+//                Foo(action: searchViewModel.moveToDetail)
 
 //각 컴포넌트의 라이브러리를 보고 사용할 수 있을지 여부를 판단할 수 있다.
 //struct Foo: View {
