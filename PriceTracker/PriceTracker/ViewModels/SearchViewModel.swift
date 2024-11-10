@@ -17,6 +17,7 @@ protocol SearchViewModelProtocol {
 }
 
 class SearchViewModel: SearchViewModelProtocol, ObservableObject {
+    // 現在SearchViewの構造で下のsearchTextやsearchResultsを使うにはどうすればよろしいでしょうか。
     @Published var searchText: String = ""
     @Published var searchResults: [SearchGameList] = []
     @Published var isLoading: Bool = false

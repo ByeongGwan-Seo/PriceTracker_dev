@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SearchView: View {
+    // 現在、この様にprotocolを採択してviewModelを呼んでいます。
     var searchViewModel: SearchViewModelProtocol
     
     init(searchViewModel: SearchViewModelProtocol) {
