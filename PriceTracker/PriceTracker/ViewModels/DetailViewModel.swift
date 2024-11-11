@@ -18,7 +18,7 @@ class DetailViewModel: DetailViewModelProtocol, ObservableObject {
     private let networkService: NetworkServiceProtocol
     
     init(
-        networkService: NetworkServiceProtocol
+        networkService: NetworkServiceProtocol = NetworkService()
     ) {
         self.networkService = networkService
     }
