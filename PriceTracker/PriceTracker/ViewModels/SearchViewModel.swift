@@ -5,18 +5,9 @@
 //  Created by seobyeonggwan on 2024/11/04.
 //
 
-//import SwiftUI
 import Combine
 
-protocol SearchViewModelProtocol {
-    var isLoading: Bool { get set }
-    var searchResults: [SearchGameList] { get set }
-    func fetchGameList()
-    func setSearchText(text: String)
-}
-
 class SearchViewModel: ObservableObject {
-//    @Published var searchText: String = ""
     @Published var searchResults: [SearchGameList] = []
     @Published var isLoading: Bool = false
     
