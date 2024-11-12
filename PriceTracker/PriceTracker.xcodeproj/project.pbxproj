@@ -7,27 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		061710E4297E1FE500EF7017 /* DealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061710E3297E1FE500EF7017 /* DealCell.swift */; };
 		061710E6297E33EE00EF7017 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061710E5297E33EE00EF7017 /* DetailModel.swift */; };
 		061710E8297FC4B700EF7017 /* TrackingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061710E7297FC4B700EF7017 /* TrackingModel.swift */; };
 		0617111E2983BD9600EF7017 /* TrackinModelInApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0617111D2983BD9600EF7017 /* TrackinModelInApp.swift */; };
 		068225CE2978D1E400281CFE /* SearchGameList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068225CD2978D1E400281CFE /* SearchGameList.swift */; };
 		068225D12978D36C00281CFE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068225D02978D36C00281CFE /* NetworkService.swift */; };
-		068225D32978E6B300281CFE /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068225D22978E6B300281CFE /* SearchCell.swift */; };
 		068225D5297A8E4200281CFE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068225D4297A8E4200281CFE /* DetailViewController.swift */; };
-		068225D7297A8E5000281CFE /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 068225D6297A8E5000281CFE /* DetailViewController.storyboard */; };
 		0691C6522977D71000295B34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C6512977D71000295B34 /* AppDelegate.swift */; };
 		0691C6542977D71000295B34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C6532977D71000295B34 /* SceneDelegate.swift */; };
 		0691C6562977D71000295B34 /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C6552977D71000295B34 /* TrackingViewController.swift */; };
 		0691C6592977D71000295B34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0691C6572977D71000295B34 /* Main.storyboard */; };
 		0691C65C2977D71000295B34 /* PriceTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0691C65A2977D71000295B34 /* PriceTracker.xcdatamodeld */; };
 		0691C65E2977D71100295B34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0691C65D2977D71100295B34 /* Assets.xcassets */; };
-		0691C6612977D71100295B34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0691C65F2977D71100295B34 /* LaunchScreen.storyboard */; };
 		0691C66C2977D71100295B34 /* PriceTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C66B2977D71100295B34 /* PriceTrackerTests.swift */; };
 		0691C6762977D71100295B34 /* PriceTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C6752977D71100295B34 /* PriceTrackerUITests.swift */; };
 		0691C6782977D71100295B34 /* PriceTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C6772977D71100295B34 /* PriceTrackerUITestsLaunchTests.swift */; };
 		0691C6852977DB5F00295B34 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C6842977DB5F00295B34 /* SearchViewController.swift */; };
-		0691C6872977DBBE00295B34 /* TrackingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C6862977DBBE00295B34 /* TrackingCell.swift */; };
 		40A6D2AF2CD6112E00F8F33A /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A6D2AE2CD6112E00F8F33A /* NetworkClient.swift */; };
 		40A6D2B22CD6116E00F8F33A /* GameRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A6D2B12CD6116E00F8F33A /* GameRepository.swift */; };
 		49C32B10DB2CDF1D5FDE101E /* Pods_PriceTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F141B4BD03A3C38A26648D4A /* Pods_PriceTrackerTests.framework */; };
@@ -52,15 +47,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		061710E3297E1FE500EF7017 /* DealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealCell.swift; sourceTree = "<group>"; };
 		061710E5297E33EE00EF7017 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
 		061710E7297FC4B700EF7017 /* TrackingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingModel.swift; sourceTree = "<group>"; };
 		0617111D2983BD9600EF7017 /* TrackinModelInApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackinModelInApp.swift; sourceTree = "<group>"; };
 		068225CD2978D1E400281CFE /* SearchGameList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGameList.swift; sourceTree = "<group>"; };
 		068225D02978D36C00281CFE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		068225D22978E6B300281CFE /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		068225D4297A8E4200281CFE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		068225D6297A8E5000281CFE /* DetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewController.storyboard; sourceTree = "<group>"; };
 		0691C64E2977D71000295B34 /* PriceTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PriceTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0691C6512977D71000295B34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0691C6532977D71000295B34 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +60,6 @@
 		0691C6582977D71000295B34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0691C65B2977D71000295B34 /* PriceTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PriceTracker.xcdatamodel; sourceTree = "<group>"; };
 		0691C65D2977D71100295B34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0691C6602977D71100295B34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0691C6622977D71100295B34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0691C6672977D71100295B34 /* PriceTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PriceTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0691C66B2977D71100295B34 /* PriceTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTrackerTests.swift; sourceTree = "<group>"; };
@@ -76,7 +67,6 @@
 		0691C6752977D71100295B34 /* PriceTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTrackerUITests.swift; sourceTree = "<group>"; };
 		0691C6772977D71100295B34 /* PriceTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0691C6842977DB5F00295B34 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		0691C6862977DBBE00295B34 /* TrackingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingCell.swift; sourceTree = "<group>"; };
 		40A6D2AE2CD6112E00F8F33A /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		40A6D2B12CD6116E00F8F33A /* GameRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRepository.swift; sourceTree = "<group>"; };
 		923E2C9D582C06BC96372769 /* Pods_PriceTracker_PriceTrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PriceTracker_PriceTrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,7 +148,6 @@
 				06F13DBD2CD8B91700BF19D3 /* Views */,
 				0691C68B2977DEAC00295B34 /* Delegate */,
 				0691C6882977DC3700295B34 /* ViewController */,
-				0691C68A2977DC6200295B34 /* Cell */,
 				0691C6892977DC4E00295B34 /* Storyboard */,
 				068225CC2978D1C000281CFE /* Model */,
 				068225CF2978D35400281CFE /* Service */,
@@ -201,21 +190,9 @@
 		0691C6892977DC4E00295B34 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				0691C65F2977D71100295B34 /* LaunchScreen.storyboard */,
-				068225D6297A8E5000281CFE /* DetailViewController.storyboard */,
 				0691C6572977D71000295B34 /* Main.storyboard */,
 			);
 			path = Storyboard;
-			sourceTree = "<group>";
-		};
-		0691C68A2977DC6200295B34 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				0691C6862977DBBE00295B34 /* TrackingCell.swift */,
-				068225D22978E6B300281CFE /* SearchCell.swift */,
-				061710E3297E1FE500EF7017 /* DealCell.swift */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		0691C68B2977DEAC00295B34 /* Delegate */ = {
@@ -364,8 +341,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				068225D7297A8E5000281CFE /* DetailViewController.storyboard in Resources */,
-				0691C6612977D71100295B34 /* LaunchScreen.storyboard in Resources */,
 				0691C65E2977D71100295B34 /* Assets.xcassets in Resources */,
 				0691C6592977D71000295B34 /* Main.storyboard in Resources */,
 			);
@@ -458,12 +433,9 @@
 			files = (
 				0617111E2983BD9600EF7017 /* TrackinModelInApp.swift in Sources */,
 				061710E6297E33EE00EF7017 /* DetailModel.swift in Sources */,
-				0691C6872977DBBE00295B34 /* TrackingCell.swift in Sources */,
 				0691C6852977DB5F00295B34 /* SearchViewController.swift in Sources */,
 				068225D12978D36C00281CFE /* NetworkService.swift in Sources */,
 				0691C65C2977D71000295B34 /* PriceTracker.xcdatamodeld in Sources */,
-				061710E4297E1FE500EF7017 /* DealCell.swift in Sources */,
-				068225D32978E6B300281CFE /* SearchCell.swift in Sources */,
 				0691C6562977D71000295B34 /* TrackingViewController.swift in Sources */,
 				40A6D2B22CD6116E00F8F33A /* GameRepository.swift in Sources */,
 				0691C6522977D71000295B34 /* AppDelegate.swift in Sources */,
@@ -514,14 +486,6 @@
 				0691C6582977D71000295B34 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		0691C65F2977D71100295B34 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0691C6602977D71100295B34 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
