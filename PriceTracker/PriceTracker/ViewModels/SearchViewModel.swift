@@ -13,7 +13,6 @@ protocol SearchViewModelProtocol {
     var isLoading: Bool { get set }
     var searchResults: [SearchGameList] { get set }
     func fetchGameList()
-    func moveToDetail()
 }
 
 class SearchViewModel: ObservableObject {
@@ -40,9 +39,5 @@ class SearchViewModel: ObservableObject {
                 }
             }
         }
-    }
-    
-    func moveToDetail() {
-        
     }
 }

@@ -8,10 +8,10 @@
 import Foundation
 
 struct SearchGameList: Codable, Hashable {
-    let gameID: String?
+    let gameID: String
     let steamAppID: String?
     let cheapest: String?
     let cheapestDealID: String?
-    let external: String?
+    let external: String
     let thumb: String?
 }
