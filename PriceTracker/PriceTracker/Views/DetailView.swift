@@ -8,11 +8,8 @@
 import SwiftUI
 
 struct DetailView: View {
-    var detailViewModel: DetailViewModelProtocol
+    @ObservedObject var detailViewModel: DetailViewModel
     
-    init(detailViewModel: DetailViewModelProtocol) {
-        self.detailViewModel = detailViewModel
-    }
     var body: some View {
         if detailViewModel.isLoading {
             Text("detail is loading")
