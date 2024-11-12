@@ -6,19 +6,19 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SearchView: View {
-    var searchViewModel: SearchViewModelProtocol
+    @ObservedObject var searchViewModel: SearchViewModel
     
-    init(searchViewModel: SearchViewModelProtocol) {
-        self.searchViewModel = searchViewModel
-    }
+    
     
     var body: some View {
         VStack {
             if searchViewModel.isLoading {
                 Text("search is Loading")
             } else {
+                
                 Button(action: searchViewModel.moveToDetail) {
                     Text("Go to Detail View")
                         .padding()
@@ -32,23 +32,23 @@ struct SearchView: View {
     }
 }
 
-struct SearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        class MockViewModel: SearchViewModelProtocol {
-            func moveToDetail() {
-                searchText = "detail here"
-            }
-            
-            var searchText: String = "test"
-            
-            var isLoading: Bool = false
-            
-            var searchResults: [SearchGameList] = []
-            
-            
-            func fetchGameList() {}
-        }
-        let viewModel = MockViewModel()
-        return SearchView(searchViewModel: viewModel)
-    }
-}
+//struct SearchView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        class MockViewModel: SearchViewModelProtocol {
+//            func moveToDetail() {
+//                searchText = "detail here"
+//            }
+//            
+//            var searchText: String = "test"
+//            
+//            var isLoading: Bool = false
+//            
+//            var searchResults: [SearchGameList] = []
+//            
+//            
+//            func fetchGameList() {}
+//        }
+//        let viewModel = MockViewModel()
+//        return SearchView(searchViewModel: viewModel)
+//    }
+//}

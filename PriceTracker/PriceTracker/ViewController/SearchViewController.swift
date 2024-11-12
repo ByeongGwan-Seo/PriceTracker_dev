@@ -19,6 +19,9 @@ class SearchViewController: UIViewController {
         super.init()
     }
     
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        <#code#>
+    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

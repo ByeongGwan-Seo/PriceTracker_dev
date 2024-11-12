@@ -34,30 +34,22 @@ class SearchViewModel: SearchViewModelProtocol, ObservableObject {
     }
     
     func fetchGameList() {
-            isLoading = true
-        Future<[SearchGameList], Error> { promise in
-                Task {
-                    do {
-                        let gameList = try await self.networkService.fetchGameList(title: self.searchText)
-                        promise(.success(gameList))
-                    } catch {
-                        promise(.failure(error))
-                    }
+        isLoading = true
+        Task {
+            do {
+                let gameList = try await self.networkService.fetchGameList(title: self.searchText)
+                await MainActor.run {
+                    self.searchResults = gameList
+                    isLoading = false
+                }
+                
+            } catch {
+                await MainActor.run {
+                    isLoading = false
                 }
             }
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    self.isLoading = false
-                case .failure:
-                    self.isLoading = false
-                    print("error occured")
-                }
-            }, receiveValue: { gameList in
-                self.searchResults = gameList
-            })
-            .store(in: &cancellables)
         }
+    }
     
     func moveToDetail() {
         router.showDetail()
