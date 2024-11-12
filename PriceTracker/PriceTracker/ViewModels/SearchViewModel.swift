@@ -43,6 +43,6 @@ class SearchViewModel: ObservableObject {
     }
     
     func moveToDetail() {
-        router.showDetail()
+        
     }
 }
