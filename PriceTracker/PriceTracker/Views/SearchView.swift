@@ -10,26 +10,37 @@ import Combine
 
 struct SearchView: View {
     @ObservedObject var searchViewModel: SearchViewModel
-    
+    @State var searchText: String = ""
     var body: some View {
         NavigationView {
             VStack {
-                TextField("Enter game title", text: $searchViewModel.searchText)
+                TextField("Enter game title", text: $searchText)
                     .padding()
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .submitLabel(.search)
                     .onSubmit(searchViewModel.fetchGameList)
                     .padding(.top, 20)
                 if !searchViewModel.searchResults.isEmpty {
-                    List(searchViewModel.searchResults, id: \.gameID) { game in
-                        NavigationLink(destination: DetailView(detailViewModel: DetailViewModel())) {
-                            Text(game.external)
-                                .padding()
+                    List(
+                        searchViewModel.searchResults,
+                        id: \.gameID
+                    ) { game in
+                        NavigationLink(
+                            destination: DetailView(
+                                detailViewModel: DetailViewModel()
+                            )
+                        ) { Text(
+                            game.external
+                        ) .padding()
                         }
                     }
-                    .listStyle(.plain)
+                    .listStyle(
+                        .plain
+                    )
                 } else {
-                    Text("No results found.")
+                    Text(
+                        "No results found."
+                    )
                         .padding()
                 }
                 Spacer()

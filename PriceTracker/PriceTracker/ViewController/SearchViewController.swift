@@ -9,7 +9,7 @@ import UIKit
 import SwiftUI
 
 class SearchViewController: UIViewController {
-    private var searchViewModel = SearchViewModel()
+    private let searchViewModel = SearchViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()

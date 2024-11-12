@@ -12,7 +12,6 @@
 		0617111E2983BD9600EF7017 /* TrackinModelInApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0617111D2983BD9600EF7017 /* TrackinModelInApp.swift */; };
 		068225CE2978D1E400281CFE /* SearchGameList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068225CD2978D1E400281CFE /* SearchGameList.swift */; };
 		068225D12978D36C00281CFE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068225D02978D36C00281CFE /* NetworkService.swift */; };
-		068225D5297A8E4200281CFE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068225D4297A8E4200281CFE /* DetailViewController.swift */; };
 		0691C6522977D71000295B34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C6512977D71000295B34 /* AppDelegate.swift */; };
 		0691C6542977D71000295B34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C6532977D71000295B34 /* SceneDelegate.swift */; };
 		0691C6562977D71000295B34 /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C6552977D71000295B34 /* TrackingViewController.swift */; };
@@ -52,7 +51,6 @@
 		0617111D2983BD9600EF7017 /* TrackinModelInApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackinModelInApp.swift; sourceTree = "<group>"; };
 		068225CD2978D1E400281CFE /* SearchGameList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGameList.swift; sourceTree = "<group>"; };
 		068225D02978D36C00281CFE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		068225D4297A8E4200281CFE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		0691C64E2977D71000295B34 /* PriceTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PriceTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0691C6512977D71000295B34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0691C6532977D71000295B34 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,7 +180,6 @@
 			children = (
 				0691C6842977DB5F00295B34 /* SearchViewController.swift */,
 				0691C6552977D71000295B34 /* TrackingViewController.swift */,
-				068225D4297A8E4200281CFE /* DetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -439,7 +436,6 @@
 				0691C6562977D71000295B34 /* TrackingViewController.swift in Sources */,
 				40A6D2B22CD6116E00F8F33A /* GameRepository.swift in Sources */,
 				0691C6522977D71000295B34 /* AppDelegate.swift in Sources */,
-				068225D5297A8E4200281CFE /* DetailViewController.swift in Sources */,
 				40A6D2AF2CD6112E00F8F33A /* NetworkClient.swift in Sources */,
 				061710E8297FC4B700EF7017 /* TrackingModel.swift in Sources */,
 				068225CE2978D1E400281CFE /* SearchGameList.swift in Sources */,

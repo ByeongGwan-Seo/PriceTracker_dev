@@ -9,7 +9,9 @@ import UIKit
 import SwiftUI
 
 class DetailViewController: UIViewController {
-    private var detailViewModel = DetailViewModel()
+    private var detailViewModel = DetailViewModel?
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,6 +7,7 @@
 
 import Foundation
 
+// TODO: Codable이 필요한가? Encodable, Decodable 중 택일이 가능하지 않은가? Equatable은 필요한가?
 struct DetailModel: Codable, Equatable {
     let info: Info
     let cheapestPriceEver: CheapestPriceEver

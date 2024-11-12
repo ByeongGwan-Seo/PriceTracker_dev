@@ -14,7 +14,7 @@ struct DetailView: View {
         if detailViewModel.isLoading {
             Text("detail is loading")
         } else {
-            Text("detail is loaded")
+//            Text("your game id is \(detailViewModel.gameId)")
         }
     }
 }
