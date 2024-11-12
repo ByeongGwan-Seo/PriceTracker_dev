@@ -22,7 +22,10 @@ struct SearchView: View {
                     .padding(.top, 20)
                 if !searchViewModel.searchResults.isEmpty {
                     List(searchViewModel.searchResults, id: \.gameID) { game in
-                        Text(game.external)
+                        NavigationLink(destination: DetailView(detailViewModel: DetailViewModel())) {
+                            Text(game.external)
+                                .padding()
+                        }
                     }
                     .listStyle(.plain)
                 } else {
