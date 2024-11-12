@@ -16,22 +16,13 @@ protocol SearchViewModelProtocol {
     func moveToDetail()
 }
 
-class SearchViewModel: SearchViewModelProtocol, ObservableObject {
+class SearchViewModel: ObservableObject {
     @Published var searchText: String = ""
     @Published var searchResults: [SearchGameList] = []
     @Published var isLoading: Bool = false
     
-    private let networkService: NetworkServiceProtocol
-    private let router: RouterProtocol
-    private var cancellables: Set<AnyCancellable> = []
-    
-    init(
-        networkService: NetworkServiceProtocol = NetworkService(),
-        router: RouterProtocol
-    ) {
-        self.networkService = networkService
-        self.router = router
-    }
+    private let networkService = NetworkService()
+    private let router = Router()
     
     func fetchGameList() {
         isLoading = true

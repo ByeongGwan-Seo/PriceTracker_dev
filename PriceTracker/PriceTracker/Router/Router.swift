@@ -13,19 +13,19 @@ protocol RouterProtocol {
 
 class Router: RouterProtocol {
     
-    private let navigationController: UINavigationController
-    
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
-    }
+//    private let navigationController: UINavigationController
+//    
+//    init(navigationController: UINavigationController) {
+//        self.navigationController = navigationController
+//    }
     
     func showDetail() {
-        navigationController
-            .pushViewController(
-                DetailViewController(
-                    detailViewModel: DetailViewModel()
-                ),
-                animated: true
-            )
+//        navigationController
+//            .pushViewController(
+//                DetailViewController(
+//                    detailViewModel: DetailViewModel()
+//                ),
+//                animated: true
+//            )
     }
 }
