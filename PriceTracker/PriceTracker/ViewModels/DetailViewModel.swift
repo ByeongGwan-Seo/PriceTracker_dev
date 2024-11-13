@@ -12,18 +12,26 @@ protocol DetailViewModelProtocol {
     func fetchDetail()
 }
 
-class DetailViewModel: DetailViewModelProtocol, ObservableObject {
+class DetailViewModel: ObservableObject {
     @Published var isLoading: Bool = false
+//    var gameId: String = ""
     
     private let networkService: NetworkServiceProtocol
     
     init(
-        networkService: NetworkServiceProtocol = NetworkService()
+//        gameId: String,
+        networkService : NetworkServiceProtocol = NetworkService()
     ) {
+//        self.gameeId = gameId
         self.networkService = networkService
     }
     
-    func fetchDetail() {
-        
+    func fetchDetail(gameId: String) {
+        isLoading = true
+        Task {
+            do {
+                let gameDetail = try await self.networkService.fetchGameDetail(gameId: gameId)
+            }
+        }
     }
 }

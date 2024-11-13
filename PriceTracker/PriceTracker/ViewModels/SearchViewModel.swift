@@ -5,61 +5,35 @@
 //  Created by seobyeonggwan on 2024/11/04.
 //
 
-import SwiftUI
 import Combine
 
-protocol SearchViewModelProtocol {
-    var searchText: String { get set }
-    var isLoading: Bool { get set }
-    var searchResults: [SearchGameList] { get set }
-    func fetchGameList()
-    func moveToDetail()
-}
-
-class SearchViewModel: SearchViewModelProtocol, ObservableObject {
-    @Published var searchText: String = ""
+class SearchViewModel: ObservableObject {
     @Published var searchResults: [SearchGameList] = []
     @Published var isLoading: Bool = false
     
-    private let networkService: NetworkServiceProtocol
-    private let router: RouterProtocol
-    private var cancellables: Set<AnyCancellable> = []
-    
-    init(
-        networkService: NetworkServiceProtocol = NetworkService(),
-        router: RouterProtocol
-    ) {
-        self.networkService = networkService
-        self.router = router
-    }
+    private let networkService = NetworkService()
+    private let router = Router()
+    private var searchText: String = ""
     
     func fetchGameList() {
-            isLoading = true
-        Future<[SearchGameList], Error> { promise in
-                Task {
-                    do {
-                        let gameList = try await self.networkService.fetchGameList(title: self.searchText)
-                        promise(.success(gameList))
-                    } catch {
-                        promise(.failure(error))
-                    }
+        isLoading = true
+        // TODO: 「確か　Task 自体に @mainactorを追加すると await MainActor.run を使わなくても Mainにできてた気がします。」→concurrency勉強して確認すること
+        Task {
+            do {
+                let gameList = try await self.networkService.fetchGameList(title: self.searchText)
+                await MainActor.run {
+                    self.searchResults = gameList
+                    isLoading = false
+                }
+            } catch {
+                await MainActor.run {
+                    isLoading = false
                 }
             }
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    self.isLoading = false
-                case .failure:
-                    self.isLoading = false
-                    print("error occured")
-                }
-            }, receiveValue: { gameList in
-                self.searchResults = gameList
-            })
-            .store(in: &cancellables)
         }
+    }
     
-    func moveToDetail() {
-        router.showDetail()
+    func setSearchText(text: String) {
+        self.searchText = text
     }
 }
