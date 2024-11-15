@@ -18,7 +18,10 @@ struct SearchView: View {
                     .padding()
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .submitLabel(.search)
-                    .onSubmit(searchViewModel.fetchGameList)
+                    .onSubmit {
+                        searchViewModel.setSearchText(text: searchText)
+                        searchViewModel.fetchGameList()
+                    }
                     .padding(.top, 20)
                 if !searchViewModel.searchResults.isEmpty {
                     List(
