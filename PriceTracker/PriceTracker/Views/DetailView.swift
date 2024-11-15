@@ -29,6 +29,16 @@ struct DetailView: View {
             }
         }
         .onAppear(perform: detailViewModel.fetchDetail)
+        .alert(
+            item: $detailViewModel.errorMessage,
+            content: { errorMessage in
+                Alert(
+                    title: Text("Error"),
+                    message: Text(errorMessage.message),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
+        )
     }
 }
 

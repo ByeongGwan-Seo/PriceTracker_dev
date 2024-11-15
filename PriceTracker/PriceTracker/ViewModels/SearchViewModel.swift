@@ -10,6 +10,7 @@ import Combine
 class SearchViewModel: ObservableObject {
     @Published var searchResults: [GameTitle] = []
     @Published var isLoading: Bool = false
+    @Published var errorMessage: AlertMessage?
     
     private let networkService = NetworkService()
     private var searchText: String = ""
@@ -27,6 +28,7 @@ class SearchViewModel: ObservableObject {
             } catch {
                 await MainActor.run {
                     isLoading = false
+                    errorMessage = AlertMessage(message: "検索中エラーが発生しました。\n\(error)")
                 }
             }
         }

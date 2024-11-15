@@ -50,6 +50,16 @@ struct SearchView: View {
                 
             }
         }
+        .alert(
+            item: $searchViewModel.errorMessage,
+            content: { errorMessage in
+                Alert(
+                    title: Text("Error"),
+                    message: Text(errorMessage.message),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
+        )
     }
 }
 
