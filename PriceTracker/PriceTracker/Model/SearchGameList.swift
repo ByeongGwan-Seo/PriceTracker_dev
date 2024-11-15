@@ -8,7 +8,7 @@
 import Foundation
 
 // TODO: Hashable?
-struct SearchGameList: Decodable, Hashable {
+struct SearchGameList: Decodable {
     let gameID: String
     let steamAppID: String?
     let cheapest: String?
