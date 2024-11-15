@@ -12,7 +12,6 @@ class SearchViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     
     private let networkService = NetworkService()
-    private let router = Router()
     private var searchText: String = ""
     
     func fetchGameList() {
