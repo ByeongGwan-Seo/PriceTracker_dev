@@ -6,9 +6,25 @@
 //
 
 import SwiftUI
+import WebKit
+
 struct AlertMessage: Identifiable {
     let id = UUID()
     let message: String
+}
+
+struct WebView: UIViewRepresentable {
+    var url: URL
+
+    func makeUIView(context: Context) -> WKWebView {
+        let webView = WKWebView()
+        return webView
+    }
+
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+        let request = URLRequest(url: url)
+        uiView.load(request)
+    }
 }
 
 class DetailViewModel: ObservableObject {
@@ -45,4 +61,11 @@ class DetailViewModel: ObservableObject {
             }
         }
     }
+    
+    func openURL(for dealID: String) {
+        guard let url = URL(string: "https://www.cheapshark.com/redirect?dealID=\(dealID)") else { return }
+        UIApplication.shared.open(url)
+    }
+    
+    
 }
