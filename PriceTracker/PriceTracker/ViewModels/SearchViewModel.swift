@@ -8,7 +8,7 @@
 import Combine
 
 class SearchViewModel: ObservableObject {
-    @Published var searchResults: [SearchGameList] = []
+    @Published var searchResults: [GameTitle] = []
     @Published var isLoading: Bool = false
     
     private let networkService = NetworkService()

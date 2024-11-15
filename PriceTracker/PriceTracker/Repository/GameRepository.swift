@@ -8,7 +8,7 @@
 import Foundation
 
 protocol GameRepositoryProtocol {
-    func fetchGames(title: String) async throws -> [SearchGameList]
+    func fetchGames(title: String) async throws -> [GameTitle]
     func fetchDetail(gameId: String) async throws -> DetailModel
 }
 
@@ -20,7 +20,7 @@ class GameRepository: GameRepositoryProtocol {
         self.networkClient = networkClient
     }
     
-    func fetchGames(title: String) async throws -> [SearchGameList] {
+    func fetchGames(title: String) async throws -> [GameTitle] {
         var urlComponents = URLComponents(url: baseURL.appendingPathComponent("/games"), resolvingAgainstBaseURL: false)
         urlComponents?.queryItems = [
             URLQueryItem(name: "title", value: title)
