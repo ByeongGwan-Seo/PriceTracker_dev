@@ -7,22 +7,15 @@
 
 import SwiftUI
 
-protocol DetailViewModelProtocol {
-    var isLoading: Bool { get set }
-    func fetchDetail()
-}
-
 class DetailViewModel: ObservableObject {
     @Published var isLoading: Bool = false
-//    var gameId: String = ""
-    
+    @Published var gameDetail: DetailModel?
+
     private let networkService: NetworkServiceProtocol
     
     init(
-//        gameId: String,
         networkService : NetworkServiceProtocol = NetworkService()
     ) {
-//        self.gameeId = gameId
         self.networkService = networkService
     }
     
@@ -31,6 +24,14 @@ class DetailViewModel: ObservableObject {
         Task {
             do {
                 let gameDetail = try await self.networkService.fetchGameDetail(gameId: gameId)
+                await MainActor.run {
+                    self.gameDetail = gameDetail
+                    isLoading = false
+                }
+            } catch {
+                await MainActor.run {
+                    isLoading = false
+                }
             }
         }
     }
