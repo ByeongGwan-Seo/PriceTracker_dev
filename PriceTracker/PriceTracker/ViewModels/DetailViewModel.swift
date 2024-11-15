@@ -12,18 +12,21 @@ class DetailViewModel: ObservableObject {
     @Published var gameDetail: DetailModel?
 
     private let networkService: NetworkServiceProtocol
+    private let gameId: String
     
     init(
-        networkService : NetworkServiceProtocol = NetworkService()
+        networkService : NetworkServiceProtocol = NetworkService(),
+        gameId: String
     ) {
         self.networkService = networkService
+        self.gameId = gameId
     }
     
-    func fetchDetail(gameId: String) {
+    func fetchDetail() {
         isLoading = true
         Task {
             do {
-                let gameDetail = try await self.networkService.fetchGameDetail(gameId: gameId)
+                let gameDetail = try await self.networkService.fetchGameDetail(gameId: self.gameId)
                 await MainActor.run {
                     self.gameDetail = gameDetail
                     isLoading = false

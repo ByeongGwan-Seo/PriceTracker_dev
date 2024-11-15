@@ -30,7 +30,7 @@ struct SearchView: View {
                     ) { game in
                         NavigationLink(
                             destination: DetailView(
-                                detailViewModel: DetailViewModel()
+                                detailViewModel: DetailViewModel(gameId: game.gameID)
                             )
                         ) { Text(
                             game.external
