@@ -27,6 +27,8 @@ struct SearchView: View {
                     SearchListView(items: items)
                 case .noContent:
                     NoContentView()
+                case .error:
+                    EmptyView()
                 }
                 
                 Spacer()

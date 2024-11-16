@@ -11,6 +11,7 @@ enum ScreenStatus {
     case loading
     case content(items: [GameTitle])
     case noContent
+    case error
 }
 
 class SearchViewModel: ObservableObject {
@@ -33,14 +34,15 @@ class SearchViewModel: ObservableObject {
         // TODO: 「確か　Task 自体に @mainactorを追加すると await MainActor.run を使わなくても Mainにできてた気がします。」→concurrency勉強して確認すること
         Task {
             do {
-                let gameList = try await self.networkService.fetchGameList(title: self.searchText)
-                status = .content(items: gameList)
+                let items = try await self.networkService.fetchGameList(title: self.searchText)
+                status = .content(items: items)
                 await MainActor.run {
-                    self.contents = gameList
+                    self.contents = items
                 }
             } catch {
+                status = .error
                 await MainActor.run {
-                    status = ScreenStatus.error(message: "検索中エラーが発生しました。\n\(error)")
+                    alertMessage = AlertMessage(message: "検索中エラーが発生しました。\n\(error)")
                 }
             }
         }
