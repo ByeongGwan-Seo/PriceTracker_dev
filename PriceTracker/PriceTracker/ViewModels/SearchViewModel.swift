@@ -11,7 +11,6 @@ enum ScreenStatus {
     case loading
     case content(items: [GameTitle])
     case noContent
-    case error(message: String)
 }
 
 class SearchViewModel: ObservableObject {
@@ -24,6 +23,7 @@ class SearchViewModel: ObservableObject {
     }
     
     @Published var status: ScreenStatus = .loading
+    @Published var alertMessage: AlertMessage?
     
     private let networkService = NetworkService()
     private var searchText: String = ""

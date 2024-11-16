@@ -11,6 +11,7 @@ import Combine
 struct SearchView: View {
     @ObservedObject var searchViewModel: SearchViewModel
     @State var searchText: String = ""
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -26,24 +27,21 @@ struct SearchView: View {
                     SearchListView(items: items)
                 case .noContent:
                     NoContentView()
-                case .error(let message):
-                    EmptyView()
-                    //AlertView
                 }
                 
                 Spacer()
             }
         }
-//        .alert(
-//            item: $searchViewModel.errorMessage,
-//            content: { errorMessage in
-//                Alert(
-//                    title: Text("Error"),
-//                    message: Text(errorMessage.message),
-//                    dismissButton: .default(Text("OK"))
-//                )
-//            }
-//        )
+        .alert(
+            item: $searchViewModel.alertMessage,
+            content: { message in
+                Alert(
+                    title: Text("Error"),
+                    message: Text(message.message),
+                    dismissButton:.default( Text("OK"))
+                )
+            }
+        )
     }
 }
 
