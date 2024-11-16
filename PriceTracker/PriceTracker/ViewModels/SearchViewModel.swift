@@ -7,28 +7,40 @@
 
 import Combine
 
+enum ScreenStatus {
+    case loading
+    case content(items: [GameTitle])
+    case noContent
+    case error(message: String)
+}
+
 class SearchViewModel: ObservableObject {
-    @Published var searchResults: [GameTitle] = []
-    @Published var isLoading: Bool = false
-    @Published var errorMessage: AlertMessage?
+    @Published var contents: [GameTitle] = [] {
+        didSet {
+            if self.contents.isEmpty {
+                status = .noContent
+            }
+        }
+    }
+    
+    @Published var status: ScreenStatus = .loading
     
     private let networkService = NetworkService()
     private var searchText: String = ""
     
     func fetchGameList() {
-        isLoading = true
+        status = .loading
         // TODO: 「確か　Task 自体に @mainactorを追加すると await MainActor.run を使わなくても Mainにできてた気がします。」→concurrency勉強して確認すること
         Task {
             do {
                 let gameList = try await self.networkService.fetchGameList(title: self.searchText)
+                status = .content(items: gameList)
                 await MainActor.run {
-                    self.searchResults = gameList
-                    isLoading = false
+                    self.contents = gameList
                 }
             } catch {
                 await MainActor.run {
-                    isLoading = false
-                    errorMessage = AlertMessage(message: "検索中エラーが発生しました。\n\(error)")
+                    status = ScreenStatus.error(message: "検索中エラーが発生しました。\n\(error)")
                 }
             }
         }

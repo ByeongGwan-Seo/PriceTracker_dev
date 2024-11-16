@@ -23,5 +23,3 @@ class SearchViewController: UIViewController {
         hostingController.didMove(toParent: self)
     }
 }
-
-
