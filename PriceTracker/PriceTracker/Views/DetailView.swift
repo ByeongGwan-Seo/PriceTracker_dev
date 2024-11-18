@@ -13,12 +13,19 @@ struct DetailView: View {
 
     var body: some View {
         VStack {
-            if detailViewModel.isLoading {
+            switch detailViewModel.status {
+            case .loading:
                 ProgressView()
-            } else if let detail = detailViewModel.gameDetail {
-                DetailBasicInfoView(detailContents: detail)
-                Divider()
-                DetailDealsListView(detailContents: detail)
+            case .success:
+                if let detail = detailViewModel.gameDetail {
+                    DetailBasicInfoView(detailContents: detail)
+                    Divider()
+                    DetailDealsListView(detailContents: detail)
+                }
+            case .noContent:
+                NoContentView()
+            case .error:
+                EmptyView()
             }
         }
         .onAppear(perform: detailViewModel.fetchDetail)
