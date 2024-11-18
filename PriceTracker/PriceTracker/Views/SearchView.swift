@@ -113,7 +113,7 @@ struct SearchView_Previews: PreviewProvider {
         class MockSearchViewModel: SearchViewModel {
             override init() {
                 super.init()
-                self.searchResults = [
+                self.contents = [
                     GameTitle(
                         gameID: "1",
                         steamAppID: "1001",

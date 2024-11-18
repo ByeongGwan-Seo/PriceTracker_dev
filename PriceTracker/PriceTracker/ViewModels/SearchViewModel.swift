@@ -31,7 +31,6 @@ class SearchViewModel: ObservableObject {
     
     func fetchGameList() {
         status = .loading
-        // TODO: 「確か　Task 自体に @mainactorを追加すると await MainActor.run を使わなくても Mainにできてた気がします。」→concurrency勉強して確認すること
         Task {
             do {
                 let items = try await self.networkService.fetchGameList(title: self.searchText)
