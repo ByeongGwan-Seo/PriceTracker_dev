@@ -8,12 +8,7 @@
 import SwiftUI
 import WebKit
 
-struct AlertMessage: Identifiable {
-    let id = UUID()
-    let message: String
-}
-
-struct WebView: UIViewRepresentable {
+struct WebViewForDetailView: UIViewRepresentable {
     var url: URL
 
     func makeUIView(context: Context) -> WKWebView {
