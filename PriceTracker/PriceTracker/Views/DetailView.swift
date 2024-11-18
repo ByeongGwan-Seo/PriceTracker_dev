@@ -16,57 +16,9 @@ struct DetailView: View {
             if detailViewModel.isLoading {
                 ProgressView()
             } else if let detail = detailViewModel.gameDetail {
-                HStack {
-                    Spacer()
-                    AsyncImage(url: URL(string: detail.info.thumb)) { image in
-                        image.resizable().frame(width: 150, height: 100)
-                    } placeholder: {
-                        ProgressView()
-                    }
-                    Spacer()
-                    VStack(alignment: .leading) {
-                        Text(detail.info.title)
-                            .font(.title2)
-                            .lineLimit(4)
-                        Text("Retail Price: $\(detail.deals.first?.retailPrice ?? "")")
-                        Text("Cheapest Ever: $\(detail.cheapestPriceEver.price)")
-                    }
-                    Spacer()
-                }
+                DetailBasicInfoView(detailContents: detail)
                 Divider()
-                List(detailViewModel.gameDetail?.deals.sorted(by: {
-                    Double($0.price) ?? 0 < Double($1.price) ?? 0
-                }) ?? [], id: \.dealID) { deal in
-                    NavigationLink(
-                        destination: WebView(url: URL(string: "https://www.cheapshark.com/redirect?dealID=\(deal.dealID)")!)
-                    ) {
-                        HStack {
-                            // Store logo
-                            AsyncImage(url: URL(string: "")) { image in
-                                image
-                                    .resizable()
-                                    .frame(width: 100, height: 100)
-                            } placeholder: {
-                                ProgressView()
-                            }
-                            VStack(alignment: .leading) {
-                                Text("Price: $\(deal.price)")
-                                    .font(.body)
-                                Text("Savings: " +
-                                        ((Double(deal.savings) ?? 0.0) < 1.0
-                                            ? "None"
-                                            : "\(String(format: "%.2f", Double(deal.savings) ?? 0.0))%"))
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary)
-                            }
-                            .padding(.vertical, 5)
-                        }
-                        .contentShape(Rectangle())  // 탭 가능 영역 확장
-                        .background(Color(UIColor.systemBackground)) // 배경 색상
-                        .cornerRadius(10) // 모서리 둥글게
-                    }
-                }
-                .listStyle(.plain)
+                DetailDealsListView(detailContents: detail)
             }
         }
         .onAppear(perform: detailViewModel.fetchDetail)
@@ -78,9 +30,91 @@ struct DetailView: View {
             )
         }
     }
-
-    
 }
 
+fileprivate struct DetailBasicInfoView: View {
+    private let detailContents: DetailModel
+    
+    init(detailContents: DetailModel) {
+        self.detailContents = detailContents
+    }
+    
+    var body: some View {
+        HStack {
+            Spacer()
+            AsyncImage(url: URL(string: detailContents.info.thumb)) { image in
+                image.resizable().frame(width: 150, height: 100)
+            } placeholder: {
+                ProgressView()
+            }
+            Spacer()
+            VStack(alignment: .leading) {
+                Text(detailContents.info.title)
+                    .font(.title2)
+                    .lineLimit(4)
+                Text("Retail Price: $\(detailContents.deals.first?.retailPrice ?? "")")
+                Text("Cheapest Ever: $\(detailContents.cheapestPriceEver.price)")
+            }
+            Spacer()
+        }
+    }
+}
+
+fileprivate struct DetailDealsListView: View {
+    private let detailContents: DetailModel
+    
+    init(detailContents: DetailModel) {
+        self.detailContents = detailContents
+    }
+    
+    var body: some View {
+        List(detailContents.deals.sorted(by: {
+            Double($0.price) ?? 0 < Double($1.price) ?? 0
+        }), id: \.dealID) { deal in
+            if let url = URL(string: "https://www.cheapshark.com/redirect?dealID=\(deal.dealID)") {
+                NavigationLink(
+                    destination: WebViewForDetailView(url: url)
+                ) {
+                    DealsListViewCell(deal: deal)
+                }
+            }
+        }
+        .listStyle(.plain)
+    }
+}
+
+fileprivate struct DealsListViewCell: View {
+    private let deal: Deal
+    
+    init (deal: Deal) {
+        self.deal = deal
+    }
+    
+    var body: some View {
+        HStack {
+            AsyncImage(url: URL(string: "")) { image in
+                image
+                    .resizable()
+                    .frame(width: 100, height: 100)
+            } placeholder: {
+                ProgressView()
+            }
+            VStack(alignment: .leading) {
+                Text("Price: $\(deal.price)")
+                    .font(.body)
+                Text("Savings: " +
+                     ((Double(deal.savings) ?? 0.0) < 1.0
+                            ? "None"
+                      : "\(String(format: "%.2f", Double(deal.savings) ?? 0.0))%"))
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
+            .padding(.vertical, 5)
+        }
+        .contentShape(Rectangle())
+        .background(Color(UIColor.systemBackground))
+        .cornerRadius(10)
+    }
+}
 
 
