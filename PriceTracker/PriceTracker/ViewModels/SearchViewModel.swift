@@ -9,24 +9,24 @@ import Combine
 
 class SearchViewModel: ObservableObject {
     @Published var searchResults: [GameTitle] = []
-    @Published var isLoading: Bool = false
     @Published var errorMessage: AlertMessage?
+    @Published var status: ScreenStatus = .noContent
     
     private let networkService = NetworkService()
     private var searchText: String = ""
     
     func fetchGameList() {
-        isLoading = true
+        status = .loading
         Task {
             do {
-                let gameList = try await self.networkService.fetchGameList(title: self.searchText)
+                let gameList = try await self.networkService.fetchGameList(title: searchText)
+                status = .success
                 await MainActor.run {
                     self.searchResults = gameList
-                    isLoading = false
                 }
             } catch {
                 await MainActor.run {
-                    isLoading = false
+                    status = .error
                     errorMessage = AlertMessage(message: "検索中エラーが発生しました。\n\(error)")
                 }
             }

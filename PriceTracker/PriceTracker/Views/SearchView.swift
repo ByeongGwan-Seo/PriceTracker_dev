@@ -19,10 +19,15 @@ struct SearchView: View {
                     setSearchTextAction: searchViewModel.setSearchText,
                     fetchGameListAction: searchViewModel.fetchGameList
                 )
-                if !searchViewModel.searchResults.isEmpty {
+                switch searchViewModel.status {
+                case .loading:
+                    ProgressView()
+                case .success:
                     SearchListView(items: searchViewModel.searchResults)
-                } else {
+                case .noContent:
                     NoContentView()
+                case .error:
+                    EmptyView()
                 }
                 Spacer()
                 
@@ -90,12 +95,6 @@ fileprivate struct SearchListView: View {
         .listStyle(
             .plain
         )
-    }
-}
-
-fileprivate struct NoContentView: View {
-    var body: some View {
-        Text("No content")
     }
 }
 
