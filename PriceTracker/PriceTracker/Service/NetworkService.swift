@@ -9,7 +9,7 @@ import Foundation
 
 protocol NetworkServiceProtocol {
     func fetchGameList(title: String) async throws -> [GameTitle]
-  func fetchGameDetail(gameId: String) async throws -> DetailModel
+    func fetchGameDetail(gameId: String) async throws -> DetailModel
 }
 
 
