@@ -9,26 +9,25 @@ import Combine
 
 class SearchViewModel: ObservableObject {
     @Published var searchResults: [GameTitle] = []
-    @Published var isLoading: Bool = false
-    @Published var errorMessage: AlertMessage?
+    @Published var errorMessage: ErrorMessage?
+    @Published var status: ScreenStatus = .noContent
     
     private let networkService = NetworkService()
     private var searchText: String = ""
     
     func fetchGameList() {
-        isLoading = true
-        // TODO: 「確か　Task 自体に @mainactorを追加すると await MainActor.run を使わなくても Mainにできてた気がします。」→concurrency勉強して確認すること
+        status = .loading
         Task {
             do {
-                let gameList = try await self.networkService.fetchGameList(title: self.searchText)
+                let gameList = try await self.networkService.fetchGameList(title: searchText)
+                status = .success
                 await MainActor.run {
                     self.searchResults = gameList
-                    isLoading = false
                 }
             } catch {
                 await MainActor.run {
-                    isLoading = false
-                    errorMessage = AlertMessage(message: "検索中エラーが発生しました。\n\(error)")
+                    status = .error
+                    errorMessage = ErrorMessage(message: "検索中エラーが発生しました。\n\(error)")
                 }
             }
         }

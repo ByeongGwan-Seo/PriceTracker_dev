@@ -6,16 +6,13 @@
 //
 
 import SwiftUI
-struct AlertMessage: Identifiable {
-    let id = UUID()
-    let message: String
-}
+
 
 class DetailViewModel: ObservableObject {
-    @Published var isLoading: Bool = false
     @Published var gameDetail: DetailModel?
-    @Published var errorMessage: AlertMessage?
-
+    @Published var errorMessage: ErrorMessage?
+    @Published var status: ScreenStatus = .loading
+    
     private let networkService: NetworkServiceProtocol
     private let gameId: String
     
@@ -28,19 +25,19 @@ class DetailViewModel: ObservableObject {
     }
     
     func fetchDetail() {
-        isLoading = true
+        status = .loading
         Task {
             do {
                 let gameDetail = try await self.networkService.fetchGameDetail(gameId: gameId)
+                status = .success
                 await MainActor.run {
                     self.gameDetail = gameDetail
-                    isLoading = false
                     errorMessage = nil
                 }
             } catch {
                 await MainActor.run {
-                    isLoading = false
-                    errorMessage = AlertMessage(message: "詳細情報ロード中エラーが発生しました。\n\(error)")
+                    status = .error
+                    errorMessage = ErrorMessage(message: "詳細情報ロード中エラーが発生しました。\n\(error)")
                 }
             }
         }
