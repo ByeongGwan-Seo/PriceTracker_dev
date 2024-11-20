@@ -7,30 +7,38 @@
 
 import SwiftUI
 
-protocol DetailViewModelProtocol {
-    var isLoading: Bool { get set }
-    func fetchDetail()
-}
 
 class DetailViewModel: ObservableObject {
-    @Published var isLoading: Bool = false
-//    var gameId: String = ""
+    @Published var gameDetail: DetailModel?
+    @Published var errorMessage: ErrorMessage?
+    @Published var status: ScreenStatus = .loading
     
     private let networkService: NetworkServiceProtocol
+    private let gameId: String
     
     init(
-//        gameId: String,
-        networkService : NetworkServiceProtocol = NetworkService()
+        networkService : NetworkServiceProtocol = NetworkService(),
+        gameId: String
     ) {
-//        self.gameeId = gameId
         self.networkService = networkService
+        self.gameId = gameId
     }
     
-    func fetchDetail(gameId: String) {
-        isLoading = true
+    func fetchDetail() {
+        status = .loading
         Task {
             do {
                 let gameDetail = try await self.networkService.fetchGameDetail(gameId: gameId)
+                status = .success
+                await MainActor.run {
+                    self.gameDetail = gameDetail
+                    errorMessage = nil
+                }
+            } catch {
+                await MainActor.run {
+                    status = .error
+                    errorMessage = ErrorMessage(message: "詳細情報ロード中エラーが発生しました。\n\(error)")
+                }
             }
         }
     }
