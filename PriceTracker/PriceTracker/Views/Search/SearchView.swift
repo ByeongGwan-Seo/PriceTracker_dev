@@ -46,57 +46,7 @@ struct SearchView: View {
     }
 }
 
-fileprivate struct SearchHeader: View {
-    @Binding private var searchText: String
-    
-    private var setSearchTextAction: (String) -> Void
-    private var fetchGameListAction: () -> Void
-    
-    init(
-        searchText: Binding<String>,
-        setSearchTextAction: @escaping (String) -> Void,
-        fetchGameListAction: @escaping () -> Void
-    ) {
-        self._searchText = searchText
-        self.setSearchTextAction = setSearchTextAction
-        self.fetchGameListAction = fetchGameListAction
-    }
-    var body: some View {
-        TextField("Enter game title", text: $searchText)
-            .padding()
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .submitLabel(.search)
-            .onSubmit {
-                setSearchTextAction(searchText)
-                fetchGameListAction()
-            }
-            .padding(.top, 20)
-    }
-}
 
-fileprivate struct SearchListView: View {
-    private let items: [GameTitle]
-    
-    init(items: [GameTitle]) {
-        self.items = items
-    }
-    
-    var body: some View {
-        List(items, id: \.gameID) { game in
-            NavigationLink(
-                destination: DetailView(
-                    detailViewModel: DetailViewModel(gameId: game.gameID)
-                )
-            ) { Text(
-                game.external
-            ) .padding()
-            }
-        }
-        .listStyle(
-            .plain
-        )
-    }
-}
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
