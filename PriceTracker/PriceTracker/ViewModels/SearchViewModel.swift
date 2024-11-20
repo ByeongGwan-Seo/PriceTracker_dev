@@ -9,7 +9,7 @@ import Combine
 
 class SearchViewModel: ObservableObject {
     @Published var searchResults: [GameTitle] = []
-    @Published var errorMessage: AlertMessage?
+    @Published var errorMessage: ErrorMessage?
     @Published var status: ScreenStatus = .noContent
     
     private let networkService = NetworkService()
@@ -27,7 +27,7 @@ class SearchViewModel: ObservableObject {
             } catch {
                 await MainActor.run {
                     status = .error
-                    errorMessage = AlertMessage(message: "検索中エラーが発生しました。\n\(error)")
+                    errorMessage = ErrorMessage(message: "検索中エラーが発生しました。\n\(error)")
                 }
             }
         }
