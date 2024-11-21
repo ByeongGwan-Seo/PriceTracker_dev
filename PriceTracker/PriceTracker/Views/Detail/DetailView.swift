@@ -95,7 +95,7 @@ fileprivate struct DealsView: View {
     
     var body: some View {
         HStack {
-            ThumbnailView(urlString: "")
+            ThumbnailView(urlString: "https://www.cheapshark.com/img/stores/logos/\((Int(item.storeID) ?? 0) - 1).png")
             DealsTextView(item: item)
                 .padding(.vertical, 5)
         }
@@ -116,7 +116,8 @@ fileprivate struct ThumbnailView: View {
         AsyncImage(url: URL(string: urlString)) { image in
             image
                 .resizable()
-                .frame(width: 100, height: 100)
+                .frame(width: 50, height: 50)
+                .scaledToFit()
         } placeholder: {
             ProgressView()
         }
