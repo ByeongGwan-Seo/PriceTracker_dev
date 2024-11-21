@@ -10,7 +10,7 @@ import Combine
 class SearchViewModel: ObservableObject {
     @Published var searchResults: [GameTitle] = []
     @Published var errorMessage: ErrorMessage?
-    @Published var status: ScreenStatus = .noContent
+    @Published var status: SearchScreenStatus = .noContent
     
     private let networkService = NetworkService()
     private var searchText: String = ""

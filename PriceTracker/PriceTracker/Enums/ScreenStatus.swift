@@ -5,10 +5,15 @@
 //  Created by seobyeonggwan on 2024/11/18.
 //
 
-// 공통화는 NG
-enum ScreenStatus {
+enum SearchScreenStatus {
     case loading
     case success
-    case noContent //remove
+    case noContent
+    case error
+}
+
+enum DetailScreenStatus {
+    case loading
+    case success
     case error
 }
