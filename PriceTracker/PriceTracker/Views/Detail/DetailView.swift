@@ -10,7 +10,7 @@ import WebKit
 
 struct DetailView: View {
     @ObservedObject var detailViewModel: DetailViewModel
-
+    
     var body: some View {
         VStack {
             switch detailViewModel.status {
@@ -20,10 +20,8 @@ struct DetailView: View {
                 if let detail = detailViewModel.gameDetail {
                     BasicInfoView(item: detail)
                     Divider()
-                    DealsListView(item: detail)
+                    DealsListView(items: detailViewModel.sortedDeals)
                 }
-            case .noContent:
-                NoContentView()
             case .error:
                 EmptyView()
             }
@@ -46,8 +44,6 @@ fileprivate struct BasicInfoView: View {
         self.item = item
     }
     
-    
-    // NG
     var body: some View {
         HStack {
             Spacer()
@@ -70,17 +66,14 @@ fileprivate struct BasicInfoView: View {
 }
 
 fileprivate struct DealsListView: View {
-    private let item: DetailModel
+    private let items: [Deal]
     
-    init(item: DetailModel) {
-        self.item = item
+    init(items: [Deal]) {
+        self.items = items
     }
     
     var body: some View {
-        // NG 뷰에 비지니스로직은 피해라
-        List(item.deals.sorted(by: {
-            Double($0.price) ?? 0 < Double($1.price) ?? 0
-        }), id: \.dealID) { deal in
+        List(items, id: \.dealID) { deal in
             if let url = URL(string: "https://www.cheapshark.com/redirect?dealID=\(deal.dealID)") {
                 NavigationLink(
                     destination: WebViewForDetailView(url: url)
@@ -102,9 +95,9 @@ fileprivate struct DealsView: View {
     
     var body: some View {
         HStack {
-            ThumnailView(urlString: "")
+            ThumbnailView(urlString: "")
             DealsTextView(item: item)
-            .padding(.vertical, 5)
+                .padding(.vertical, 5)
         }
         .contentShape(Rectangle())
         .background(Color(UIColor.systemBackground))
@@ -112,7 +105,7 @@ fileprivate struct DealsView: View {
     }
 }
 
-fileprivate struct ThumnailView: View {
+fileprivate struct ThumbnailView: View {
     private let urlString: String
     
     init(urlString: String) {
@@ -143,10 +136,10 @@ private struct DealsTextView: View {
                 .font(.body)
             Text("Savings: " +
                  ((Double(item.savings) ?? 0.0) < 1.0
-                        ? "None"
+                  ? "None"
                   : "\(String(format: "%.2f", Double(item.savings) ?? 0.0))%"))
-                .font(.subheadline)
-                .foregroundColor(.secondary)
+            .font(.subheadline)
+            .foregroundColor(.secondary)
         }
     }
 }

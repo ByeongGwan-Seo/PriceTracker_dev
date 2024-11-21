@@ -11,7 +11,8 @@ import SwiftUI
 class DetailViewModel: ObservableObject {
     @Published var gameDetail: DetailModel?
     @Published var errorMessage: ErrorMessage?
-    @Published var status: ScreenStatus = .loading
+    @Published var sortedDeals: [Deal] = []
+    @Published var status: DetailScreenStatus = .loading
     
     private let networkService: NetworkServiceProtocol
     private let gameId: String
@@ -32,6 +33,9 @@ class DetailViewModel: ObservableObject {
                 status = .success
                 await MainActor.run {
                     self.gameDetail = gameDetail
+                    self.sortedDeals = gameDetail.deals.sorted {
+                        Double($0.price) ?? 0 < Double($1.price) ?? 0
+                    }
                     errorMessage = nil
                 }
             } catch {
