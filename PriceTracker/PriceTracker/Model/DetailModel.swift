@@ -34,3 +34,8 @@ struct Info: Codable, Equatable {
     let thumb: String
 }
 
+extension Deal {
+    func thumnailImageUrl()  -> String {
+        return "http://test.com" + storeID
+    }
+}

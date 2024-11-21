@@ -18,9 +18,9 @@ struct DetailView: View {
                 ProgressView()
             case .success:
                 if let detail = detailViewModel.gameDetail {
-                    DetailBasicInfoView(detailContents: detail)
+                    BasicInfoView(item: detail)
                     Divider()
-                    DetailDealsListView(detailContents: detail)
+                    DealsListView(item: detail)
                 }
             case .noContent:
                 NoContentView()
@@ -39,50 +39,53 @@ struct DetailView: View {
     }
 }
 
-fileprivate struct DetailBasicInfoView: View {
-    private let detailContents: DetailModel
+fileprivate struct BasicInfoView: View {
+    private let item: DetailModel
     
-    init(detailContents: DetailModel) {
-        self.detailContents = detailContents
+    init(item: DetailModel) {
+        self.item = item
     }
     
+    
+    // NG
     var body: some View {
         HStack {
             Spacer()
-            AsyncImage(url: URL(string: detailContents.info.thumb)) { image in
+            AsyncImage(url: URL(string: item.info.thumb)) { image in
                 image.resizable().frame(width: 150, height: 100)
             } placeholder: {
                 ProgressView()
             }
             Spacer()
             VStack(alignment: .leading) {
-                Text(detailContents.info.title)
+                Text(item.info.title)
                     .font(.title2)
                     .lineLimit(4)
-                Text("Retail Price: $\(detailContents.deals.first?.retailPrice ?? "")")
-                Text("Cheapest Ever: $\(detailContents.cheapestPriceEver.price)")
+                Text("Retail Price: $\(item.deals.first?.retailPrice ?? "")")
+                Text("Cheapest Ever: $\(item.cheapestPriceEver.price)")
             }
             Spacer()
         }
     }
 }
 
-fileprivate struct DetailDealsListView: View {
-    private let detailContents: DetailModel
+fileprivate struct DealsListView: View {
+    private let item: DetailModel
     
-    init(detailContents: DetailModel) {
-        self.detailContents = detailContents
+    init(item: DetailModel) {
+        self.item = item
     }
     
     var body: some View {
-        List(detailContents.deals.sorted(by: {
+        // NG 뷰에 비지니스로직은 피해라
+        List(item.deals.sorted(by: {
             Double($0.price) ?? 0 < Double($1.price) ?? 0
         }), id: \.dealID) { deal in
             if let url = URL(string: "https://www.cheapshark.com/redirect?dealID=\(deal.dealID)") {
                 NavigationLink(
                     destination: WebViewForDetailView(url: url)
                 ) {
-                    DealsListViewCell(deal: deal)
+                    DealsView(item: deal)
                 }
             }
         }
@@ -90,32 +93,17 @@ fileprivate struct DetailDealsListView: View {
     }
 }
 
-fileprivate struct DealsListViewCell: View {
-    private let deal: Deal
+fileprivate struct DealsView: View {
+    private let item: Deal
     
-    init (deal: Deal) {
-        self.deal = deal
+    init (item: Deal) {
+        self.item = item
     }
     
     var body: some View {
         HStack {
-            AsyncImage(url: URL(string: "")) { image in
-                image
-                    .resizable()
-                    .frame(width: 100, height: 100)
-            } placeholder: {
-                ProgressView()
-            }
-            VStack(alignment: .leading) {
-                Text("Price: $\(deal.price)")
-                    .font(.body)
-                Text("Savings: " +
-                     ((Double(deal.savings) ?? 0.0) < 1.0
-                            ? "None"
-                      : "\(String(format: "%.2f", Double(deal.savings) ?? 0.0))%"))
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-            }
+            ThumnailView(urlString: "")
+            DealsTextView(item: item)
             .padding(.vertical, 5)
         }
         .contentShape(Rectangle())
@@ -124,4 +112,41 @@ fileprivate struct DealsListViewCell: View {
     }
 }
 
+fileprivate struct ThumnailView: View {
+    private let urlString: String
+    
+    init(urlString: String) {
+        self.urlString = urlString
+    }
+    
+    var body: some View {
+        AsyncImage(url: URL(string: urlString)) { image in
+            image
+                .resizable()
+                .frame(width: 100, height: 100)
+        } placeholder: {
+            ProgressView()
+        }
+    }
+}
 
+private struct DealsTextView: View {
+    private let item: Deal
+    
+    init(item: Deal) {
+        self.item = item
+    }
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("Price: $\(item.price)")
+                .font(.body)
+            Text("Savings: " +
+                 ((Double(item.savings) ?? 0.0) < 1.0
+                        ? "None"
+                  : "\(String(format: "%.2f", Double(item.savings) ?? 0.0))%"))
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+        }
+    }
+}
