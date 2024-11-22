@@ -7,7 +7,6 @@
 
 import Foundation
 
-// TODO: Codable이 필요한가? Encodable, Decodable 중 택일이 가능하지 않은가? Equatable은 필요한가?　→ まだ対応してないため残します。
 struct DetailModel: Codable, Equatable {
     let info: Info
     let cheapestPriceEver: CheapestPriceEver
@@ -36,6 +35,7 @@ struct Info: Codable, Equatable {
 
 extension Deal {
     func thumnailImageUrl()  -> String {
-        return "http://test.com" + storeID
+        guard let storeIdInteger = Int(storeID) else { return "" }
+        return "https://www.cheapshark.com/img/stores/logos/\(storeIdInteger - 1).png"
     }
 }
