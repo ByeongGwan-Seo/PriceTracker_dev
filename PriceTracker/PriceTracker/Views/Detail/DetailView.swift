@@ -16,20 +16,40 @@ struct DetailView: View {
             switch detailViewModel.status {
             case .loading:
                 ProgressView()
-            case .success(let detail, let sortedDeals):
-                BasicInfoView(item: detail)
+            case .success(
+                let detail,
+                let sortedDeals
+            ):
+                BasicInfoView(
+                    item: detail
+                )
                 Divider()
-                DealsListView(items: sortedDeals)
+                DealsListView(
+                    items: sortedDeals
+                )
             case .error:
                 EmptyView()
             }
         }
-        .onAppear(perform: detailViewModel.fetchDetail)
-        .alert(item: $detailViewModel.errorMessage) { errorMessage in
+        .onAppear(
+            perform: detailViewModel.fetchDetail
+        )
+        .alert(
+            item: $detailViewModel.errorMessage
+        ) { errorMessage in
             Alert(
-                title: Text("Error"),
-                message: Text(errorMessage.message),
-                dismissButton: .default(Text("OK"))
+                title: Text(
+                    "Error"
+                ),
+                message: Text(
+                    errorMessage.message
+                ),
+                dismissButton: 
+                        .default(
+                            Text(
+                                "OK"
+                            )
+                        )
             )
         }
     }
