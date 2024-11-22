@@ -1,0 +1,6 @@
+strings:
+  inputs:
+    - PriceTracker/Resources/localizable.strings
+  outputs:
+    - templateName: structured-swift5
+      output: PriceTracker/GeneratedStrings/Strings.swift
