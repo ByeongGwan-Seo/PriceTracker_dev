@@ -16,12 +16,10 @@ struct DetailView: View {
             switch detailViewModel.status {
             case .loading:
                 ProgressView()
-            case .success:
-                if let detail = detailViewModel.gameDetail {
-                    BasicInfoView(item: detail)
-                    Divider()
-                    DealsListView(items: detailViewModel.sortedDeals)
-                }
+            case .success(let detail, let sortedDeals):
+                BasicInfoView(item: detail)
+                Divider()
+                DealsListView(items: sortedDeals)
             case .error:
                 EmptyView()
             }

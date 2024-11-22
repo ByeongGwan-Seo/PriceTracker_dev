@@ -9,9 +9,8 @@ import SwiftUI
 
 
 class DetailViewModel: ObservableObject {
-    @Published var gameDetail: DetailModel?
+    @Published var contents: DetailModel?
     @Published var errorMessage: ErrorMessage?
-    @Published var sortedDeals: [Deal] = []
     @Published var status: DetailScreenStatus = .loading
     
     private let networkService: NetworkServiceProtocol
@@ -30,12 +29,12 @@ class DetailViewModel: ObservableObject {
         Task {
             do {
                 let gameDetail = try await self.networkService.fetchGameDetail(gameId: gameId)
-                status = .success
+                let sortedDeals = gameDetail.deals.sorted {
+                    Double($0.price) ?? 0 < Double($1.price) ?? 0
+                }
                 await MainActor.run {
-                    self.gameDetail = gameDetail
-                    self.sortedDeals = gameDetail.deals.sorted {
-                        Double($0.price) ?? 0 < Double($1.price) ?? 0
-                    }
+                    status = .success(items: gameDetail, sortedDeals: sortedDeals)
+                    self.contents = gameDetail
                     errorMessage = nil
                 }
             } catch {
