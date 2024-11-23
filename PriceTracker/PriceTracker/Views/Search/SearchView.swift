@@ -8,9 +8,10 @@
 import SwiftUI
 import Combine
 
-struct SearchView: View {
-    @ObservedObject var searchViewModel: SearchViewModel
+struct SearchView<ViewModel: SearchViewModelProtocol>: View {
+    @ObservedObject var searchViewModel: ViewModel
     @State var searchText: String = ""
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -46,44 +47,45 @@ struct SearchView: View {
     }
 }
 
-
-
-struct SearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        class MockSearchViewModel: SearchViewModel {
-            override init() {
-                super.init()
-                self.contents = [
-                    GameTitle(
-                        gameID: "1",
-                        steamAppID: "1001",
-                        cheapest: "5.99",
-                        cheapestDealID: "deal_001",
-                        external: "https://game1.com",
-                        thumb: "thumb1"
-                    ),
-                    GameTitle(
-                        gameID: "2",
-                        steamAppID: "1002",
-                        cheapest: "9.99",
-                        cheapestDealID: "deal_002",
-                        external: "https://game2.com",
-                        thumb: "thumb2"
-                    ),
-                    GameTitle(
-                        gameID: "3",
-                        steamAppID: "1003",
-                        cheapest: "12.99",
-                        cheapestDealID: "deal_003",
-                        external: "https://game3.com",
-                        thumb: "thumb3"
-                    )
-                ]
-            }
-        }
-        return SearchView(
-            searchViewModel: MockSearchViewModel()
-        )
-    }
+#Preview("SearchView Loading Preview") {
+    let mockViewModel = MockViewModel(
+        contents: [],
+        status: .loading,
+        errorMessage: nil
+    )
+    SearchView(searchViewModel: mockViewModel, searchText: "ほげほげ")
 }
 
+#Preview("SearchView Success Preview") {
+    let mockViewModel = MockViewModel(
+        contents: [],
+        status: .success(items: [
+            GameTitle(
+                gameID: "1",
+                steamAppID: "1001",
+                cheapest: "5.99",
+                cheapestDealID: "deal_001",
+                external: "https://game1.com",
+                thumb: "thumb1"
+            ),
+            GameTitle(
+                gameID: "2",
+                steamAppID: "1002",
+                cheapest: "9.99",
+                cheapestDealID: "deal_002",
+                external: "https://game2.com",
+                thumb: "thumb2"
+            ),
+            GameTitle(
+                gameID: "3",
+                steamAppID: "1003",
+                cheapest: "12.99",
+                cheapestDealID: "deal_003",
+                external: "https://game3.com",
+                thumb: "thumb3"
+            )
+        ]),
+        errorMessage: nil
+    )
+    SearchView(searchViewModel: mockViewModel, searchText: "ほげほげ")
+}

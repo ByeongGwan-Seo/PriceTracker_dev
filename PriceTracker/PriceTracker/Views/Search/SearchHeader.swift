@@ -34,3 +34,10 @@ struct SearchHeader: View {
             .padding(.top, 20)
     }
 }
+
+#Preview("SearchHeader Preview") {
+    SearchHeader(searchText: .constant("タイトル"),
+                 setSearchTextAction: {_ in },
+                 fetchGameListAction: {}
+    )
+}

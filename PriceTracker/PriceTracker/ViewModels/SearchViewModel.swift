@@ -7,13 +7,28 @@
 
 import Combine
 
-class SearchViewModel: ObservableObject {
+@MainActor
+protocol SearchViewModelProtocol: ObservableObject {
+    var contents: [GameTitle] { get set }
+    var status: SearchScreenStatus { get  set }
+    var errorMessage: ErrorMessage?  { get  set }
+    
+    
+    func fetchGameList()
+    func setSearchText(text: String)
+}
+
+class SearchViewModel: SearchViewModelProtocol {
     @Published var contents: [GameTitle] = []
     @Published var status: SearchScreenStatus = .noContent
     @Published var errorMessage: ErrorMessage?
     
-    private let networkService = NetworkService()
+    private let networkService: NetworkServiceProtocol
     private var searchText: String = ""
+    
+    init (networkService: NetworkServiceProtocol = NetworkService()) {
+        self.networkService = networkService
+    }
     
     func fetchGameList() {
         status = .loading
