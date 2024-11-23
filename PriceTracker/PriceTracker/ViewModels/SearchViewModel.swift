@@ -27,7 +27,7 @@ class SearchViewModel: ObservableObject {
             } catch {
                 await MainActor.run {
                     status = .error
-                    errorMessage = ErrorMessage(message: "検索中エラーが発生しました。\n\(error)")
+                    errorMessage = ErrorMessage(message: L10n.searchError(error))
                 }
             }
         }

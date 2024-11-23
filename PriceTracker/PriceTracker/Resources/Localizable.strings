@@ -1,0 +1,28 @@
+// error message
+"search_error" = "検索中エラーが発生しました。もう一度検索してください\n%@";
+"detail_error" = "詳細情報ロード中エラーが発生しました。もう一度やり直してください\n%@";
+"no_contents_error" = "表示する内容がありません";
+"no_information_error" = "N/A";
+
+// api base URL string
+"api_base_URL" = "https://www.cheapshark.com/api/1.0";
+
+// path components
+"path_games" = "/games";
+
+// query items
+"query_title" = "title";
+"query_id" = "id";
+
+// redirect string
+"redirect_store" = "https://www.cheapshark.com/redirect?dealID=%@";
+
+// ui text
+"search_placeholder" = "ゲーム名を入力してください";
+"ui_ok" = "OK";
+"error_title" = "Error";
+"retail_price_text" = "Retail Price: $%@";
+"cheapest_ever_text" = "Ceapest Ever: $%@";
+"deal_price_text" = "Price: $%@";
+"savings_rate_text" = "Savings: %@%%";
+"savings_none_text" = "Savings: Less than 1%";

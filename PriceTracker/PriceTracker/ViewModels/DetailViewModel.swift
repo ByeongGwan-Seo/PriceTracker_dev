@@ -37,7 +37,7 @@ class DetailViewModel: ObservableObject {
             } catch {
                 await MainActor.run {
                     status = .error
-                    errorMessage = ErrorMessage(message: "詳細情報ロード中エラーが発生しました。\n\(error)")
+                    errorMessage = ErrorMessage(message: L10n.detailError(error))
                 }
             }
         }

@@ -77,7 +77,7 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		063BEF8B2CD8D92D00FE793E /* ViewModels */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ViewModels; sourceTree = "<group>"; };
 		068C04DD2CF089F900B4FFCC /* Resources */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Resources; sourceTree = "<group>"; };
-		068C04E02CF08D2B00B4FFCC /* GeneratedStrings */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = GeneratedStrings; sourceTree = "<group>"; };
+		068C04E02CF08D2B00B4FFCC /* Generated */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Generated; sourceTree = "<group>"; };
 		06C0CFD72CEB370D00CD9A1E /* Enums */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Enums; sourceTree = "<group>"; };
 		06F13DBD2CD8B91700BF19D3 /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -146,7 +146,7 @@
 		0691C6502977D71000295B34 /* PriceTracker */ = {
 			isa = PBXGroup;
 			children = (
-				068C04E02CF08D2B00B4FFCC /* GeneratedStrings */,
+				068C04E02CF08D2B00B4FFCC /* Generated */,
 				068C04DD2CF089F900B4FFCC /* Resources */,
 				06C0CFD72CEB370D00CD9A1E /* Enums */,
 				063BEF8B2CD8D92D00FE793E /* ViewModels */,
@@ -251,7 +251,7 @@
 			fileSystemSynchronizedGroups = (
 				063BEF8B2CD8D92D00FE793E /* ViewModels */,
 				068C04DD2CF089F900B4FFCC /* Resources */,
-				068C04E02CF08D2B00B4FFCC /* GeneratedStrings */,
+				068C04E02CF08D2B00B4FFCC /* Generated */,
 				06C0CFD72CEB370D00CD9A1E /* Enums */,
 				06F13DBD2CD8B91700BF19D3 /* Views */,
 			);
@@ -329,6 +329,8 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
+				ko,
 			);
 			mainGroup = 0691C6452977D71000295B34;
 			packageReferences = (
@@ -557,6 +559,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -611,6 +614,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};

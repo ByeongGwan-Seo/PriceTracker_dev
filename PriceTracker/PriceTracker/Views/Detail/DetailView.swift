@@ -31,9 +31,9 @@ struct DetailView: View {
         .onAppear(perform: detailViewModel.fetchDetail)
         .alert(item: $detailViewModel.errorMessage) { errorMessage in
             Alert(
-                title: Text("Error"),
+                title: Text(L10n.errorTitle),
                 message: Text(errorMessage.message),
-                dismissButton: .default(Text("OK"))
+                dismissButton: .default(Text(L10n.uiOk))
             )
         }
     }
@@ -59,8 +59,8 @@ fileprivate struct DetailBasicInfoView: View {
                 Text(detailContents.info.title)
                     .font(.title2)
                     .lineLimit(4)
-                Text("Retail Price: $\(detailContents.deals.first?.retailPrice ?? "")")
-                Text("Cheapest Ever: $\(detailContents.cheapestPriceEver.price)")
+                Text(L10n.retailPriceText(detailContents.deals.first?.retailPrice ?? L10n.noInformationError))
+                Text(L10n.cheapestEverText(detailContents.cheapestPriceEver.price))
             }
             Spacer()
         }
@@ -78,7 +78,7 @@ fileprivate struct DetailDealsListView: View {
         List(detailContents.deals.sorted(by: {
             Double($0.price) ?? 0 < Double($1.price) ?? 0
         }), id: \.dealID) { deal in
-            if let url = URL(string: "https://www.cheapshark.com/redirect?dealID=\(deal.dealID)") {
+            if let url = URL(string: L10n.redirectStore(deal.dealID)) {
                 NavigationLink(
                     destination: WebViewForDetailView(url: url)
                 ) {
@@ -107,12 +107,13 @@ fileprivate struct DealsListViewCell: View {
                 ProgressView()
             }
             VStack(alignment: .leading) {
-                Text("Price: $\(deal.price)")
+                Text(L10n.dealPriceText(deal.price))
                     .font(.body)
-                Text("Savings: " +
-                     ((Double(deal.savings) ?? 0.0) < 1.0
-                            ? "None"
-                      : "\(String(format: "%.2f", Double(deal.savings) ?? 0.0))%"))
+                Text(
+                    (Double(deal.savings) ?? 0.0) < 1.0
+                        ? L10n.savingsNoneText
+                        : L10n.savingsRateText(String(format: "%.2f", Double(deal.savings) ?? 0.0))
+                )
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }

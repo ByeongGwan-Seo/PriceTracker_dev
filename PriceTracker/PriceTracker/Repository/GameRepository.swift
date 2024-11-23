@@ -14,16 +14,16 @@ protocol GameRepositoryProtocol {
 
 class GameRepository: GameRepositoryProtocol {
     private let networkClient: NetworkClientProtocol
-    private let baseURL = URL(string: "https://www.cheapshark.com/api/1.0")!
+    private let baseURL = URL(string:L10n.apiBaseURL)!
     
     init(networkClient: NetworkClient = NetworkClient()) {
         self.networkClient = networkClient
     }
     
     func fetchGames(title: String) async throws -> [GameTitle] {
-        var urlComponents = URLComponents(url: baseURL.appendingPathComponent("/games"), resolvingAgainstBaseURL: false)
+        var urlComponents = URLComponents(url: baseURL.appendingPathComponent(L10n.pathGames), resolvingAgainstBaseURL: false)
         urlComponents?.queryItems = [
-            URLQueryItem(name: "title", value: title)
+            URLQueryItem(name: L10n.queryTitle, value: title)
         ]
         
         guard let url = urlComponents?.url else {
@@ -34,9 +34,9 @@ class GameRepository: GameRepositoryProtocol {
     }
     
     func fetchDetail(gameId: String) async throws -> DetailModel {
-        var urlComponents = URLComponents(url: baseURL.appendingPathComponent("/games"), resolvingAgainstBaseURL: false)
+        var urlComponents = URLComponents(url: baseURL.appendingPathComponent(L10n.pathGames), resolvingAgainstBaseURL: false)
         urlComponents?.queryItems = [
-            URLQueryItem(name: "id", value: gameId)
+            URLQueryItem(name: L10n.queryId, value: gameId)
         ]
         
         guard let url = urlComponents?.url else {
