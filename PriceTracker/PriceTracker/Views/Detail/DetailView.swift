@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
-import WebKit
+import Combine
 
-struct DetailView: View {
-    @ObservedObject var detailViewModel: DetailViewModel
+struct DetailView<ViewModel: DetailViewModelProtocol>: View {
+    @ObservedObject var detailViewModel: ViewModel
     
     var body: some View {
         VStack {
@@ -53,4 +53,9 @@ struct DetailView: View {
             )
         }
     }
+}
+
+#Preview("Detailview success preview") {
+    let mockViewModel = makeMockDetailViewModel()
+    DetailView(detailViewModel: mockViewModel)
 }

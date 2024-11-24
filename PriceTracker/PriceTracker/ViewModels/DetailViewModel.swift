@@ -5,10 +5,19 @@
 //  Created by seobyeonggwan on 2024/11/06.
 //
 
-import SwiftUI
+import Combine
+
+@MainActor
+protocol DetailViewModelProtocol: ObservableObject {
+    var contents: DetailModel? { get set }
+    var errorMessage: ErrorMessage? { get set }
+    var status: DetailScreenStatus { get set }
+    
+    func fetchDetail()
+}
 
 
-class DetailViewModel: ObservableObject {
+class DetailViewModel: DetailViewModelProtocol {
     @Published var contents: DetailModel?
     @Published var errorMessage: ErrorMessage?
     @Published var status: DetailScreenStatus = .loading
