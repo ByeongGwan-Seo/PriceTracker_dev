@@ -5,7 +5,7 @@
 //  Created by jaeeun on 2024/11/23.
 //
 
-class MockViewModel: SearchViewModelProtocol {
+class SearchMockViewModel: SearchViewModelProtocol {
     var contents: [GameTitle]
     var status: SearchScreenStatus
     var errorMessage: ErrorMessage?

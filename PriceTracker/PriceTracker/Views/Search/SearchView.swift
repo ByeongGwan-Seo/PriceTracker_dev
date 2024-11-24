@@ -48,7 +48,7 @@ struct SearchView<ViewModel: SearchViewModelProtocol>: View {
 }
 
 #Preview("SearchView Loading Preview") {
-    let mockViewModel = MockViewModel(
+    let mockViewModel = SearchMockViewModel(
         contents: [],
         status: .loading,
         errorMessage: nil
@@ -57,7 +57,7 @@ struct SearchView<ViewModel: SearchViewModelProtocol>: View {
 }
 
 #Preview("SearchView Success Preview") {
-    let mockViewModel = MockViewModel(
+    let mockViewModel = SearchMockViewModel(
         contents: [],
         status: .success(items: [
             GameTitle(
