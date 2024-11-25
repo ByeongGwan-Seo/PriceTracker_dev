@@ -39,7 +39,7 @@ struct SearchView: View {
                 Alert(
                     title: Text("Error"),
                     message: Text(message.message),
-                    dismissButton:.default( Text("OK"))
+                    dismissButton: .default(Text("OK"))
                 )
             }
         )
