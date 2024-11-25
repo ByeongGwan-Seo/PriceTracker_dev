@@ -38,4 +38,8 @@ extension Deal {
         guard let storeIdInteger = Int(storeID) else { return "" }
         return "https://www.cheapshark.com/img/stores/logos/\(storeIdInteger - 1).png"
     }
+    
+    func doubledString(string: String) -> Double {
+        Double(string) ?? 0.0
+    }
 }

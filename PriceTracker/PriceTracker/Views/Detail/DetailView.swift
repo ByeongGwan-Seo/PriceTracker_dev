@@ -25,7 +25,9 @@ struct DetailView: View {
                 )
                 Divider()
                 DealsListView(
-                    items: sortedDeals
+                    items: sortedDeals,
+                    getFormattedSavings: detailViewModel.getFormattedSavings,
+                    getPrice: detailViewModel.getPrice
                 )
             case .error:
                 EmptyView()

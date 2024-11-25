@@ -24,6 +24,23 @@ class DetailViewModel: ObservableObject {
         self.gameId = gameId
     }
     
+    func getFormattedSavings(for item: Deal) -> String {
+        let savings = item.doubledString(string: item.savings)
+        let savingsText: String
+        
+        if savings < 1.0 {
+            savingsText = "Savings: None"
+        } else {
+            savingsText = "Saving: \(String(format: "%.2f", savings))%"
+        }
+        
+        return savingsText
+    }
+    
+    func getPrice(for item: Deal) -> String {
+        "Price: $\(item.price)"
+    }
+    
     func fetchDetail() {
         status = .loading
         Task {

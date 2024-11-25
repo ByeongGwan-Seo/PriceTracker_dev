@@ -9,19 +9,24 @@ import SwiftUI
 
 struct DealsTextView: View {
     private let item: Deal
+    private var getFormattedSavings: (Deal) -> String
+    private var getPrice: (Deal) -> String
     
-    init(item: Deal) {
+    init(
+        item: Deal,
+        getFormattedSavings: @escaping (Deal) -> String,
+        getPrice: @escaping (Deal) -> String
+    ) {
         self.item = item
+        self.getFormattedSavings = getFormattedSavings
+        self.getPrice = getPrice
     }
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Price: $\(item.price)")
+            Text(getPrice(item))
                 .font(.body)
-            Text("Savings: " +
-                 ((Double(item.savings) ?? 0.0) < 1.0
-                  ? "None"
-                  : "\(String(format: "%.2f", Double(item.savings) ?? 0.0))%"))
+            Text(getFormattedSavings(item))
             .font(.subheadline)
             .foregroundColor(.secondary)
         }

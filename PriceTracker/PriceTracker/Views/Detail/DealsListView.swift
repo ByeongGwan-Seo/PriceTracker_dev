@@ -9,9 +9,17 @@ import SwiftUI
 
 struct DealsListView: View {
     private let items: [Deal]
+    private var getFormattedSavings: (Deal) -> String
+    private var getPrice: (Deal) -> String
     
-    init(items: [Deal]) {
+    init(
+        items: [Deal],
+        getFormattedSavings: @escaping (Deal) -> String,
+        getPrice: @escaping (Deal) -> String
+    ) {
         self.items = items
+        self.getFormattedSavings = getFormattedSavings
+        self.getPrice = getPrice
     }
     
     var body: some View {
@@ -20,7 +28,7 @@ struct DealsListView: View {
                 NavigationLink(
                     destination: WebViewForDetailView(url: url)
                 ) {
-                    DealView(item: deal)
+                    DealView(item: deal, getFormattedSavings: getFormattedSavings, getPrice: getPrice)
                 }
             }
         }
