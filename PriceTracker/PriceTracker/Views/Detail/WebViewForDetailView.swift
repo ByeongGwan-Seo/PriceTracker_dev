@@ -12,7 +12,7 @@ struct WebViewForDetailView: UIViewRepresentable {
     var url: URL
 
     func makeUIView(context: Context) -> WKWebView {
-        return WKWebView()
+        WKWebView()
     }
 
     func updateUIView(_ uiView: WKWebView, context: Context) {
