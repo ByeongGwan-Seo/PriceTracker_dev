@@ -129,7 +129,6 @@
 		0691C6452977D71000295B34 = {
 			isa = PBXGroup;
 			children = (
-				064342142CF7FBB800C702B1 /* Localizable.strings */,
 				0691C6502977D71000295B34 /* PriceTracker */,
 				0691C66A2977D71100295B34 /* PriceTrackerTests */,
 				0691C6742977D71100295B34 /* PriceTrackerUITests */,
@@ -151,6 +150,7 @@
 		0691C6502977D71000295B34 /* PriceTracker */ = {
 			isa = PBXGroup;
 			children = (
+				064342142CF7FBB800C702B1 /* Localizable.strings */,
 				06C0CFD72CEB370D00CD9A1E /* Enums */,
 				063BEF8B2CD8D92D00FE793E /* ViewModels */,
 				06F13DBD2CD8B91700BF19D3 /* Views */,
