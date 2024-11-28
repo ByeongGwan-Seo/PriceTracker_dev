@@ -31,9 +31,9 @@ struct DetailView: View {
         .onAppear(perform: detailViewModel.fetchDetail)
         .alert(item: $detailViewModel.errorMessage) { errorMessage in
             Alert(
-                title: Text("Error"),
+                title: Text("error_alert_title"),
                 message: Text(errorMessage.message),
-                dismissButton: .default(Text("OK"))
+                dismissButton: .default(Text("alert_dismiss_ok"))
             )
         }
     }
@@ -59,8 +59,8 @@ fileprivate struct DetailBasicInfoView: View {
                 Text(detailContents.info.title)
                     .font(.title2)
                     .lineLimit(4)
-                Text("Retail Price: $\(detailContents.deals.first?.retailPrice ?? "")")
-                Text("Cheapest Ever: $\(detailContents.cheapestPriceEver.price)")
+                Text(String(format: NSLocalizedString("retail_price_string", comment: ""), detailContents.deals.first?.retailPrice ?? ""))
+                Text(String(format: NSLocalizedString("cheapest_ever_string", comment: ""), detailContents.cheapestPriceEver.price))
             }
             Spacer()
         }

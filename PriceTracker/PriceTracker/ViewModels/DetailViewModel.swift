@@ -37,7 +37,8 @@ class DetailViewModel: ObservableObject {
             } catch {
                 await MainActor.run {
                     status = .error
-                    errorMessage = ErrorMessage(message: "詳細情報ロード中エラーが発生しました。\n\(error)")
+                    let localizedMessage = String(format: NSLocalizedString("detail_error_message", comment: "error occurred while loading detail"), "\(error)")
+                    errorMessage = ErrorMessage(message: localizedMessage)
                 }
             }
         }
