@@ -9,9 +9,9 @@ import SwiftUI
 
 
 class DetailViewModel: ObservableObject {
-    @Published var gameDetail: DetailModel?
+    @Published var contents: DetailModel?
     @Published var errorMessage: ErrorMessage?
-    @Published var status: ScreenStatus = .loading
+    @Published var status: DetailScreenStatus = .loading
     
     private let networkService: NetworkServiceProtocol
     private let gameId: String
@@ -24,14 +24,34 @@ class DetailViewModel: ObservableObject {
         self.gameId = gameId
     }
     
+    func getFormattedSavings(for item: Deal) -> String {
+        let savings = item.doubledString(string: item.savings)
+        let savingsText: String
+        
+        if savings < 1.0 {
+            savingsText = "Savings: None"
+        } else {
+            savingsText = "Saving: \(String(format: "%.2f", savings))%"
+        }
+        
+        return savingsText
+    }
+    
+    func getPrice(for item: Deal) -> String {
+        "Price: $\(item.price)"
+    }
+    
     func fetchDetail() {
         status = .loading
         Task {
             do {
                 let gameDetail = try await self.networkService.fetchGameDetail(gameId: gameId)
-                status = .success
+                let sortedDeals = gameDetail.deals.sorted {
+                    Double($0.price) ?? 0 < Double($1.price) ?? 0
+                }
                 await MainActor.run {
-                    self.gameDetail = gameDetail
+                    status = .success(items: gameDetail, sortedDeals: sortedDeals)
+                    self.contents = gameDetail
                     errorMessage = nil
                 }
             } catch {

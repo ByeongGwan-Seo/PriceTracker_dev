@@ -22,8 +22,8 @@ struct SearchView: View {
                 switch searchViewModel.status {
                 case .loading:
                     ProgressView()
-                case .success:
-                    SearchListView(items: searchViewModel.searchResults)
+                case .success(let contents):
+                    SearchListView(items: contents)
                 case .noContent:
                     NoContentView()
                 case .error:
@@ -35,10 +35,10 @@ struct SearchView: View {
         }
         .alert(
             item: $searchViewModel.errorMessage,
-            content: { errorMessage in
+            content: { message in
                 Alert(
                     title: Text("Error"),
-                    message: Text(errorMessage.message),
+                    message: Text(message.message),
                     dismissButton: .default(Text("OK"))
                 )
             }
@@ -53,7 +53,7 @@ struct SearchView_Previews: PreviewProvider {
         class MockSearchViewModel: SearchViewModel {
             override init() {
                 super.init()
-                self.searchResults = [
+                self.contents = [
                     GameTitle(
                         gameID: "1",
                         steamAppID: "1001",

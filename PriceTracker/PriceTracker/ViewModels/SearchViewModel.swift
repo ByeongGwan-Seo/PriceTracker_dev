@@ -9,9 +9,9 @@ import Combine
 import Foundation
 
 class SearchViewModel: ObservableObject {
-    @Published var searchResults: [GameTitle] = []
+    @Published var contents: [GameTitle] = []
+    @Published var status: SearchScreenStatus = .noContent
     @Published var errorMessage: ErrorMessage?
-    @Published var status: ScreenStatus = .noContent
     
     private let networkService = NetworkService()
     private var searchText: String = ""
@@ -21,9 +21,9 @@ class SearchViewModel: ObservableObject {
         Task {
             do {
                 let gameList = try await self.networkService.fetchGameList(title: searchText)
-                status = .success
                 await MainActor.run {
-                    self.searchResults = gameList
+                    status = gameList.isEmpty ? .noContent : .success(items: gameList)
+                    self.contents = gameList
                 }
             } catch {
                 await MainActor.run {
