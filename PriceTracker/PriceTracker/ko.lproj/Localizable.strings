@@ -7,20 +7,20 @@
 */
 
 // Common UI Strings
-"error_alert_title" = "Error";
+"error_alert_title" = "에러";
 "alert_dismiss_ok" = "OK";
 
 // DetailView UI Strings
-"retail_price_string" = "Retail Price: $%@";
-"cheapest_ever_string" = "Cheapest Ever: $%@";
-"price_string" = "Price: $%@";
-"savings_string" = "Savings: %@%%";
+"retail_price_string" = "소매가: $%@";
+"cheapest_ever_string" = "역대최저가: $%@";
+"price_string" = "가격: $%@";
+"savings_string" = "절약율: %@%%";
 
 // NoContentView UI Strings
-"no_content_string" = "No Contents ko";
+"no_content_string" = "검색 내용이 없습니다";
 
 // SearchView UI Strings
-"search_placeholder" = "Enter Game Title";
+"search_placeholder" = "게임 타이틀을 입력해주세요";
 
 // URLs
 "redirect_to_deal" = "https://www.cheapshark.com/redirect?dealID=%@";
@@ -30,5 +30,5 @@
 "query_game_id" = "id";
 
 // Error Messages
-"detail_error_message" = "An error occurred while loading detailed information. Please try again. \n%@";
-"search_error_message" = "An error occurred while searching. Please try again. \n%@";
+"detail_error_message" = "세부 정보를 불러오는 중 에러가 발생했습니다. 다시 한 번 시도해주세요. \n%@";
+"search_error_message" = "검색 중 에러가 발생했습니다. 다시 한 번 시도해주세요. \n%@";
