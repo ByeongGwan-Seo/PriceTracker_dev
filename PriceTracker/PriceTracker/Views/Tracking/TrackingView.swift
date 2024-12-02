@@ -10,6 +10,6 @@ import SwiftUI
 struct TrackingView: View {
     @ObservedObject var trackingViewModel: TrackingViewModel
     var body: some View {
-        Text("tracking test: \(trackingViewModel.testText)")
+        Text("tracking test")
     }
 }

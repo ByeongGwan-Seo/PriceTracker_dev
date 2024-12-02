@@ -12,10 +12,10 @@ class SearchViewModel: ObservableObject {
     @Published var contents: [GameTitle] = []
     @Published var status: SearchScreenStatus = .noContent
     @Published var errorMessage: ErrorMessage?
-    
+
     private let networkService = NetworkService()
     private var searchText: String = ""
-    
+
     func fetchGameList() {
         status = .loading
         Task {

@@ -9,9 +9,13 @@ import SwiftUI
 
 struct BasicInfoView: View {
     private let item: DetailModel
-
-    init(item: DetailModel) {
+    private let isTracking: Bool
+    private let onTrackingButtonTapped: () -> Void
+    
+    init(item: DetailModel, isTracking: Bool, onTrackingButtonTapped: @escaping () -> Void) {
         self.item = item
+        self.isTracking = isTracking
+        self.onTrackingButtonTapped = onTrackingButtonTapped
     }
 
     var body: some View {
@@ -26,15 +30,13 @@ struct BasicInfoView: View {
                     ProgressView()
                 }
                 
-                Button(action: {
-                    print("Add Tracking 버튼이 눌렸습니다.")
-                }) {
-                    Text("Add Tracking")
+                Button(action: onTrackingButtonTapped) {
+                    Text(isTracking ? "Tracking Now" : "Add Tracking")
                         .font(.headline)
                         .foregroundColor(.white)
                         .padding()
                         .frame(width: 150)
-                        .background(Color.blue)
+                        .background(isTracking ? Color.red : Color.blue)
                         .cornerRadius(10)
                 }
             }

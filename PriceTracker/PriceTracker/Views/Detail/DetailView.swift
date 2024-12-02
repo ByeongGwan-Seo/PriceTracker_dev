@@ -21,7 +21,11 @@ struct DetailView: View {
                 let sortedDeals
             ):
                 BasicInfoView(
-                    item: detail
+                    item: detail,
+                    isTracking: detailViewModel.isTracking,
+                    onTrackingButtonTapped: {
+                        detailViewModel.onTrackingButtonTapped()
+                    }
                 )
                 Divider()
                 DealsListView(
@@ -44,6 +48,37 @@ struct DetailView: View {
                 message: Text(errorMessage.message),
                 dismissButton: .default(Text("alert_dismiss_ok"))
             )
+        }
+        .sheet(isPresented: $detailViewModel.showTrackingAlert) {
+            VStack {
+                Text("Enter Price")
+                    .font(.headline)
+                    .padding()
+
+                TextField("Enter your target price", text: $detailViewModel.inputPrice)
+                    .keyboardType(.decimalPad)
+                    .padding()
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+
+                HStack {
+                    Button("Cancel") {
+                        detailViewModel.showTrackingAlert = false
+                    }
+                    .padding()
+
+                    Spacer()
+
+                    Button("OK") {
+                        if !detailViewModel.inputPrice.isEmpty {
+                            detailViewModel.isTracking = true
+                            detailViewModel.showTrackingAlert = false
+                        }
+                    }
+                    .padding()
+                }
+                .padding()
+            }
+            .padding()
         }
     }
 }

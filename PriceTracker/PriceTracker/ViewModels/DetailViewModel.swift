@@ -6,24 +6,44 @@
 //
 
 import SwiftUI
-
+import Combine
 
 class DetailViewModel: ObservableObject {
     @Published var contents: DetailModel?
     @Published var errorMessage: ErrorMessage?
     @Published var status: DetailScreenStatus = .loading
-    
+    @Published var showTrackingAlert = false
+    @Published var inputPrice = ""
+    @Published var isTracking = false
+
     private let networkService: NetworkServiceProtocol
     private let gameId: String
-    
+
+    private var cancellables = Set<AnyCancellable>()
+    private let buttonTapped = PassthroughSubject<Void, Never>()
+
     init(
         networkService : NetworkServiceProtocol = NetworkService(),
         gameId: String
     ) {
         self.networkService = networkService
         self.gameId = gameId
+        
+        bindButtonAction()
     }
-    
+
+    private func bindButtonAction() {
+        buttonTapped
+            .sink { [weak self] in
+                self?.handleButtonTap()
+            }
+            .store(in: &cancellables)
+    }
+
+    private func handleButtonTap() {
+        showTrackingAlert = true
+    }
+
     func getFormattedSavings(for item: Deal) -> String {
         let savings = item.doubledString(string: item.savings)
         let savingsText: String
@@ -63,4 +83,17 @@ class DetailViewModel: ObservableObject {
             }
         }
     }
+    
+    func onTrackingButtonTapped() {
+            buttonTapped.send()
+        }
+
+        func onPriceInputConfirmed() {
+            isTracking = true
+            showTrackingAlert = false
+        }
+
+        func onPriceInputCancelled() {
+            showTrackingAlert = false
+        }
 }

@@ -8,6 +8,12 @@
 import SwiftUI
 
 class TrackingViewModel: ObservableObject {
-    @Published var isTracking: Bool = false
-    @Published var testText: String = "hello"
+    @Published var showAlert = false
+       @Published var inputPrice = ""
+       @Published var isTracking = false
+       
+       func updateTrackingStatus() {
+           guard !inputPrice.isEmpty else { return }
+           isTracking = true
+       }
 }
