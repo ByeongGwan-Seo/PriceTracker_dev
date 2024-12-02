@@ -337,6 +337,7 @@
 			mainGroup = 0691C6452977D71000295B34;
 			packageReferences = (
 				06ABB0392CF855E40041C8DC /* XCRemoteSwiftPackageReference "SwiftLint" */,
+				068D917A2CFD5F7B00EF62D0 /* XCRemoteSwiftPackageReference "SwiftGen" */,
 			);
 			productRefGroup = 0691C64F2977D71000295B34 /* Products */;
 			projectDirPath = "";
@@ -809,6 +810,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		068D917A2CFD5F7B00EF62D0 /* XCRemoteSwiftPackageReference "SwiftGen" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftGen/SwiftGen.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.6.3;
+			};
+		};
 		06ABB0392CF855E40041C8DC /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/SwiftLint";
