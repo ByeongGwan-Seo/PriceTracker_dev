@@ -9,6 +9,6 @@ import SwiftUI
 
 struct NoContentView: View {
     var body: some View {
-        Text("no_content_string")
+        Text(L10n.noContentString)
     }
 }

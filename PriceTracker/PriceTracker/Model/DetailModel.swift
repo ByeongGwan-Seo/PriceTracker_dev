@@ -36,7 +36,7 @@ struct Info: Codable, Equatable {
 extension Deal {
     func thumnailImageUrl()  -> String {
         guard let storeIdInteger = Int(storeID) else { return "" }
-        return "https://www.cheapshark.com/img/stores/logos/\(storeIdInteger - 1).png"
+        return L10n.thumbnailImageUrl(storeIdInteger - 1)
     }
     
     func doubledString(string: String) -> Double {

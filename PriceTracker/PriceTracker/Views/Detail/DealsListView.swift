@@ -24,7 +24,7 @@ struct DealsListView: View {
     
     var body: some View {
         List(items, id: \.dealID) { deal in
-            if let url = URL(string: "https://www.cheapshark.com/redirect?dealID=\(deal.dealID)") {
+            if let url = URL(string:L10n.redirectToDeal(deal.dealID)) {
                 NavigationLink(
                     destination: WebViewForDetailView(url: url)
                 ) {

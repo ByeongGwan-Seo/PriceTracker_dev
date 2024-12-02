@@ -29,16 +29,16 @@ class DetailViewModel: ObservableObject {
         let savingsText: String
         
         if savings < 1.0 {
-            savingsText = "Savings: None"
+            savingsText = L10n.savingsNoneString
         } else {
-            savingsText = "Saving: \(String(format: "%.2f", savings))%"
+            savingsText = L10n.savingsString(String(format: "%.2f", savings))
         }
         
         return savingsText
     }
     
     func getPrice(for item: Deal) -> String {
-        "Price: $\(item.price)"
+        L10n.priceString(item.price)
     }
     
     func fetchDetail() {
@@ -57,8 +57,7 @@ class DetailViewModel: ObservableObject {
             } catch {
                 await MainActor.run {
                     status = .error
-                    let localizedMessage = String(format: NSLocalizedString("detail_error_message", comment: "error occurred while loading detail"), "\(error)")
-                    errorMessage = ErrorMessage(message: localizedMessage)
+                    errorMessage = ErrorMessage(message: L10n.detailErrorMessage(error))
                 }
             }
         }

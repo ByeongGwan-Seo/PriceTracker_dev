@@ -15,6 +15,7 @@
 "cheapest_ever_string" = "Cheapest Ever: $%@";
 "price_string" = "Price: $%@";
 "savings_string" = "Savings: %@%%";
+"savings_none_string" = "Savings: None";
 
 // NoContentView UI Strings
 "no_content_string" = "No Contents";
@@ -28,6 +29,7 @@
 "games_path" = "/games";
 "query_game_title" = "title";
 "query_game_id" = "id";
+"thumbnail_image_url" = "https://www.cheapshark.com/img/stores/logos/%@.png";
 
 // Error Messages
 "detail_error_message" = "An error occurred while loading detailed information. Please try again. \n%@";

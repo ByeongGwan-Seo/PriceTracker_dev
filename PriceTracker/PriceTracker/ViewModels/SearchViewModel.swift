@@ -28,8 +28,7 @@ class SearchViewModel: ObservableObject {
             } catch {
                 await MainActor.run {
                     status = .error
-                    let localizedMessage = String(format: NSLocalizedString("search_error_message", comment: "Error message shown when search fails"), "\(error)")
-                    errorMessage = ErrorMessage(message: localizedMessage)
+                    errorMessage = ErrorMessage(message: L10n.searchErrorMessage(error))
                 }
             }
         }

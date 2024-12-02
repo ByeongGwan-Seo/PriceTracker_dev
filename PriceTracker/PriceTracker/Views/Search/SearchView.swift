@@ -37,9 +37,9 @@ struct SearchView: View {
             item: $searchViewModel.errorMessage,
             content: { message in
                 Alert(
-                    title: Text("Error"),
+                    title: Text(L10n.errorAlertTitle),
                     message: Text(message.message),
-                    dismissButton: .default(Text("OK"))
+                    dismissButton: .default(Text(L10n.alertDismissOk))
                 )
             }
         )

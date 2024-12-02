@@ -47,10 +47,10 @@ struct BasicInfoView: View {
                     4
                 )
                 Text(
-                    "Retail Price: $\(item.deals.first?.retailPrice ?? "")"
+                    L10n.retailPriceString(item.deals.first?.retailPrice ?? "")
                 )
                 Text(
-                    "Cheapest Ever: $\(item.cheapestPriceEver.price)"
+                    L10n.cheapestEverString(item.cheapestPriceEver.price)
                 )
             }
             Spacer()

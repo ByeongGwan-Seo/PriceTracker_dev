@@ -13,7 +13,7 @@
 // DetailView UI Strings
 "retail_price_string" = "上代: $%@";
 "cheapest_ever_string" = "歴代最安: $%@";
-"price_string" = "値弾: $%@";
+"price_string" = "値段: $%@";
 "savings_string" = "割引率: %@%%";
 
 // NoContentView UI Strings

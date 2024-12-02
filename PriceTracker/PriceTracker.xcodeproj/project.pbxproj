@@ -82,6 +82,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		063BEF8B2CD8D92D00FE793E /* ViewModels */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ViewModels; sourceTree = "<group>"; };
+		068D917B2CFD618300EF62D0 /* Generated */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Generated; sourceTree = "<group>"; };
 		06C0CFD72CEB370D00CD9A1E /* Enums */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Enums; sourceTree = "<group>"; };
 		06F13DBD2CD8B91700BF19D3 /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -150,6 +151,7 @@
 		0691C6502977D71000295B34 /* PriceTracker */ = {
 			isa = PBXGroup;
 			children = (
+				068D917B2CFD618300EF62D0 /* Generated */,
 				064342142CF7FBB800C702B1 /* Localizable.strings */,
 				06C0CFD72CEB370D00CD9A1E /* Enums */,
 				063BEF8B2CD8D92D00FE793E /* ViewModels */,
@@ -254,6 +256,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				063BEF8B2CD8D92D00FE793E /* ViewModels */,
+				068D917B2CFD618300EF62D0 /* Generated */,
 				06C0CFD72CEB370D00CD9A1E /* Enums */,
 				06F13DBD2CD8B91700BF19D3 /* Views */,
 			);
