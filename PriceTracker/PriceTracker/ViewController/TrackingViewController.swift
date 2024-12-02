@@ -6,12 +6,20 @@
 //
 
 import UIKit
+import SwiftUI
 
 class TrackingViewController: UIViewController {
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
+    private let trackingViewModel = TrackingViewModel()
 
-  }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let trackingView = TrackingView(trackingViewModel: trackingViewModel)
+        let hostingController = UIHostingController(rootView: trackingView)
+
+        addChild(hostingController)
+        hostingController.view.frame = view.bounds
+        view.addSubview(hostingController.view)
+        hostingController.didMove(toParent: self)
+    }
 }
-
