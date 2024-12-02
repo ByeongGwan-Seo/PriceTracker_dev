@@ -23,7 +23,7 @@ struct SearchHeader: View {
         self.fetchGameListAction = fetchGameListAction
     }
     var body: some View {
-        TextField("Enter game title", text: $searchText)
+        TextField("search_placeholder", text: $searchText)
             .padding()
             .textFieldStyle(RoundedBorderTextFieldStyle())
             .submitLabel(.search)

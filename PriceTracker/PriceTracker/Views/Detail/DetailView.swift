@@ -40,18 +40,9 @@ struct DetailView: View {
             item: $detailViewModel.errorMessage
         ) { errorMessage in
             Alert(
-                title: Text(
-                    "Error"
-                ),
-                message: Text(
-                    errorMessage.message
-                ),
-                dismissButton: 
-                        .default(
-                            Text(
-                                "OK"
-                            )
-                        )
+                title: Text("error_alert_title"),
+                message: Text(errorMessage.message),
+                dismissButton: .default(Text("alert_dismiss_ok"))
             )
         }
     }
