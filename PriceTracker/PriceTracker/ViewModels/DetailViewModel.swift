@@ -15,15 +15,15 @@ class DetailViewModel: ObservableObject {
     @Published var showTrackingAlert = false
     @Published var inputPrice = ""
     @Published var isTracking = false
-
+    
     private let networkService: NetworkServiceProtocol
     private let gameId: String
-
+    
     private var cancellables = Set<AnyCancellable>()
     private let buttonTapped = PassthroughSubject<Void, Never>()
-
+    
     init(
-        networkService : NetworkServiceProtocol = NetworkService(),
+        networkService: NetworkServiceProtocol = NetworkService(),
         gameId: String
     ) {
         self.networkService = networkService
@@ -31,7 +31,7 @@ class DetailViewModel: ObservableObject {
         
         bindButtonAction()
     }
-
+    
     private func bindButtonAction() {
         buttonTapped
             .sink { [weak self] in
@@ -39,11 +39,11 @@ class DetailViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
-
+    
     private func handleButtonTap() {
         showTrackingAlert = true
     }
-
+    
     func getFormattedSavings(for item: Deal) -> String {
         let savings = item.doubledString(string: item.savings)
         let savingsText: String
@@ -83,17 +83,22 @@ class DetailViewModel: ObservableObject {
             }
         }
     }
-    
-    func onTrackingButtonTapped() {
-            buttonTapped.send()
-        }
 
-        func onPriceInputConfirmed() {
+    func onTrackingButtonTapped() {
+        buttonTapped.send()
+    }
+
+    func onPriceInputConfirmed() {
+        if let price = Double(inputPrice), price > 0 {
             isTracking = true
             showTrackingAlert = false
+        } else {
+            print("error here")
         }
+    }
 
-        func onPriceInputCancelled() {
-            showTrackingAlert = false
-        }
+    func onPriceInputCancelled() {
+        showTrackingAlert = false
+        inputPrice = ""
+    }
 }
