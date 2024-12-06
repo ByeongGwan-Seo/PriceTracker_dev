@@ -6,43 +6,63 @@
 //
 
 import SwiftUI
-import WebKit
 
 struct DetailView: View {
     @ObservedObject var detailViewModel: DetailViewModel
     
     var body: some View {
-        VStack {
-            switch detailViewModel.status {
-            case .loading:
-                ProgressView()
-            case .success(
-                let detail,
-                let sortedDeals
-            ):
-                BasicInfoView(
-                    item: detail
-                )
-                Divider()
-                DealsListView(
-                    items: sortedDeals,
-                    getFormattedSavings: detailViewModel.getFormattedSavings,
-                    getPrice: detailViewModel.getPrice
-                )
-            case .error:
-                EmptyView()
+        ZStack {
+            VStack {
+                switch detailViewModel.status {
+                case .loading:
+                    ProgressView()
+                case .success(
+                    let detail,
+                    let sortedDeals
+                ):
+                    BasicInfoView(
+                        item: detail,
+                        isTracking: detailViewModel.isTracking,
+                        onTrackingButtonTapped: {
+                            detailViewModel.onTrackingButtonTapped()
+                        }
+                    )
+                    Divider()
+                    DealsListView(
+                        items: sortedDeals,
+                        getFormattedSavings: detailViewModel.getFormattedSavings,
+                        getPrice: detailViewModel.getPrice
+                    )
+                case .error:
+                    EmptyView()
+                }
             }
-        }
-        .onAppear(
-            perform: detailViewModel.fetchDetail
-        )
-        .alert(
-            item: $detailViewModel.errorMessage
-        ) { errorMessage in
-            Alert(
-                title: Text("error_alert_title"),
-                message: Text(errorMessage.message),
-                dismissButton: .default(Text("alert_dismiss_ok"))
+            
+            .padding()
+            .onAppear(
+                perform: detailViewModel.fetchDetail
+            )
+            .alert(
+                item: $detailViewModel.errorMessage
+            ) { errorMessage in
+                Alert(
+                    title: Text("error_alert_title"),
+                    message: Text(errorMessage.message),
+                    dismissButton: .default(Text("alert_dismiss_ok"))
+                )
+            }
+            
+            .overlay(
+                DetailTrackingOverlayView(
+                    showTrackingAlert: $detailViewModel.showTrackingAlert,
+                    inputPrice: $detailViewModel.inputPrice,
+                    onCancel: {
+                        detailViewModel.onPriceInputCancelled()
+                    },
+                    onOK: {
+                        detailViewModel.onPriceInputConfirmed()
+                    }
+                )
             )
         }
     }
