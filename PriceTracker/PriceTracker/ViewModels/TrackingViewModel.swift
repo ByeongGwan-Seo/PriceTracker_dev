@@ -9,6 +9,8 @@ import SwiftUI
 import Combine
 
 class TrackingViewModel: ObservableObject {
+    @AppStorage("trackingInfos") private var savedTrackingInfosData: Data = Data()
+
     @Published var trackingInfos: [TrackingInfo] = []
     private var cancellables = Set<AnyCancellable>()
 
@@ -22,6 +24,17 @@ class TrackingViewModel: ObservableObject {
                 self?.trackingInfos = decodedInfos
             }
             .store(in: &cancellables)
+    }
+    
+    func deleteTrackingInfo(at indexSet: IndexSet) {
+        trackingInfos.remove(atOffsets: indexSet)
+        saveTrackingInfos()
+    }
+    
+    private func saveTrackingInfos() {
+        if let encodedData = try? JSONEncoder().encode(trackingInfos) {
+            savedTrackingInfosData = encodedData
+        }
     }
 
     func getUserPrice(for item: TrackingInfo) -> String {

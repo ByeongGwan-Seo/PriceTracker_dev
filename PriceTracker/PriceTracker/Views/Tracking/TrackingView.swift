@@ -19,6 +19,19 @@ struct TrackingView: View {
                     Text("\(trackingInfo.title)")
                     Text(trackingViewModel.getUserPrice(for: trackingInfo))
                 }
+                .swipeActions {
+                    Button(role: .destructive) {
+                        if let index = trackingViewModel.trackingInfos.firstIndex(
+                            where: { $0.uuidString == trackingInfo.uuidString }
+                        ) {
+                            trackingViewModel.deleteTrackingInfo(
+                                at: IndexSet([index])
+                            )
+                        }
+                    } label: {
+                        Label("Delete", systemImage: "trash")
+                    }
+                }
             }
             .listStyle(.plain)
             .onAppear {
