@@ -17,6 +17,7 @@ class DetailViewModel: ObservableObject {
     @Published var isTracking = false
 
     private let networkService: NetworkServiceProtocol
+    private let trackingInfoService: TrackingInfoServiceProtocol
     private let gameId: String
     private var cancellables = Set<AnyCancellable>()
     private let buttonTapped = PassthroughSubject<Void, Never>()
@@ -25,9 +26,11 @@ class DetailViewModel: ObservableObject {
 
     init(
         networkService: NetworkServiceProtocol = NetworkService(),
+        trackingInfoService: TrackingInfoServiceProtocol = TrackingInfoService(),
         gameId: String
     ) {
         self.networkService = networkService
+        self.trackingInfoService = trackingInfoService
         self.gameId = gameId
 
         bindButtonAction()
@@ -136,25 +139,11 @@ class DetailViewModel: ObservableObject {
     }
 
     func saveTrackingInfos(_ trackingInfos: [TrackingInfo]) {
-        do {
-            let encoder = JSONEncoder()
-            let data = try encoder.encode(trackingInfos)
-            storedTrackingInfoData = data
-        } catch {
-            print("Failed to encode TrackingInfos: \(error)")
-        }
+        trackingInfoService.saveTrackingInfos(trackingInfos)
     }
 
     func loadTrackingInfos() -> [TrackingInfo]? {
-        guard let data = storedTrackingInfoData else { return nil }
-        do {
-            let decoder = JSONDecoder()
-            let trackingInfos = try decoder.decode([TrackingInfo].self, from: data)
-            return trackingInfos
-        } catch {
-            print("Failed to decode TrackingInfos: \(error)")
-            return nil
-        }
+        trackingInfoService.loadTrackingInfos()
     }
 
 #if DEBUG

@@ -24,6 +24,8 @@
 		0691C6782977D71100295B34 /* PriceTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C6772977D71100295B34 /* PriceTrackerUITestsLaunchTests.swift */; };
 		0691C6852977DB5F00295B34 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C6842977DB5F00295B34 /* SearchViewController.swift */; };
 		06C0CFD62CEB24FE00CD9A1E /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C0CFD52CEB24FE00CD9A1E /* ErrorMessage.swift */; };
+		06DC7FA62D0A8EEB00695285 /* TrackingInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DC7FA52D0A8EEB00695285 /* TrackingInfoRepository.swift */; };
+		06DC7FA82D0A901100695285 /* TrackingInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DC7FA72D0A901100695285 /* TrackingInfoService.swift */; };
 		40A6D2AF2CD6112E00F8F33A /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A6D2AE2CD6112E00F8F33A /* NetworkClient.swift */; };
 		40A6D2B22CD6116E00F8F33A /* GameRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A6D2B12CD6116E00F8F33A /* GameRepository.swift */; };
 		49C32B10DB2CDF1D5FDE101E /* Pods_PriceTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F141B4BD03A3C38A26648D4A /* Pods_PriceTrackerTests.framework */; };
@@ -73,6 +75,8 @@
 		0691C6772977D71100295B34 /* PriceTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0691C6842977DB5F00295B34 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		06C0CFD52CEB24FE00CD9A1E /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		06DC7FA52D0A8EEB00695285 /* TrackingInfoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingInfoRepository.swift; sourceTree = "<group>"; };
+		06DC7FA72D0A901100695285 /* TrackingInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingInfoService.swift; sourceTree = "<group>"; };
 		40A6D2AE2CD6112E00F8F33A /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		40A6D2B12CD6116E00F8F33A /* GameRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRepository.swift; sourceTree = "<group>"; };
 		923E2C9D582C06BC96372769 /* Pods_PriceTracker_PriceTrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PriceTracker_PriceTrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				068225D02978D36C00281CFE /* NetworkService.swift */,
+				06DC7FA72D0A901100695285 /* TrackingInfoService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				40A6D2B12CD6116E00F8F33A /* GameRepository.swift */,
+				06DC7FA52D0A8EEB00695285 /* TrackingInfoRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -448,10 +454,12 @@
 				0617111E2983BD9600EF7017 /* TrackinModelInApp.swift in Sources */,
 				06C0CFD62CEB24FE00CD9A1E /* ErrorMessage.swift in Sources */,
 				061710E6297E33EE00EF7017 /* DetailModel.swift in Sources */,
+				06DC7FA82D0A901100695285 /* TrackingInfoService.swift in Sources */,
 				0691C6852977DB5F00295B34 /* SearchViewController.swift in Sources */,
 				068225D12978D36C00281CFE /* NetworkService.swift in Sources */,
 				0691C65C2977D71000295B34 /* PriceTracker.xcdatamodeld in Sources */,
 				0691C6562977D71000295B34 /* TrackingViewController.swift in Sources */,
+				06DC7FA62D0A8EEB00695285 /* TrackingInfoRepository.swift in Sources */,
 				40A6D2B22CD6116E00F8F33A /* GameRepository.swift in Sources */,
 				0691C6522977D71000295B34 /* AppDelegate.swift in Sources */,
 				40A6D2AF2CD6112E00F8F33A /* NetworkClient.swift in Sources */,

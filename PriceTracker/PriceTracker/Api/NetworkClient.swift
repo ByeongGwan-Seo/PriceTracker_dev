@@ -16,7 +16,7 @@ class NetworkClient: NetworkClientProtocol {
   func get<T: Decodable>(url: URL) async throws -> T {
     do {
       let (data, response) = try await URLSession.shared.data(from: url)
-      
+
       if let apiResponse = response as? HTTPURLResponse, !(200...299).contains(apiResponse.statusCode) {
         print("http error: \(apiResponse.statusCode)")
         throw URLError(.badServerResponse)
@@ -27,7 +27,6 @@ class NetworkClient: NetworkClientProtocol {
       print("error! \(error)")
       throw error
     }
-    
   }
   
   func post<T: Decodable, U: Encodable>(url: URL, body: U) async throws -> T {
@@ -49,6 +48,5 @@ class NetworkClient: NetworkClientProtocol {
       print("error! \(error)")
       throw error
     }
-    
   }
 }
