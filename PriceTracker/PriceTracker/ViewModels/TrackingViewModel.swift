@@ -19,10 +19,16 @@ class TrackingViewModel: ObservableObject {
         Just(UserDefaults.standard.data(forKey: "trackingInfos"))
             .compactMap { $0 }
             .decode(type: [TrackingInfo].self, decoder: JSONDecoder())
-            .replaceError(with: [])
-            .sink { [weak self] decodedInfos in
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print("Failed to decode trackingInfos: \(error)")
+                }
+            }, receiveValue: { [weak self] decodedInfos in
                 self?.trackingInfos = decodedInfos
-            }
+            })
             .store(in: &cancellables)
     }
     
