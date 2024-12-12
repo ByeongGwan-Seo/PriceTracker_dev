@@ -28,7 +28,9 @@ struct DetailView: View {
         .alert(item: $detailViewModel.errorMessage) { errorMessage in
             errorAlert(errorMessage: errorMessage)
         }
-        .overlay(detailTrackingOverlay)
+        .overlay(
+            detailViewModel.showTrackingAlert ? detailTrackingOverlay : nil
+        )
     }
 }
 
