@@ -117,7 +117,6 @@ class DetailViewModel: ObservableObject {
         }
 
         let newTrackingInfo = TrackingInfo(
-            uuidString: UUID().uuidString,
             title: contents?.info.title ?? "",
             userPrice: price,
             thumb: contents?.info.thumb ?? ""
@@ -151,7 +150,7 @@ class DetailViewModel: ObservableObject {
         if let trackingInfos = loadTrackingInfos() {
             for info in trackingInfos {
                 print("Tracking Info:")
-                print("UUID: \(info.uuidString)")
+                print("UUID: \(info.id)")
                 print("Title: \(info.title)")
                 print("User Price: \(info.userPrice ?? "N/A")")
                 print("Thumbnail: \(info.thumb)")

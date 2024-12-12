@@ -33,7 +33,7 @@ class TrackingViewModel: ObservableObject {
     }
 
     func deleteTrackingInfo(_ trackingInfo: TrackingInfo) {
-        if let index = trackingInfos.firstIndex(where: { $0.uuidString == trackingInfo.uuidString }) {
+        if let index = trackingInfos.firstIndex(where: { $0.id == trackingInfo.id }) {
             trackingInfos.remove(at: index)
             saveTrackingInfos()
         }
