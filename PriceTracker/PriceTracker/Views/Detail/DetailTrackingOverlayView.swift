@@ -12,30 +12,29 @@ struct DetailTrackingOverlayView: View {
     @Binding var inputPrice: String
     var onCancel: () -> Void
     var onOK: () -> Void
-    
+
     var body: some View {
         ZStack {
             Color.black.opacity(showTrackingAlert ? 0.4 : 0)
-                .edgesIgnoringSafeArea(.all)
-            
+                .ignoresSafeArea()
+
             VStack {
                 Text("Enter Price")
                     .font(.headline)
                     .padding()
-                
                 TextField("Enter your target price", text: $inputPrice)
                     .keyboardType(.decimalPad)
                     .padding()
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                
+
                 HStack {
                     Button("Cancel") {
                         onCancel()
                     }
                     .padding()
-                    
+
                     Spacer()
-                    
+
                     Button("OK") {
                         onOK()
                     }
