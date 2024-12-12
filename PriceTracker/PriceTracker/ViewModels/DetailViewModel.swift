@@ -71,20 +71,28 @@ class DetailViewModel: ObservableObject {
                     Double($0.price) ?? 0 < Double($1.price) ?? 0
                 }
                 await MainActor.run {
-                    status = .success(items: gameDetail, sortedDeals: sortedDeals)
-                    self.contents = gameDetail
-                    errorMessage = nil
+                    updateDetailSucessStatus(items: gameDetail, sortedDeals: sortedDeals)
                 }
             } catch {
                 await MainActor.run {
-                    status = .error
-                    let localizedMessage = String(
-                        format: NSLocalizedString("detail_error_message",
-                                                  comment: "error occurred while loading detail"), "\(error)")
-                    errorMessage = ErrorMessage(message: localizedMessage)
+                    updateErrorStatus(error: error)
                 }
             }
         }
+    }
+
+    @MainActor
+    private func updateErrorStatus(error: Error) {
+        let localizedMessage = String(format: NSLocalizedString("detail_error_message",
+                                                                comment: "error occurred while loading detail"), "\(error)")
+        errorMessage = ErrorMessage(message: localizedMessage)
+    }
+
+    @MainActor
+    private func updateDetailSucessStatus(items: DetailModel, sortedDeals: [Deal]) {
+        status = .success(items: items, sortedDeals: sortedDeals)
+        self.contents = items
+        errorMessage = nil
     }
 
     func onTrackingButtonTapped() {
