@@ -13,23 +13,21 @@ class TrackingViewModel: ObservableObject {
 
     @Published var trackingInfos: [TrackingInfo] = []
     private var cancellables = Set<AnyCancellable>()
+    private let trackingInfoService: TrackingInfoServiceProtocol
+    
+    init(trackingInfoService: TrackingInfoServiceProtocol = TrackingInfoService()) {
+        self.trackingInfoService = trackingInfoService
+        loadTrackingInfos()
+    }
 
-    @MainActor
     func loadTrackingInfos() {
-        Just(UserDefaults.standard.data(forKey: "trackingInfos"))
-            .compactMap { $0 }
-            .decode(type: [TrackingInfo].self, decoder: JSONDecoder())
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    print("Failed to decode trackingInfos: \(error)")
-                }
-            }, receiveValue: { [weak self] decodedInfos in
-                self?.trackingInfos = decodedInfos
-            })
-            .store(in: &cancellables)
+        guard let loadedInfos = trackingInfoService.loadTrackingInfos() else { return print("Failed to load trackingInfos")}
+        trackingInfos = loadedInfos
+    }
+    
+    private func saveTrackingInfos() {
+        trackingInfoService.saveTrackingInfos(trackingInfos)
+        loadTrackingInfos()
     }
     
     func deleteTrackingInfo(at indexSet: IndexSet) {
@@ -37,11 +35,6 @@ class TrackingViewModel: ObservableObject {
         saveTrackingInfos()
     }
     
-    private func saveTrackingInfos() {
-        if let encodedData = try? JSONEncoder().encode(trackingInfos) {
-            savedTrackingInfosData = encodedData
-        }
-    }
 
     func getUserPrice(for item: TrackingInfo) -> String {
         "User Price: $\(item.userPrice ?? "")"
