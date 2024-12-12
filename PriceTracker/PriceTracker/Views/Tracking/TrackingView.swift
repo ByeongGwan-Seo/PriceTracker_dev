@@ -14,7 +14,7 @@ struct TrackingView: View {
             Text("Tracking Information:")
                 .font(.headline)
 
-            List(trackingViewModel.trackingInfos) { trackingInfo in
+            List(trackingViewModel.trackingInfos, id: \.uuidString) { trackingInfo in
                 VStack(alignment: .leading) {
                     Text("\(trackingInfo.title)")
                     Text(trackingViewModel.getUserPrice(for: trackingInfo))

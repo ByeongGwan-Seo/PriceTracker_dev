@@ -7,16 +7,9 @@
 
 import Foundation
 
-struct TrackingInfo: Codable, Identifiable {
-    var id: UUID
+struct TrackingInfo: Codable {
+    let uuidString: String
     let title: String
     let userPrice: String?
     let thumb: String
-
-    init(title: String, userPrice: String?, thumb: String, id: UUID = UUID()) {
-        self.id = id
-        self.title = title
-        self.userPrice = userPrice
-        self.thumb = thumb
-    }
 }
