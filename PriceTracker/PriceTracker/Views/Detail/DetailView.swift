@@ -14,49 +14,69 @@ struct DetailView: View {
         VStack {
             switch detailViewModel.status {
             case .loading:
-                ProgressView()
+                loadingView
             case .success(let detail, let sortedDeals):
-                BasicInfoView(
-                    item: detail,
-                    isTracking: detailViewModel.isTracking,
-                    onTrackingButtonTapped: {
-                        detailViewModel.onTrackingButtonTapped()
-                    }
-                )
-                Divider()
-                DealsListView(
-                    items: sortedDeals,
-                    getFormattedSavings: detailViewModel.getFormattedSavings,
-                    getPrice: detailViewModel.getPrice
-                )
+                successView(detail: detail, sortedDeals: sortedDeals)
             case .error:
-                EmptyView()
+                errorView
             }
         }
-
         .padding()
         .onAppear(
             perform: detailViewModel.fetchDetail
         )
         .alert(item: $detailViewModel.errorMessage) { errorMessage in
-            Alert(
-                title: Text("error_alert_title"),
-                message: Text(errorMessage.message),
-                dismissButton: .default(Text("alert_dismiss_ok"))
-            )
+            errorAlert(errorMessage: errorMessage)
         }
+        .overlay(detailTrackingOverlay)
+    }
+}
 
-        .overlay(
-            DetailTrackingOverlayView(
-                showTrackingAlert: $detailViewModel.showTrackingAlert,
-                inputPrice: $detailViewModel.inputPrice,
-                onCancel: {
-                    detailViewModel.onPriceInputCancelled()
-                },
-                onOK: {
-                    detailViewModel.onPriceInputConfirmed()
+extension DetailView {
+    private var loadingView: some View {
+        ProgressView()
+    }
+
+    private func successView(detail: DetailModel, sortedDeals: [Deal]) -> some View {
+        VStack {
+            BasicInfoView(
+                item: detail,
+                isTracking: detailViewModel.isTracking,
+                onTrackingButtonTapped: {
+                    detailViewModel.onTrackingButtonTapped()
                 }
             )
+            Divider()
+            DealsListView(
+                items: sortedDeals,
+                getFormattedSavings: detailViewModel.getFormattedSavings,
+                getPrice: detailViewModel.getPrice
+            )
+        }
+    }
+
+    private var errorView: some View {
+        EmptyView()
+    }
+
+    private func errorAlert(errorMessage: ErrorMessage) -> Alert {
+        Alert(
+            title: Text("error_alert_title"),
+            message: Text(errorMessage.message),
+            dismissButton: .default(Text("alert_dismiss_ok"))
+        )
+    }
+
+    private var detailTrackingOverlay: some View {
+        DetailTrackingOverlayView(
+            showTrackingAlert: $detailViewModel.showTrackingAlert,
+            inputPrice: $detailViewModel.inputPrice,
+            onCancel: {
+                detailViewModel.onPriceInputCancelled()
+            },
+            onOK: {
+                detailViewModel.onPriceInputConfirmed()
+            }
         )
     }
 }

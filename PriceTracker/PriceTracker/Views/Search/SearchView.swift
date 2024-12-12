@@ -21,32 +21,41 @@ struct SearchView: View {
                 )
                 switch searchViewModel.status {
                 case .loading:
-                    ProgressView()
+                    loadingView
                 case .success(let contents):
                     SearchListView(items: contents)
                 case .noContent:
                     NoContentView()
                 case .error:
-                    EmptyView()
+                    errorView
                 }
                 Spacer()
                 
             }
         }
-        .alert(
-            item: $searchViewModel.errorMessage,
-            content: { message in
-                Alert(
-                    title: Text("Error"),
-                    message: Text(message.message),
-                    dismissButton: .default(Text("OK"))
-                )
-            }
-        )
+        .alert(item: $searchViewModel.errorMessage) { errorMessage in
+            errorAlert(errorMessage: errorMessage)
+        }
     }
 }
 
+extension SearchView {
+    private var loadingView: some View {
+        ProgressView()
+    }
 
+    private func errorAlert(errorMessage: ErrorMessage) -> Alert {
+        Alert(
+            title: Text("Error"),
+            message: Text(errorMessage.message),
+            dismissButton: .default(Text("OK"))
+        )
+    }
+
+    private var errorView: some View {
+        EmptyView()
+    }
+}
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
