@@ -14,27 +14,30 @@ class TrackingViewModel: ObservableObject {
     @Published var trackingInfos: [TrackingInfo] = []
     private var cancellables = Set<AnyCancellable>()
     private let trackingInfoService: TrackingInfoServiceProtocol
-    
+
     init(trackingInfoService: TrackingInfoServiceProtocol = TrackingInfoService()) {
         self.trackingInfoService = trackingInfoService
         loadTrackingInfos()
     }
 
     func loadTrackingInfos() {
-        guard let loadedInfos = trackingInfoService.loadTrackingInfos() else { return print("Failed to load trackingInfos")}
+        guard let loadedInfos = trackingInfoService.loadTrackingInfos() else {
+            return print("Failed to load trackingInfos")
+        }
         trackingInfos = loadedInfos
     }
-    
+
     private func saveTrackingInfos() {
         trackingInfoService.saveTrackingInfos(trackingInfos)
         loadTrackingInfos()
     }
-    
-    func deleteTrackingInfo(at indexSet: IndexSet) {
-        trackingInfos.remove(atOffsets: indexSet)
-        saveTrackingInfos()
+
+    func deleteTrackingInfo(_ trackingInfo: TrackingInfo) {
+        if let index = trackingInfos.firstIndex(where: { $0.uuidString == trackingInfo.uuidString }) {
+            trackingInfos.remove(at: index)
+            saveTrackingInfos()
+        }
     }
-    
 
     func getUserPrice(for item: TrackingInfo) -> String {
         "User Price: $\(item.userPrice ?? "")"

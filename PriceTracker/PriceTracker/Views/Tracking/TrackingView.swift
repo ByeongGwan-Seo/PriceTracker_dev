@@ -21,13 +21,7 @@ struct TrackingView: View {
                 }
                 .swipeActions {
                     Button(role: .destructive) {
-                        if let index = trackingViewModel.trackingInfos.firstIndex(
-                            where: { $0.uuidString == trackingInfo.uuidString }
-                        ) {
-                            trackingViewModel.deleteTrackingInfo(
-                                at: IndexSet([index])
-                            )
-                        }
+                        trackingViewModel.deleteTrackingInfo(trackingInfo)
                     } label: {
                         Label("Delete", systemImage: "trash")
                     }
