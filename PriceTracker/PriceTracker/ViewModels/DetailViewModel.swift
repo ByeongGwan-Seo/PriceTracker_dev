@@ -103,11 +103,11 @@ class DetailViewModel: ObservableObject {
         buttonTapped.send()
     }
 
-    func validatePriceInput(_ input: String) -> Double? {
+    func validatePriceInput(_ input: String) -> String? {
         guard let price = Double(input), price > 0 else {
             return nil
         }
-        return price
+        return String(price)
     }
 
     func onPriceInputConfirmed() {
@@ -119,7 +119,7 @@ class DetailViewModel: ObservableObject {
         let newTrackingInfo = TrackingInfo(
             uuidString: UUID().uuidString,
             title: contents?.info.title ?? "",
-            userPrice: inputPrice,
+            userPrice: price,
             thumb: contents?.info.thumb ?? ""
         )
 
