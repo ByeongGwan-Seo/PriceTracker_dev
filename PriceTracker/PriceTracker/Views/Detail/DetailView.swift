@@ -71,12 +71,8 @@ extension DetailView {
         DetailTrackingOverlayView(
             showTrackingAlert: $detailViewModel.showTrackingAlert,
             inputPrice: $detailViewModel.inputPrice,
-            onCancel: {
-                detailViewModel.onPriceInputCancelled()
-            },
-            onOK: {
-                detailViewModel.onPriceInputConfirmed()
-            }
+            onCancel: detailViewModel.onPriceInputCancelled,
+            onOK: detailViewModel.onPriceInputConfirmed
         )
     }
 }
