@@ -9,13 +9,11 @@ import SwiftUI
 
 struct ThumbnailView: View {
     private let urlString: String
-    
-    init(
-        urlString: String
-    ) {
+
+    init(urlString: String) {
         self.urlString = urlString
     }
-    
+
     var body: some View {
         AsyncImage(
             url: URL(
@@ -24,14 +22,11 @@ struct ThumbnailView: View {
         ) { image in
             image
                 .resizable()
-                .frame(
-                    width: 50,
-                    height: 50
-                )
                 .scaledToFit()
         } placeholder: {
             ProgressView()
         }
+        .frame(width: 50, height: 50)
     }
 }
 

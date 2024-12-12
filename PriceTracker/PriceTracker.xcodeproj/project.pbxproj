@@ -11,7 +11,6 @@
 		061710E8297FC4B700EF7017 /* TrackingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061710E7297FC4B700EF7017 /* TrackingModel.swift */; };
 		0617111E2983BD9600EF7017 /* TrackinModelInApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0617111D2983BD9600EF7017 /* TrackinModelInApp.swift */; };
 		064342162CF7FBB800C702B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 064342142CF7FBB800C702B1 /* Localizable.strings */; };
-		06732ED82D0AC25B0048CEA5 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 06732ED72D0AC25B0048CEA5 /* Localizable.xcstrings */; };
 		068225CE2978D1E400281CFE /* SearchGameList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068225CD2978D1E400281CFE /* SearchGameList.swift */; };
 		068225D12978D36C00281CFE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068225D02978D36C00281CFE /* NetworkService.swift */; };
 		0691C6522977D71000295B34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C6512977D71000295B34 /* AppDelegate.swift */; };
@@ -59,7 +58,6 @@
 		064342182CF7FBF500C702B1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		064342192CF7FC0A00C702B1 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		0643421A2CF7FC0B00C702B1 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
-		06732ED72D0AC25B0048CEA5 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		068225CD2978D1E400281CFE /* SearchGameList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGameList.swift; sourceTree = "<group>"; };
 		068225D02978D36C00281CFE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		0691C64E2977D71000295B34 /* PriceTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PriceTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,7 +169,6 @@
 				0691C65D2977D71100295B34 /* Assets.xcassets */,
 				0691C6622977D71100295B34 /* Info.plist */,
 				0691C65A2977D71000295B34 /* PriceTracker.xcdatamodeld */,
-				06732ED72D0AC25B0048CEA5 /* Localizable.xcstrings */,
 			);
 			path = PriceTracker;
 			sourceTree = "<group>";
@@ -365,7 +362,6 @@
 			files = (
 				0691C65E2977D71100295B34 /* Assets.xcassets in Resources */,
 				064342162CF7FBB800C702B1 /* Localizable.strings in Resources */,
-				06732ED82D0AC25B0048CEA5 /* Localizable.xcstrings in Resources */,
 				0691C6592977D71000295B34 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

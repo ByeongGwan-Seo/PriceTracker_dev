@@ -11,7 +11,7 @@ struct BasicInfoView: View {
     private let item: DetailModel
     private let isTracking: Bool
     private let onTrackingButtonTapped: () -> Void
-    
+
     init(item: DetailModel, isTracking: Bool, onTrackingButtonTapped: @escaping () -> Void) {
         self.item = item
         self.isTracking = isTracking
@@ -25,11 +25,12 @@ struct BasicInfoView: View {
                 AsyncImage(url: URL(string: item.info.thumb)) { image in
                     image
                         .resizable()
-                        .frame(width: 150, height: 100)
+                        .scaledToFit()
                 } placeholder: {
                     ProgressView()
                 }
-                
+                .frame(width: 150, height: 100)
+
                 Button(action: onTrackingButtonTapped) {
                     Text(isTracking ? "Tracking Now" : "Add Tracking")
                         .font(.headline)
@@ -40,7 +41,7 @@ struct BasicInfoView: View {
                         .cornerRadius(10)
                 }
             }
-            
+
             Spacer()
             VStack(alignment: .leading) {
                 Text(item.info.title)
