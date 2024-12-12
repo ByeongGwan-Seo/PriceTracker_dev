@@ -15,24 +15,24 @@ class DetailViewModel: ObservableObject {
     @Published var showTrackingAlert = false
     @Published var inputPrice = ""
     @Published var isTracking = false
-    
+
     private let networkService: NetworkServiceProtocol
     private let gameId: String
     private var cancellables = Set<AnyCancellable>()
     private let buttonTapped = PassthroughSubject<Void, Never>()
-    
+
     @AppStorage("trackingInfos") private var storedTrackingInfoData: Data?
-    
+
     init(
         networkService: NetworkServiceProtocol = NetworkService(),
         gameId: String
     ) {
         self.networkService = networkService
         self.gameId = gameId
-        
+
         bindButtonAction()
     }
-    
+
     private func bindButtonAction() {
         buttonTapped
             .sink { [weak self] in
@@ -40,11 +40,11 @@ class DetailViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
-    
+
     private func handleButtonTap() {
         showTrackingAlert = true
     }
-    
+
     func getFormattedSavings(for item: Deal) -> String {
         let savings = item.doubledString(string: item.savings)
         let savingsText: String
@@ -57,11 +57,11 @@ class DetailViewModel: ObservableObject {
         
         return savingsText
     }
-    
+
     func getPrice(for item: Deal) -> String {
         "Price: $\(item.price)"
     }
-    
+
     func fetchDetail() {
         status = .loading
         Task {
@@ -80,32 +80,33 @@ class DetailViewModel: ObservableObject {
             }
         }
     }
-    
+
     @MainActor
     private func updateErrorStatus(error: Error) {
-        let localizedMessage = String(format: NSLocalizedString("detail_error_message",
-                                                                comment: "error occurred while loading detail"), "\(error)")
+        let localizedMessage = String(
+            format: NSLocalizedString("detail_error_message",
+            comment: "error occurred while loading detail"), "\(error)")
         errorMessage = ErrorMessage(message: localizedMessage)
     }
-    
+
     @MainActor
     private func updateDetailSucessStatus(items: DetailModel, sortedDeals: [Deal]) {
         status = .success(items: items, sortedDeals: sortedDeals)
         self.contents = items
         errorMessage = nil
     }
-    
+
     func onTrackingButtonTapped() {
         buttonTapped.send()
     }
-    
+
     func validatePriceInput(_ input: String) -> Double? {
         guard let price = Double(input), price > 0 else {
             return nil
         }
         return price
     }
-    
+
     func onPriceInputConfirmed() {
         guard let price = validatePriceInput(inputPrice) else {
             print("invalid input price")
@@ -156,6 +157,7 @@ class DetailViewModel: ObservableObject {
         }
     }
 
+#if DEBUG
     func printSavedTrackingInfos() {
         if let trackingInfos = loadTrackingInfos() {
             for info in trackingInfos {
@@ -170,4 +172,5 @@ class DetailViewModel: ObservableObject {
             print("No tracking infos saved.")
         }
     }
+#endif
 }
