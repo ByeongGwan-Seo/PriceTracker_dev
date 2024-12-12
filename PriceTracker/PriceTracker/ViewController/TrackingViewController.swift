@@ -10,16 +10,37 @@ import SwiftUI
 
 class TrackingViewController: UIViewController {
     private let trackingViewModel = TrackingViewModel()
+    private var hostingController: UIHostingController<TrackingView>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let trackingView = TrackingView(trackingViewModel: trackingViewModel)
-        let hostingController = UIHostingController(rootView: trackingView)
+        hostingController = UIHostingController(rootView: trackingView)
+
+        guard let hostingController = hostingController else { return }
+
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
 
         addChild(hostingController)
-        hostingController.view.frame = view.bounds
         view.addSubview(hostingController.view)
         hostingController.didMove(toParent: self)
+
+        NSLayoutConstraint.activate([
+            hostingController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            hostingController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            hostingController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            hostingController.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+        ])
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+
+        coordinator.animate { _ in
+            self.hostingController?.view.frame = self.view.bounds
+            self.hostingController?.view.setNeedsLayout()
+            self.hostingController?.view.layoutIfNeeded()
+        }
     }
 }
