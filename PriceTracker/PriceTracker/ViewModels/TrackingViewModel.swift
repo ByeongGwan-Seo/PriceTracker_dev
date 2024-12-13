@@ -40,6 +40,6 @@ class TrackingViewModel: ObservableObject {
     }
 
     func getUserPrice(for item: TrackingInfo) -> String {
-        "User Price: $\(item.userPrice ?? "")"
+        String(format: NSLocalizedString("user_price_string", comment: ""), item.userPrice ?? "")
     }
 }

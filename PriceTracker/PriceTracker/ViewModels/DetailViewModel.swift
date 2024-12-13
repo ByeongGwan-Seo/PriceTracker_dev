@@ -51,18 +51,19 @@ class DetailViewModel: ObservableObject {
     func getFormattedSavings(for item: Deal) -> String {
         let savings = item.doubledString(string: item.savings)
         let savingsText: String
-        
+
         if savings < 1.0 {
-            savingsText = "Savings: None"
+            savingsText = NSLocalizedString("savings_none_string", comment: "savings rate less than 1%")
         } else {
-            savingsText = "Saving: \(String(format: "%.2f", savings))%"
+            let savingsString = String(format: "%.2f", savings)
+            savingsText = String(format: NSLocalizedString("savings_string", comment: "Savings format"), savingsString)
         }
-        
+
         return savingsText
     }
 
     func getPrice(for item: Deal) -> String {
-        "Price: $\(item.price)"
+        String(format: NSLocalizedString("price_string", comment: "Price format"), item.price)
     }
 
     func fetchDetail() {

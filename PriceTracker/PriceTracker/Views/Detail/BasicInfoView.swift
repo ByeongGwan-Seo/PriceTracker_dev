@@ -32,13 +32,13 @@ struct BasicInfoView: View {
                 .frame(width: 150, height: 100)
 
                 Button(action: onTrackingButtonTapped) {
-                    Text(isTracking ? "Tracking Now" : "Add Tracking")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(width: 150)
-                        .background(isTracking ? Color.red : Color.blue)
-                        .cornerRadius(10)
+                    Text(isTracking ? LocalizedStringKey("already_tracking_string") : LocalizedStringKey("add_tracking_string"))
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(width: 150)
+                            .background(isTracking ? Color.red : Color.blue)
+                            .cornerRadius(10)
                 }
             }
 
@@ -49,8 +49,10 @@ struct BasicInfoView: View {
                     .lineLimit(4)
                 Spacer()
                     .frame(height: 20)
-                Text("Retail Price: $\(item.deals.first?.retailPrice ?? "")")
-                Text("Cheapest Ever: $\(item.cheapestPriceEver.price)")
+                Text(String(format: NSLocalizedString("retail_price_string", comment: ""),
+                            item.deals.first?.retailPrice ?? ""))
+                Text(String(format: NSLocalizedString("cheapest_ever_string", comment: ""),
+                            item.cheapestPriceEver.price))
             }
             Spacer()
         }

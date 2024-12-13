@@ -8,16 +8,22 @@
 
 // Common UI Strings
 "error_alert_title" = "Error";
-"alert_dismiss_ok" = "OK";
+"dismiss_ok" = "OK";
+"cancel_button" = "Cancel";
 
 // DetailView UI Strings
 "retail_price_string" = "Retail Price: $%@";
 "cheapest_ever_string" = "Cheapest Ever: $%@";
 "price_string" = "Price: $%@";
 "savings_string" = "Savings: %@%%";
+"savings_none_string" = "Savings: None";
+"already_tracking_string" = "Tracking Now";
+"add_tracking_string" = "Add Tracking";
+"price_input_string" = "Enter Price";
+"price_input_placeholder_string" = "Enter Your Target Price";
 
 // NoContentView UI Strings
-"no_content_string" = "No Contents ko";
+"no_content_string" = "No Contents";
 
 // SearchView UI Strings
 "search_placeholder" = "Enter Game Title";
