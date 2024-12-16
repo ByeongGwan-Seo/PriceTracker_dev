@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct DetailTrackingOverlayView: View {
-    @Binding var showTrackingAlert: Bool
     @Binding var inputPrice: String
     var onCancel: () -> Void
     var onOK: () -> Void
 
     var body: some View {
         ZStack {
-            Color.black.opacity(showTrackingAlert ? 0.4 : 0)
+            Color.black.opacity(0.4)
                 .ignoresSafeArea()
 
             VStack {
@@ -35,7 +34,7 @@ struct DetailTrackingOverlayView: View {
 
                     Spacer()
 
-                    Button(LocalizedStringKey("dismiss_ok")) {
+                    Button(LocalizedStringKey("ok_button")) {
                         onOK()
                     }
                     .padding()
@@ -45,7 +44,6 @@ struct DetailTrackingOverlayView: View {
             .frame(maxWidth: 400, maxHeight: 300)
             .background(Color.white)
             .cornerRadius(10)
-            .opacity(showTrackingAlert ? 1 : 0)
             .shadow(radius: 10)
             .padding()
         }

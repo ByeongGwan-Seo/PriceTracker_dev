@@ -71,7 +71,6 @@ extension DetailView {
 
     private var detailTrackingOverlay: some View {
         DetailTrackingOverlayView(
-            showTrackingAlert: $detailViewModel.showTrackingAlert,
             inputPrice: $detailViewModel.inputPrice,
             onCancel: detailViewModel.onPriceInputCancelled,
             onOK: detailViewModel.onPriceInputConfirmed
