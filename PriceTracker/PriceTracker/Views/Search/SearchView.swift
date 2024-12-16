@@ -46,9 +46,9 @@ extension SearchView {
 
     private func errorAlert(errorMessage: ErrorMessage) -> Alert {
         Alert(
-            title: Text("Error"),
+            title: Text(LocalizedStringKey("error_alert_title")),
             message: Text(errorMessage.message),
-            dismissButton: .default(Text("OK"))
+            dismissButton: .default(Text(LocalizedStringKey("ok_button")))
         )
     }
 
