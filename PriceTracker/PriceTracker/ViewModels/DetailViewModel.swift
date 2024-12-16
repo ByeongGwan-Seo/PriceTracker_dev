@@ -143,8 +143,17 @@ class DetailViewModel: ObservableObject {
     }
 
     func loadTrackingInfos() -> [TrackingInfo]? {
-        trackingInfoService.loadTrackingInfos()
+        let result = trackingInfoService.loadTrackingInfos()
+
+        switch result {
+        case .success(let trackingInfos):
+            return trackingInfos
+        case .failure(let error):
+            print("Failed to load tracking infos: \(error.localizedDescription)")
+            return nil
+        }
     }
+
 
 #if DEBUG
     func printSavedTrackingInfos() {

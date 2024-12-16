@@ -21,10 +21,14 @@ class TrackingViewModel: ObservableObject {
     }
 
     func loadTrackingInfos() {
-        guard let loadedInfos = trackingInfoService.loadTrackingInfos() else {
-            return print("Failed to load trackingInfos")
+        let result = trackingInfoService.loadTrackingInfos()
+
+        switch result {
+        case .success(let loadedInfos):
+            trackingInfos = loadedInfos
+        case .failure:
+            print("Failed to load trackingInfos")
         }
-        trackingInfos = loadedInfos
     }
 
     private func saveTrackingInfos() {
