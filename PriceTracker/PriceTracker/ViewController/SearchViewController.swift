@@ -26,7 +26,6 @@ class SearchViewController: UIViewController {
         hostingController.didMove(toParent: self)
 
         setupConstraints(for: hostingController)
-
     }
 
     private func setupConstraints(for hostingController: UIHostingController<SearchView>) {
@@ -36,17 +35,6 @@ class SearchViewController: UIViewController {
             hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
-    }
-
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-
-        coordinator.animate { [weak self] _ in
-            guard let self = self else { return }
-            self.hostingController.view.frame = self.view.bounds
-            self.hostingController.view.setNeedsLayout()
-            self.hostingController.view.layoutIfNeeded()
-        }
     }
 }
 
