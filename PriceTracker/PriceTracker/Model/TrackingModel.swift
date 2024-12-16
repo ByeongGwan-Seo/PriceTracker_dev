@@ -8,7 +8,7 @@
 import Foundation
 
 struct TrackingInfo: Codable, Identifiable {
-    var id: UUID
+    let id: UUID
     let title: String
     let userPrice: String?
     let thumb: String
