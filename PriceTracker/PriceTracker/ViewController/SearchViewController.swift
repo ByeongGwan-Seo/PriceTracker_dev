@@ -10,7 +10,9 @@ import SwiftUI
 
 class SearchViewController: UIViewController {
     private let searchViewModel = SearchViewModel()
-    private var hostingController: UIHostingController<SearchView>?
+    private lazy var hostingController: UIHostingController<SearchView> = {
+        UIHostingController(rootView: SearchView(searchViewModel: searchViewModel))
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,14 +20,13 @@ class SearchViewController: UIViewController {
         let searchView = SearchView(searchViewModel: searchViewModel)
         hostingController = UIHostingController(rootView: searchView)
 
-        if let hostingController = hostingController {
-            addChild(hostingController)
-            hostingController.view.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(hostingController.view)
-            hostingController.didMove(toParent: self)
+        addChild(hostingController)
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(hostingController.view)
+        hostingController.didMove(toParent: self)
 
-            setupConstraints(for: hostingController)
-        }
+        setupConstraints(for: hostingController)
+
     }
 
     private func setupConstraints(for hostingController: UIHostingController<SearchView>) {
@@ -40,10 +41,11 @@ class SearchViewController: UIViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
 
-        coordinator.animate { _ in
-            self.hostingController?.view.frame = self.view.bounds
-            self.hostingController?.view.setNeedsLayout()
-            self.hostingController?.view.layoutIfNeeded()
+        coordinator.animate { [weak self] _ in
+            guard let self = self else { return }
+            self.hostingController.view.frame = self.view.bounds
+            self.hostingController.view.setNeedsLayout()
+            self.hostingController.view.layoutIfNeeded()
         }
     }
 }
