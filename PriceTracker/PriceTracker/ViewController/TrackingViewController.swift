@@ -26,6 +26,10 @@ class TrackingViewController: UIViewController {
         view.addSubview(hostingController.view)
         hostingController.didMove(toParent: self)
 
+        setupConstraints(for: hostingController)
+    }
+    
+    private func setupConstraints(for hostingController: UIHostingController<TrackingView>) {
         NSLayoutConstraint.activate([
             hostingController.view.topAnchor.constraint(equalTo: view.topAnchor),
             hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
