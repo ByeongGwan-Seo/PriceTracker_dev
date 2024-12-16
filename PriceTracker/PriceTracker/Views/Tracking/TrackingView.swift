@@ -11,12 +11,12 @@ struct TrackingView: View {
     @ObservedObject var trackingViewModel: TrackingViewModel
     var body: some View {
         VStack {
-            Text("Tracking Information:")
+            Text(LocalizedStringKey("trackingview_title_string"))
                 .font(.headline)
 
             List(trackingViewModel.trackingInfos) { trackingInfo in
                 VStack(alignment: .leading) {
-                    Text("\(trackingInfo.title)")
+                    Text(trackingInfo.title)
                     Text(trackingViewModel.getUserPrice(for: trackingInfo))
                 }
                 .swipeActions {

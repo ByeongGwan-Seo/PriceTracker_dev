@@ -30,6 +30,7 @@
 
 //TrackingView UI Strings
 "user_price_string" = "User Price: $%@";
+"trackingview_title_string" = "Tracking Information";
 
 // URLs
 "redirect_to_deal" = "https://www.cheapshark.com/redirect?dealID=%@";

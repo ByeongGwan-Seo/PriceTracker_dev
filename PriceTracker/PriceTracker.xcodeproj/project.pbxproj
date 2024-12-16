@@ -54,10 +54,6 @@
 		061710E7297FC4B700EF7017 /* TrackingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingModel.swift; sourceTree = "<group>"; };
 		0617111D2983BD9600EF7017 /* TrackinModelInApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackinModelInApp.swift; sourceTree = "<group>"; };
 		064342152CF7FBB800C702B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		064342172CF7FBF400C702B1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
-		064342182CF7FBF500C702B1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
-		064342192CF7FC0A00C702B1 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
-		0643421A2CF7FC0B00C702B1 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		068225CD2978D1E400281CFE /* SearchGameList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGameList.swift; sourceTree = "<group>"; };
 		068225D02978D36C00281CFE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		0691C64E2977D71000295B34 /* PriceTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PriceTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -337,8 +333,6 @@
 			knownRegions = (
 				en,
 				Base,
-				ja,
-				ko,
 			);
 			mainGroup = 0691C6452977D71000295B34;
 			packageReferences = (
@@ -510,8 +504,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				064342152CF7FBB800C702B1 /* en */,
-				064342182CF7FBF500C702B1 /* ja */,
-				0643421A2CF7FC0B00C702B1 /* ko */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -520,8 +512,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				0691C6582977D71000295B34 /* Base */,
-				064342172CF7FBF400C702B1 /* ja */,
-				064342192CF7FC0A00C702B1 /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
