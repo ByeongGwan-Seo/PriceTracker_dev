@@ -11,7 +11,7 @@ struct DealsListView: View {
     private let items: [Deal]
     private var getFormattedSavings: (Deal) -> String
     private var getPrice: (Deal) -> String
-    
+
     init(
         items: [Deal],
         getFormattedSavings: @escaping (Deal) -> String,
@@ -21,17 +21,16 @@ struct DealsListView: View {
         self.getFormattedSavings = getFormattedSavings
         self.getPrice = getPrice
     }
-    
+
     var body: some View {
         List(items, id: \.dealID) { deal in
-            if let url = URL(string: "https://www.cheapshark.com/redirect?dealID=\(deal.dealID)") {
-                NavigationLink(
-                    destination: WebViewForDetailView(url: url)
-                ) {
+            if let url = URL(string: String(format: NSLocalizedString("redirect_to_deal", comment: ""), deal.dealID)) {
+                NavigationLink(destination: WebViewForDetailView(url: url)) {
                     DealView(item: deal, getFormattedSavings: getFormattedSavings, getPrice: getPrice)
                 }
             }
         }
         .listStyle(.plain)
     }
+
 }

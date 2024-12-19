@@ -7,15 +7,16 @@
 
 import Foundation
 
-//모델 두개를 만들어서 서버에서 가져오는 거랑 앱에서만 쓰는거
-
-struct TrackingInfo: Codable {
-    let uuidString: String
-    let title: String // from detailModel Info title
-    let price: String // from detailModel Deal price
-    let retailPrice: String
-    let userPrice: String? // from detailModel Deal userPrice
-    let gameID: String? // from searchGameList gameID
-    let thumb: String // from detailModel Info thumb
+struct TrackingInfo: Codable, Identifiable {
+    let id: UUID
+    let title: String
+    let userPrice: String?
+    let thumb: String
     
+    init(title: String, userPrice: String?, thumb: String, id: UUID = UUID()) {
+        self.id = id
+        self.title = title
+        self.userPrice = userPrice
+        self.thumb = thumb
+    }
 }

@@ -12,20 +12,19 @@ protocol NetworkServiceProtocol {
     func fetchGameDetail(gameId: String) async throws -> DetailModel
 }
 
-
 class NetworkService: NetworkServiceProtocol {
     private let gameRepository: GameRepositoryProtocol
-    
+
     init(
         gameRepository: GameRepositoryProtocol = GameRepository()
     ) {
         self.gameRepository = gameRepository
     }
-    
+
     func fetchGameList(title: String) async throws -> [GameTitle] {
         return try await gameRepository.fetchGames(title: title)
     }
-    
+
     func fetchGameDetail(gameId: String) async throws -> DetailModel {
         return try await gameRepository.fetchDetail(gameId: gameId)
     }
