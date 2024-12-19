@@ -71,6 +71,8 @@ internal enum L10n {
   }
   /// Enter Game Title
   internal static let searchPlaceholder = L10n.tr("Localizable", "search_placeholder", fallback: "Enter Game Title")
+  /// trackingInfos
+  internal static let trackingInfoString = L10n.tr("Localizable", "tracking_info_string", fallback: "trackingInfos")
   /// Tracking Information
   internal static let trackingviewTitleString = L10n.tr("Localizable", "trackingview_title_string", fallback: "Tracking Information")
   /// User Price: $%@

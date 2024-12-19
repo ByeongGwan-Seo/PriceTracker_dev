@@ -22,7 +22,7 @@ class DetailViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     private let buttonTapped = PassthroughSubject<Void, Never>()
 
-    @AppStorage("trackingInfos") private var storedTrackingInfoData: Data?
+    @AppStorage(L10n.trackingInfoString) private var storedTrackingInfoData: Data?
 
     init(
         networkService: NetworkServiceProtocol = NetworkService(),
