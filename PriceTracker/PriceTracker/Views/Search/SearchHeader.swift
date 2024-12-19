@@ -9,10 +9,10 @@ import SwiftUI
 
 struct SearchHeader: View {
     @Binding private var searchText: String
-    
+
     private var setSearchTextAction: (String) -> Void
     private var fetchGameListAction: () -> Void
-    
+
     init(
         searchText: Binding<String>,
         setSearchTextAction: @escaping (String) -> Void,

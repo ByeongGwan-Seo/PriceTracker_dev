@@ -32,7 +32,9 @@ struct BasicInfoView: View {
                 .frame(width: 150, height: 100)
 
                 Button(action: onTrackingButtonTapped) {
-                    Text(isTracking ? LocalizedStringKey("already_tracking_string") : LocalizedStringKey("add_tracking_string"))
+                    Text(isTracking ?
+                         LocalizedStringKey("already_tracking_string") :
+                            LocalizedStringKey("add_tracking_string"))
                             .font(.headline)
                             .foregroundColor(.white)
                             .padding()

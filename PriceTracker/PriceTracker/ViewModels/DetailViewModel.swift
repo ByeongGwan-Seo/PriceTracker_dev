@@ -154,7 +154,6 @@ class DetailViewModel: ObservableObject {
         }
     }
 
-
 #if DEBUG
     func printSavedTrackingInfos() {
         if let trackingInfos = loadTrackingInfos() {

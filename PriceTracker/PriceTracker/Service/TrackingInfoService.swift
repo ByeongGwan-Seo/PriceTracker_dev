@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 protocol TrackingInfoServiceProtocol {
     func saveTrackingInfos(_ trackingInfos: [TrackingInfo])
     func loadTrackingInfos() -> Result<[TrackingInfo], TrackingInfoError>
