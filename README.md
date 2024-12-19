@@ -2,12 +2,7 @@
 ```brew install mint```
 
 ## Swiftgenのインストール
-### 1. Mintfileを使ってインストール
-   ```$mint bootstrap```   
-- **Linked swiftgen 6.6.3 to /Users/seobyeonggwan/.mint/bin**のようなメッセージが表示されたらOKです。
-- bootstrapでLinkされなかった場合、Mintの問題か、bootstrapを通じたインストールかいずれかの問題の可能性があります。
-- ですが、個別インストールは確実にインストールされることを確認しましたので、こちらをお勧めします。
-### 2. 個別インストール
+### 個別インストール
   ```$mint install Swiftgen/Swiftgen```   
 Swiftgen公式Githubに記載されているインストール方法です。(私はこちらの方法でしました。）
 
