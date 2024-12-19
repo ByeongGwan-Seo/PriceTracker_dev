@@ -18,23 +18,23 @@ struct DetailTrackingOverlayView: View {
                 .ignoresSafeArea()
 
             VStack {
-                Text(LocalizedStringKey("price_input_string"))
+                Text(L10n.priceInputString)
                     .font(.headline)
                     .padding()
-                TextField(LocalizedStringKey("price_input_placeholder_string"), text: $inputPrice)
+                TextField(L10n.priceInputPlaceholderString, text: $inputPrice)
                     .keyboardType(.decimalPad)
                     .padding()
                     .textFieldStyle(RoundedBorderTextFieldStyle())
 
                 HStack {
-                    Button(LocalizedStringKey("cancel_button")) {
+                    Button(L10n.cancelButton) {
                         onCancel()
                     }
                     .padding()
 
                     Spacer()
 
-                    Button(LocalizedStringKey("ok_button")) {
+                    Button(L10n.okButton) {
                         onOK()
                     }
                     .padding()

@@ -53,17 +53,17 @@ class DetailViewModel: ObservableObject {
         let savingsText: String
 
         if savings < 1.0 {
-            savingsText = NSLocalizedString("savings_none_string", comment: "savings rate less than 1%")
+            savingsText = L10n.savingsNoneString
         } else {
             let savingsString = String(format: "%.2f", savings)
-            savingsText = String(format: NSLocalizedString("savings_string", comment: "Savings format"), savingsString)
+            savingsText = L10n.savingsString(savingsString)
         }
 
         return savingsText
     }
 
     func getPrice(for item: Deal) -> String {
-        String(format: NSLocalizedString("price_string", comment: "Price format"), item.price)
+        L10n.priceString(item.price)
     }
 
     func fetchDetail() {
@@ -87,9 +87,7 @@ class DetailViewModel: ObservableObject {
 
     @MainActor
     private func updateErrorStatus(error: Error) {
-        let localizedMessage = String(
-            format: NSLocalizedString("detail_error_message",
-            comment: "error occurred while loading detail"), "\(error)")
+        let localizedMessage = L10n.detailErrorMessage(error)
         errorMessage = ErrorMessage(message: localizedMessage)
     }
 
@@ -153,7 +151,6 @@ class DetailViewModel: ObservableObject {
             return nil
         }
     }
-
 
 #if DEBUG
     func printSavedTrackingInfos() {

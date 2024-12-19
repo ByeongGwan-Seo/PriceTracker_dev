@@ -11,6 +11,7 @@
 		061710E8297FC4B700EF7017 /* TrackingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061710E7297FC4B700EF7017 /* TrackingModel.swift */; };
 		0617111E2983BD9600EF7017 /* TrackinModelInApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0617111D2983BD9600EF7017 /* TrackinModelInApp.swift */; };
 		064342162CF7FBB800C702B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 064342142CF7FBB800C702B1 /* Localizable.strings */; };
+		0645414C2D140241006F920E /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0645414B2D140241006F920E /* Strings+Generated.swift */; };
 		068225CE2978D1E400281CFE /* SearchGameList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068225CD2978D1E400281CFE /* SearchGameList.swift */; };
 		068225D12978D36C00281CFE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068225D02978D36C00281CFE /* NetworkService.swift */; };
 		0691C6522977D71000295B34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C6512977D71000295B34 /* AppDelegate.swift */; };
@@ -54,6 +55,7 @@
 		061710E7297FC4B700EF7017 /* TrackingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingModel.swift; sourceTree = "<group>"; };
 		0617111D2983BD9600EF7017 /* TrackinModelInApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackinModelInApp.swift; sourceTree = "<group>"; };
 		064342152CF7FBB800C702B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0645414B2D140241006F920E /* Strings+Generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		068225CD2978D1E400281CFE /* SearchGameList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGameList.swift; sourceTree = "<group>"; };
 		068225D02978D36C00281CFE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		0691C64E2977D71000295B34 /* PriceTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PriceTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +165,7 @@
 				40A6D2AD2CD6111800F8F33A /* Api */,
 				40A6D2B02CD6115D00F8F33A /* Repository */,
 				0691C65D2977D71100295B34 /* Assets.xcassets */,
+				0645414B2D140241006F920E /* Strings+Generated.swift */,
 				0691C6622977D71100295B34 /* Info.plist */,
 				0691C65A2977D71000295B34 /* PriceTracker.xcdatamodeld */,
 			);
@@ -458,6 +461,7 @@
 				0691C6522977D71000295B34 /* AppDelegate.swift in Sources */,
 				40A6D2AF2CD6112E00F8F33A /* NetworkClient.swift in Sources */,
 				061710E8297FC4B700EF7017 /* TrackingModel.swift in Sources */,
+				0645414C2D140241006F920E /* Strings+Generated.swift in Sources */,
 				068225CE2978D1E400281CFE /* SearchGameList.swift in Sources */,
 				0691C6542977D71000295B34 /* SceneDelegate.swift in Sources */,
 			);

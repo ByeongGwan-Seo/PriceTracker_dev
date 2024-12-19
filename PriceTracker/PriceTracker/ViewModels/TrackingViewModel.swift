@@ -45,6 +45,6 @@ class TrackingViewModel: ObservableObject {
 
     func getUserPrice(for item: TrackingInfo) -> String {
         let userPrice = item.userPrice ?? ""
-        return String(format: NSLocalizedString("user_price_string", comment: ""), userPrice)
+        return L10n.userPriceString(userPrice)
     }
 }

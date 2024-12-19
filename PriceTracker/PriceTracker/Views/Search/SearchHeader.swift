@@ -9,10 +9,10 @@ import SwiftUI
 
 struct SearchHeader: View {
     @Binding private var searchText: String
-    
+
     private var setSearchTextAction: (String) -> Void
     private var fetchGameListAction: () -> Void
-    
+
     init(
         searchText: Binding<String>,
         setSearchTextAction: @escaping (String) -> Void,
@@ -23,7 +23,7 @@ struct SearchHeader: View {
         self.fetchGameListAction = fetchGameListAction
     }
     var body: some View {
-        TextField("search_placeholder", text: $searchText)
+        TextField(L10n.searchPlaceholder, text: $searchText)
             .padding()
             .textFieldStyle(RoundedBorderTextFieldStyle())
             .submitLabel(.search)
