@@ -30,7 +30,6 @@ struct SearchView: View {
                     errorView
                 }
                 Spacer()
-                
             }
         }
         .alert(item: $searchViewModel.errorMessage) { errorMessage in
@@ -95,4 +94,3 @@ struct SearchView_Previews: PreviewProvider {
         )
     }
 }
-

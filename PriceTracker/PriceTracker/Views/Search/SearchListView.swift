@@ -9,11 +9,11 @@ import SwiftUI
 
 struct SearchListView: View {
     private let items: [GameTitle]
-    
+
     init(items: [GameTitle]) {
         self.items = items
     }
-    
+
     var body: some View {
         List(items, id: \.gameID) { game in
             NavigationLink(

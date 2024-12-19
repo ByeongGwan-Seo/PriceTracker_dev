@@ -11,7 +11,7 @@ struct DealView: View {
     private let item: Deal
     private var getFormattedSavings: (Deal) -> String
     private var getPrice: (Deal) -> String
-    
+
     init (
         item: Deal,
         getFormattedSavings: @escaping (Deal) -> String,
@@ -21,7 +21,7 @@ struct DealView: View {
         self.getFormattedSavings = getFormattedSavings
         self.getPrice = getPrice
     }
-    
+
     var body: some View {
         HStack {
             ThumbnailView(

@@ -34,11 +34,11 @@ struct Info: Codable, Equatable {
 }
 
 extension Deal {
-    func thumnailImageUrl()  -> String {
+    func thumnailImageUrl() -> String {
         guard let storeIdInteger = Int(storeID) else { return "" }
         return "https://www.cheapshark.com/img/stores/logos/\(storeIdInteger - 1).png"
     }
-    
+
     func doubledString(string: String) -> Double {
         Double(string) ?? 0.0
     }
