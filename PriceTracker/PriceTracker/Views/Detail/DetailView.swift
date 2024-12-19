@@ -63,9 +63,9 @@ extension DetailView {
 
     private func errorAlert(errorMessage: ErrorMessage) -> Alert {
         Alert(
-            title: Text(LocalizedStringKey("error_alert_title")),
+            title: Text(L10n.errorAlertTitle),
             message: Text(errorMessage.message),
-            dismissButton: .default(Text(LocalizedStringKey("ok_button")))
+            dismissButton: .default(Text(L10n.okButton))
         )
     }
 

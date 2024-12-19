@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 class TrackingViewModel: ObservableObject {
-    @AppStorage("trackingInfos") private var savedTrackingInfosData: Data = Data()
+    @AppStorage(L10n.trackingInfoString) private var savedTrackingInfosData: Data = Data()
 
     @Published var trackingInfos: [TrackingInfo] = []
     private var cancellables = Set<AnyCancellable>()
@@ -45,6 +45,6 @@ class TrackingViewModel: ObservableObject {
 
     func getUserPrice(for item: TrackingInfo) -> String {
         let userPrice = item.userPrice ?? ""
-        return String(format: NSLocalizedString("user_price_string", comment: ""), userPrice)
+        return L10n.userPriceString(userPrice)
     }
 }

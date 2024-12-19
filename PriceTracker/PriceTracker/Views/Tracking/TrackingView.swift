@@ -11,7 +11,7 @@ struct TrackingView: View {
     @ObservedObject var trackingViewModel: TrackingViewModel
     var body: some View {
         VStack {
-            Text(LocalizedStringKey("trackingview_title_string"))
+            Text(L10n.trackingviewTitleString)
                 .font(.headline)
 
             List(trackingViewModel.trackingInfos) { trackingInfo in
@@ -23,7 +23,7 @@ struct TrackingView: View {
                     Button(role: .destructive) {
                         trackingViewModel.deleteTrackingInfo(trackingInfo)
                     } label: {
-                        Label("Delete", systemImage: "trash")
+                        Label("", systemImage: "trash")
                     }
                 }
             }

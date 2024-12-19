@@ -43,3 +43,5 @@
 "detail_error_message" = "An error occurred while loading detailed information. Please try again. \n%@";
 "search_error_message" = "An error occurred while searching. Please try again. \n%@";
 
+// Appstorage
+"tracking_info_string" = "trackingInfos";

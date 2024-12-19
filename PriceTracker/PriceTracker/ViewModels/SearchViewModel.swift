@@ -34,9 +34,7 @@ class SearchViewModel: ObservableObject {
 
     @MainActor
     private func updateErrorStatus(error: Error) {
-        let localizedMessage = String(format:
-                                        NSLocalizedString("search_error_message",
-                                    comment: "error occurred while loading search results"), "\(error)")
+        let localizedMessage = L10n.searchErrorMessage(error)
         errorMessage = ErrorMessage(message: localizedMessage)
     }
 
